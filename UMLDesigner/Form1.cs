@@ -13,27 +13,15 @@ namespace UMLDesigner
 {
     public partial class Form1 : Form
     {
-        Bitmap _bitmap;
-        Graphics _graphics;
-        Pen _pen;
         Point start;
         Point finish;
 
-        List<twoPoint> inheritLines = new List<twoPoint> { };
-        List<twoPoint> realizationLines = new List<twoPoint> { };
-        List<twoPoint> associationLines = new List<twoPoint> { };
-        List<twoPoint> compositionLines = new List<twoPoint> { };
-        List<twoPoint> agrigationLines = new List<twoPoint> { };
+        List<Arrow> arrows = new List<Arrow> { };
 
         bool isClicked = false;
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
@@ -48,23 +36,15 @@ namespace UMLDesigner
             isClicked = false;
             if (inheritanceArrow.Checked)
             {
-                inheritLines.Add(new twoPoint(start, finish));
+                arrows.Add(new InheritArrows(start, finish));
             }
             if (realizationArrow.Checked)
             {
-                realizationLines.Add(new twoPoint(start, finish));
+                arrows.Add(new RealizationArrows(start, finish));
             }
             if (associationArrow.Checked)
             {
-                associationLines.Add(new twoPoint(start, finish));
-            }
-            if (compositionArrow.Checked)
-            {
-                compositionLines.Add(new twoPoint(start, finish));
-            }
-            if (agragationArrow.Checked)
-            {
-                agrigationLines.Add(new twoPoint(start, finish));
+                arrows.Add(new AssociationArrows(start, finish));
             }
         }
 
@@ -85,59 +65,11 @@ namespace UMLDesigner
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
-            _pen = new Pen(Color.Green, 5);
-            if (inheritanceArrow.Checked)
+            foreach (var p in arrows)
             {
-                _pen.CustomEndCap = new AdjustableArrowCap(10, 10);
+                e.Graphics.DrawLine(p.Pen, p.Start, p.Finish);
             }
-            if (realizationArrow.Checked)
-            {
-                _pen.DashStyle = DashStyle.Dash;
-                _pen.CustomEndCap = new AdjustableArrowCap(10, 10);
-            }
-            if (associationArrow.Checked)
-            {
-                _pen.CustomEndCap = new AdjustableArrowCap(10, 10, false);
-            }
-            if (compositionArrow.Checked)
-            {
-                _pen.StartCap = LineCap.DiamondAnchor;
-                _pen.EndCap = LineCap.ArrowAnchor;
-            }
-            if (agragationArrow.Checked)
-            {
-                _pen.EndCap = LineCap.ArrowAnchor;
-            }
-
-            e.Graphics.DrawLine(_pen, start, finish);
-
-            foreach (var p in inheritLines)
-            {
-                _pen.CustomEndCap = new AdjustableArrowCap(10, 10);
-                e.Graphics.DrawLine(_pen, p.Start, p.Finish);
-            }
-            foreach (var p in realizationLines)
-            {
-                _pen.DashStyle = DashStyle.Dash;
-                _pen.CustomEndCap = new AdjustableArrowCap(10, 10);
-                e.Graphics.DrawLine(_pen, p.Start, p.Finish);
-            }
-            foreach (var p in associationLines)
-            {
-                _pen.CustomEndCap = new AdjustableArrowCap(10, 10, false);
-                e.Graphics.DrawLine(_pen, p.Start, p.Finish);
-            }
-            foreach (var p in compositionLines)
-            {
-                _pen.StartCap = LineCap.DiamondAnchor;
-                _pen.EndCap = LineCap.ArrowAnchor;
-                e.Graphics.DrawLine(_pen, p.Start, p.Finish);
-            }
-            foreach (var p in agrigationLines)
-            {
-                _pen.EndCap = LineCap.ArrowAnchor;
-                e.Graphics.DrawLine(_pen, p.Start, p.Finish);
-            }
+            pictureBox.Invalidate();
         }
     }
 }
