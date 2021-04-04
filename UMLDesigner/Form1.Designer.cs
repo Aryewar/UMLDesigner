@@ -1,4 +1,3 @@
-﻿
 namespace UMLDesigner
 {
     partial class Form1
