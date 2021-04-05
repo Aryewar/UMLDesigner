@@ -14,5 +14,11 @@ namespace UMLDesigner
         {
             Pen.CustomEndCap = new AdjustableArrowCap(10, 10, false);
         }
+
+        public override void DrawArrow(Graphics graphics, Point start, Point finish)
+        {
+            FinishPoint = finish;
+            graphics.DrawLine(Pen, start, finish);
+        }
     }
 }
