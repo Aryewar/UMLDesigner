@@ -34,6 +34,7 @@ namespace UMLDesigner
             this.associationArrow = new System.Windows.Forms.RadioButton();
             this.compositionArrow = new System.Windows.Forms.RadioButton();
             this.agragationArrow = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +44,7 @@ namespace UMLDesigner
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox.Location = new System.Drawing.Point(69, 24);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(1080, 600);
+            this.pictureBox.Size = new System.Drawing.Size(753, 348);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
@@ -94,6 +95,7 @@ namespace UMLDesigner
             this.compositionArrow.TabStop = true;
             this.compositionArrow.Text = "composition";
             this.compositionArrow.UseVisualStyleBackColor = true;
+            this.compositionArrow.Visible = false;
             // 
             // agragationArrow
             // 
@@ -105,12 +107,24 @@ namespace UMLDesigner
             this.agragationArrow.TabStop = true;
             this.agragationArrow.Text = "agregation";
             this.agragationArrow.UseVisualStyleBackColor = true;
+            this.agragationArrow.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(22, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(26, 79);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.DragDrop += new System.Windows.Forms.DragEventHandler(this.button1_DragDrop);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 624);
+            this.ClientSize = new System.Drawing.Size(837, 387);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.agragationArrow);
             this.Controls.Add(this.compositionArrow);
             this.Controls.Add(this.associationArrow);
@@ -134,6 +148,7 @@ namespace UMLDesigner
         private System.Windows.Forms.RadioButton associationArrow;
         private System.Windows.Forms.RadioButton compositionArrow;
         private System.Windows.Forms.RadioButton agragationArrow;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -1,24 +1,19 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UMLDesigner
 {
-    public partial class Form1 : Form
+    public partial class Form1: Form
     {
-        Point start;
-        Point finish;
+        private Point _start;
+        private Point _finish;
+
 
         List<Arrow> arrows = new List<Arrow> { };
-
         bool isClicked = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -27,8 +22,8 @@ namespace UMLDesigner
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
             isClicked = true;
-            start.X = e.X;
-            start.Y = e.Y;
+            _start.X = e.X;
+            _start.Y = e.Y;
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
@@ -36,15 +31,15 @@ namespace UMLDesigner
             isClicked = false;
             if (inheritanceArrow.Checked)
             {
-                arrows.Add(new InheritArrows(start, finish));
+                arrows.Add(new InheritArrows(_start, _finish));
             }
             if (realizationArrow.Checked)
             {
-                arrows.Add(new RealizationArrows(start, finish));
+                arrows.Add(new RealizationArrows(_start, _finish));
             }
             if (associationArrow.Checked)
             {
-                arrows.Add(new AssociationArrows(start, finish));
+                arrows.Add(new AssociationArrows(_start, _finish));
             }
         }
 
@@ -52,8 +47,8 @@ namespace UMLDesigner
         {
             if (isClicked)
             {
-                finish.X = e.X;
-                finish.Y = e.Y;
+                _finish.X = e.X;
+                _finish.Y = e.Y;
                 pictureBox.Invalidate();
             }
         }
@@ -70,6 +65,11 @@ namespace UMLDesigner
                 e.Graphics.DrawLine(p.Pen, p.Start, p.Finish);
             }
             pictureBox.Invalidate();
+        }
+
+        private void button1_DragDrop(object sender, DragEventArgs e)
+        {
+            e.Graphics.
         }
     }
 }
