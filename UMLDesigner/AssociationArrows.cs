@@ -10,11 +10,8 @@ namespace UMLDesigner
 {
     class AssociationArrows: Arrow
     {
-        public AssociationArrows(Point start, Point finish) : base(start, finish)
+        public AssociationArrows(Pen pen, Point start, Point finish) : base(pen, start, finish)
         {
-            ArrowColor = Color.Black;
-            Width = 3;
-            Pen = new Pen(ArrowColor, Width);
             Pen.CustomEndCap = new AdjustableArrowCap(10, 10, false);
         }
     }

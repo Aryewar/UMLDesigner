@@ -9,6 +9,12 @@ namespace UMLDesigner
     {
         private Point _start;
         private Point _finish;
+        private Bitmap _tmpBitmap;
+        private Bitmap _mainBitmap;
+        private Graphics _graphics;
+        private Pen _pen;
+
+
 
 
         List<Arrow> arrows = new List<Arrow> { };
@@ -22,8 +28,7 @@ namespace UMLDesigner
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
             isClicked = true;
-            _start.X = e.X;
-            _start.Y = e.Y;
+            _start = e.Location;
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
@@ -31,15 +36,15 @@ namespace UMLDesigner
             isClicked = false;
             if (inheritanceArrow.Checked)
             {
-                arrows.Add(new InheritArrows(_start, _finish));
+                arrows.Add(new InheritArrows(new Pen(colorDialog.Color, widthBar.Value), _start, _finish));
             }
             if (realizationArrow.Checked)
             {
-                arrows.Add(new RealizationArrows(_start, _finish));
+                arrows.Add(new RealizationArrows(new Pen(colorDialog.Color, widthBar.Value), _start, _finish));
             }
             if (associationArrow.Checked)
             {
-                arrows.Add(new AssociationArrows(_start, _finish));
+                arrows.Add(new AssociationArrows(new Pen(colorDialog.Color, widthBar.Value), _start, _finish));
             }
         }
 
@@ -55,7 +60,11 @@ namespace UMLDesigner
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            _pen = new Pen(colorDialog.Color, widthBar.Value);
+            _mainBitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
+            _graphics = Graphics.FromImage(_mainBitmap);
 
+            pictureBox.Image = _mainBitmap;
         }
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
@@ -67,9 +76,16 @@ namespace UMLDesigner
             pictureBox.Invalidate();
         }
 
-        private void button1_DragDrop(object sender, DragEventArgs e)
+        private void colorButton_Click(object sender, EventArgs e)
         {
-            e.Graphics.
+            colorDialog.ShowDialog();
+            colorButton.BackColor = colorDialog.Color;
+            _pen.Color = colorDialog.Color;
+        }
+
+        private void widthBar_Scroll(object sender, EventArgs e)
+        {
+            _pen.Width = widthBar.Value;
         }
     }
 }

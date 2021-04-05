@@ -34,8 +34,11 @@ namespace UMLDesigner
             this.associationArrow = new System.Windows.Forms.RadioButton();
             this.compositionArrow = new System.Windows.Forms.RadioButton();
             this.agragationArrow = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.colorButton = new System.Windows.Forms.Button();
+            this.widthBar = new System.Windows.Forms.TrackBar();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -44,7 +47,7 @@ namespace UMLDesigner
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox.Location = new System.Drawing.Point(69, 24);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(753, 348);
+            this.pictureBox.Size = new System.Drawing.Size(907, 485);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
@@ -109,22 +112,35 @@ namespace UMLDesigner
             this.agragationArrow.UseVisualStyleBackColor = true;
             this.agragationArrow.Visible = false;
             // 
-            // button1
+            // colorButton
             // 
-            this.button1.Location = new System.Drawing.Point(22, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 79);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.DragDrop += new System.Windows.Forms.DragEventHandler(this.button1_DragDrop);
+            this.colorButton.Location = new System.Drawing.Point(12, 24);
+            this.colorButton.Name = "colorButton";
+            this.colorButton.Size = new System.Drawing.Size(45, 79);
+            this.colorButton.TabIndex = 6;
+            this.colorButton.UseVisualStyleBackColor = true;
+            this.colorButton.Click += new System.EventHandler(this.colorButton_Click);
+            // 
+            // widthBar
+            // 
+            this.widthBar.Location = new System.Drawing.Point(12, 109);
+            this.widthBar.Maximum = 12;
+            this.widthBar.Minimum = 4;
+            this.widthBar.Name = "widthBar";
+            this.widthBar.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.widthBar.Size = new System.Drawing.Size(45, 256);
+            this.widthBar.SmallChange = 2;
+            this.widthBar.TabIndex = 7;
+            this.widthBar.Value = 4;
+            this.widthBar.Scroll += new System.EventHandler(this.widthBar_Scroll);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 387);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(988, 521);
+            this.Controls.Add(this.widthBar);
+            this.Controls.Add(this.colorButton);
             this.Controls.Add(this.agragationArrow);
             this.Controls.Add(this.compositionArrow);
             this.Controls.Add(this.associationArrow);
@@ -135,6 +151,7 @@ namespace UMLDesigner
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,7 +165,9 @@ namespace UMLDesigner
         private System.Windows.Forms.RadioButton associationArrow;
         private System.Windows.Forms.RadioButton compositionArrow;
         private System.Windows.Forms.RadioButton agragationArrow;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button colorButton;
+        private System.Windows.Forms.TrackBar widthBar;
+        private System.Windows.Forms.ColorDialog colorDialog;
     }
 }
 

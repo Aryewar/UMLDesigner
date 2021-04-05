@@ -10,18 +10,19 @@ namespace UMLDesigner
 {
     public abstract class Arrow
     {
-        public Point Start;
-        public Point Finish;
-        public Color ArrowColor;
-        public int Width;
-        public Pen Pen;
+        public Point Start { get; set; }
+        public Point Finish { get; set; }
+        public Color ArrowColor { get; set; }
+        public int Width { get; set; }
+        public Pen Pen { get; protected set; }
 
-        protected LineCap _arrowCap;
-
-        public Arrow(Point start, Point finish)
+        public Arrow(Pen pen, Point start, Point finish)
         {
             Start = start;
             Finish = finish;
+            Pen = pen;
         }
+
+        //public abstract void DrawArrow(Pen pen, Point start, Point finish);
     }
 }
