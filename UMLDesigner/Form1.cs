@@ -36,15 +36,15 @@ namespace UMLDesigner
             isClicked = false;
             if (inheritanceArrow.Checked)
             {
-                arrows.Add(new InheritArrows(new Pen(colorDialog.Color, widthBar.Value), _start, _finish));
+                arrows.Add(new InheritArrows(_pen, _start, _finish));
             }
             if (realizationArrow.Checked)
             {
-                arrows.Add(new RealizationArrows(new Pen(colorDialog.Color, widthBar.Value), _start, _finish));
+                arrows.Add(new RealizationArrows(_pen, _start, _finish));
             }
             if (associationArrow.Checked)
             {
-                arrows.Add(new AssociationArrows(new Pen(colorDialog.Color, widthBar.Value), _start, _finish));
+                arrows.Add(new AssociationArrows(_pen, _start, _finish));
             }
         }
 
