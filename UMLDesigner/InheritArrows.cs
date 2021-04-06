@@ -19,10 +19,6 @@ namespace UMLDesigner
         {
             FinishPoint = finish;
             graphics.DrawLine(Pen, start, finish);
-
-            //Point apex1 = new Point();
-            //Point apex2 = new Point();
-            //PointF[] arrowCup = new PointF[] { apex1, apex2, finish };
         }
     }
 }

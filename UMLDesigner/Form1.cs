@@ -27,19 +27,8 @@ namespace UMLDesigner
         {
             isClicked = true;
             _start = e.Location;
-
-            if (inheritanceArrow.Checked)
-            {
-                _arrow = new InheritArrows(_pen, _start, _finish);
-            }
-            if (realizationArrow.Checked)
-            {
-                _arrow = new RealizationArrows(_pen, _start, _finish);
-            }
-            if (associationArrow.Checked)
-            {
-                _arrow = new AssociationArrows(_pen, _start, _finish);
-            }
+            _arrow.Pen.Color = colorDialog.Color;
+            _arrow.Pen.Width = widthBar.Value;
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
@@ -47,19 +36,6 @@ namespace UMLDesigner
             isClicked = false;
             _finish = e.Location;
             _mainBitmap = _tmpBitmap;
-
-            if (inheritanceArrow.Checked)
-            {
-                arrows.Add(new InheritArrows(_pen, _start, _finish));
-            }
-            if (realizationArrow.Checked)
-            {
-                arrows.Add(new RealizationArrows(_pen, _start, _finish));
-            }
-            if (associationArrow.Checked)
-            {
-                arrows.Add(new AssociationArrows(_pen, _start, _finish));
-            }
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
@@ -72,7 +48,6 @@ namespace UMLDesigner
                 _arrow.DrawArrow(_graphics, _start, e.Location);
 
                 pictureBox.Image = _tmpBitmap;
-
                 GC.Collect();
             }
         }
@@ -97,6 +72,21 @@ namespace UMLDesigner
         private void widthBar_Scroll(object sender, EventArgs e)
         {
             _pen.Width = widthBar.Value;
+        }
+
+        private void realizationArrow_CheckedChanged(object sender, EventArgs e)
+        {
+            _arrow = new RealizationArrows(_pen, _start, _finish);
+        }
+
+        private void inheritanceArrow_CheckedChanged(object sender, EventArgs e)
+        {
+            _arrow = new InheritArrows(_pen, _start, _finish);
+        }
+
+        private void associationArrow_CheckedChanged(object sender, EventArgs e)
+        {
+            _arrow = new AssociationArrows(_pen, _start, _finish);
         }
     }
 }

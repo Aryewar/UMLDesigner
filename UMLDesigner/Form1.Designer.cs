@@ -64,6 +64,7 @@ namespace UMLDesigner
             this.inheritanceArrow.TabStop = true;
             this.inheritanceArrow.Text = "inheritance";
             this.inheritanceArrow.UseVisualStyleBackColor = true;
+            this.inheritanceArrow.CheckedChanged += new System.EventHandler(this.inheritanceArrow_CheckedChanged);
             // 
             // realizationArrow
             // 
@@ -75,6 +76,7 @@ namespace UMLDesigner
             this.realizationArrow.TabStop = true;
             this.realizationArrow.Text = "realization";
             this.realizationArrow.UseVisualStyleBackColor = true;
+            this.realizationArrow.CheckedChanged += new System.EventHandler(this.realizationArrow_CheckedChanged);
             // 
             // associationArrow
             // 
@@ -86,6 +88,7 @@ namespace UMLDesigner
             this.associationArrow.TabStop = true;
             this.associationArrow.Text = "association";
             this.associationArrow.UseVisualStyleBackColor = true;
+            this.associationArrow.CheckedChanged += new System.EventHandler(this.associationArrow_CheckedChanged);
             // 
             // compositionArrow
             // 

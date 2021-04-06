@@ -12,7 +12,6 @@ namespace UMLDesigner
     {
         public RealizationArrows(Pen pen, Point start, Point finish) : base(pen, start, finish)
         {
-            //Pen.DashStyle = DashStyle.Dash;
             Pen.CustomEndCap = new AdjustableArrowCap(10, 10);
         }
 
