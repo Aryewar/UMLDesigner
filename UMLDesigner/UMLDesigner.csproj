@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Arrow.cs" />
     <Compile Include="AssociationArrows.cs" />
+    <Compile Include="CompositionArrows.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

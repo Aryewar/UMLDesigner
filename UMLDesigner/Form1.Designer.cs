@@ -100,7 +100,7 @@ namespace UMLDesigner
             this.compositionArrow.TabStop = true;
             this.compositionArrow.Text = "composition";
             this.compositionArrow.UseVisualStyleBackColor = true;
-            this.compositionArrow.Visible = false;
+            this.compositionArrow.CheckedChanged += new System.EventHandler(this.compositionArrow_CheckedChanged);
             // 
             // agragationArrow
             // 

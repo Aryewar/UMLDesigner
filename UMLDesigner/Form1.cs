@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace UMLDesigner
@@ -14,9 +15,7 @@ namespace UMLDesigner
         private Graphics _graphics;
         private Pen _pen;
         private Arrow _arrow;
-
-        List<Arrow> arrows = new List<Arrow> { };
-        bool isClicked = false;
+        private bool _isClicked = false;
 
         public Form1()
         {
@@ -25,7 +24,7 @@ namespace UMLDesigner
 
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
-            isClicked = true;
+            _isClicked = true;
             _start = e.Location;
             _arrow.Pen.Color = colorDialog.Color;
             _arrow.Pen.Width = widthBar.Value;
@@ -33,14 +32,14 @@ namespace UMLDesigner
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
-            isClicked = false;
+            _isClicked = false;
             _finish = e.Location;
             _mainBitmap = _tmpBitmap;
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
-            if (isClicked)
+            if (_isClicked)
             {
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
@@ -87,6 +86,11 @@ namespace UMLDesigner
         private void associationArrow_CheckedChanged(object sender, EventArgs e)
         {
             _arrow = new AssociationArrows(_pen, _start, _finish);
+        }
+
+        private void compositionArrow_CheckedChanged(object sender, EventArgs e)
+        {
+            _arrow = new CompositionArrows(_pen, _start, _finish);
         }
     }
 }
