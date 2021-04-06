@@ -112,7 +112,7 @@ namespace UMLDesigner
             this.agragationArrow.TabStop = true;
             this.agragationArrow.Text = "agregation";
             this.agragationArrow.UseVisualStyleBackColor = true;
-            this.agragationArrow.Visible = false;
+            this.agragationArrow.CheckedChanged += new System.EventHandler(this.agragationArrow_CheckedChanged);
             // 
             // colorButton
             // 

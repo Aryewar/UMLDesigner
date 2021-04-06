@@ -12,13 +12,13 @@ namespace UMLDesigner
     {
         public AssociationArrows(Pen pen, Point start, Point finish) : base(pen, start, finish)
         {
-            Pen.CustomEndCap = new AdjustableArrowCap(10, 10, false);
+            ArrowPen.CustomEndCap = new AdjustableArrowCap(10, 10, false);
         }
 
         public override void DrawArrow(Graphics graphics, Point start, Point finish)
         {
             FinishPoint = finish;
-            graphics.DrawLine(Pen, start, finish);
+            graphics.DrawLine(ArrowPen, start, finish);
         }
     }
 }

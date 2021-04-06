@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgragationArrows.cs" />
     <Compile Include="Arrow.cs" />
     <Compile Include="AssociationArrows.cs" />
     <Compile Include="CompositionArrows.cs" />

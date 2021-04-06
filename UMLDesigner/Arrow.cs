@@ -12,13 +12,13 @@ namespace UMLDesigner
     {
         public Point StartPoint { get; set; }
         public Point FinishPoint { get; set; }
-        public Pen Pen { get; protected set; }
+        public Pen ArrowPen { get; protected set; }
 
         public Arrow(Pen pen, Point start, Point finish)
         {
             StartPoint = start;
             FinishPoint = finish;
-            Pen = new Pen(pen.Color, pen.Width);
+            ArrowPen = new Pen(pen.Color, pen.Width);
         }
 
         public abstract void DrawArrow(Graphics graphics, Point start, Point finish);

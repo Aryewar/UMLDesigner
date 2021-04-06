@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace UMLDesigner
 {
-    class CompositionArrows: Arrow
+    class AgragationArrows: Arrow
     {
-        public CompositionArrows(Pen pen, Point start, Point finish) : base(pen, start, finish)
+        public AgragationArrows(Pen pen, Point start, Point finish) : base(pen, start, finish)
         {
 
         }
@@ -19,14 +19,14 @@ namespace UMLDesigner
         {
             FinishPoint = finish;
             GraphicsPath hPath = new GraphicsPath();
-            Point[] filledRhombus = new Point[] { new Point(0, 0),
-                                                    new Point(3, 6),
-                                                    new Point(0, 12),
-                                                    new Point(-3, 6)
+            Point[] filledRhombus = new Point[] { new Point(0, -6),
+                                                    new Point(3, 0),
+                                                    new Point(0, 6),
+                                                    new Point(-3, 0)
                                                   };
 
             hPath.AddPolygon(filledRhombus);
-            ArrowPen.CustomEndCap = new CustomLineCap(null, hPath);
+            ArrowPen.CustomEndCap = new CustomLineCap(hPath, null);
 
             graphics.DrawLine(ArrowPen, start, finish);
         }

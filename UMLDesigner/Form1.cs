@@ -26,8 +26,8 @@ namespace UMLDesigner
         {
             _isClicked = true;
             _start = e.Location;
-            _arrow.Pen.Color = colorDialog.Color;
-            _arrow.Pen.Width = widthBar.Value;
+            _arrow.ArrowPen.Color = colorDialog.Color;
+            _arrow.ArrowPen.Width = widthBar.Value;
         }
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
@@ -91,6 +91,11 @@ namespace UMLDesigner
         private void compositionArrow_CheckedChanged(object sender, EventArgs e)
         {
             _arrow = new CompositionArrows(_pen, _start, _finish);
+        }
+
+        private void agragationArrow_CheckedChanged(object sender, EventArgs e)
+        {
+            _arrow = new AgragationArrows(_pen, _start, _finish);
         }
     }
 }
