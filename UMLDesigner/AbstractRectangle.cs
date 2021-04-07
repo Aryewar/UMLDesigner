@@ -2,19 +2,19 @@
 
 namespace UMLDesigner
 {
-    public abstract class Arrow
+    public abstract class AbstractRectangle
     {
         public Point StartPoint { get; set; }
         public Point FinishPoint { get; set; }
         public Pen ArrowPen { get; protected set; }
 
-        public Arrow(Pen pen, Point start, Point finish)
+        public AbstractRectangle(Pen pen, Point start, Point finish)
         {
             StartPoint = start;
             FinishPoint = finish;
             ArrowPen = new Pen(pen.Color, pen.Width);
         }
 
-        public abstract void DrawArrow(Graphics graphics, Point start, Point finish);
+        public abstract void DrawRectangle(Graphics graphics, Point start, Point finish);
     }
 }

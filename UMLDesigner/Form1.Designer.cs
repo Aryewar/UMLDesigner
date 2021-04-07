@@ -34,7 +34,11 @@ namespace UMLDesigner
             this.associationArrow = new System.Windows.Forms.RadioButton();
             this.compositionArrow = new System.Windows.Forms.RadioButton();
             this.agragationArrow = new System.Windows.Forms.RadioButton();
+            this.colorButton = new System.Windows.Forms.Button();
+            this.widthBar = new System.Windows.Forms.TrackBar();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -43,10 +47,9 @@ namespace UMLDesigner
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox.Location = new System.Drawing.Point(69, 24);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(1080, 600);
+            this.pictureBox.Size = new System.Drawing.Size(907, 485);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
-            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseUp);
@@ -61,6 +64,7 @@ namespace UMLDesigner
             this.inheritanceArrow.TabStop = true;
             this.inheritanceArrow.Text = "inheritance";
             this.inheritanceArrow.UseVisualStyleBackColor = true;
+            this.inheritanceArrow.CheckedChanged += new System.EventHandler(this.inheritanceArrow_CheckedChanged);
             // 
             // realizationArrow
             // 
@@ -72,6 +76,7 @@ namespace UMLDesigner
             this.realizationArrow.TabStop = true;
             this.realizationArrow.Text = "realization";
             this.realizationArrow.UseVisualStyleBackColor = true;
+            this.realizationArrow.CheckedChanged += new System.EventHandler(this.realizationArrow_CheckedChanged);
             // 
             // associationArrow
             // 
@@ -83,6 +88,7 @@ namespace UMLDesigner
             this.associationArrow.TabStop = true;
             this.associationArrow.Text = "association";
             this.associationArrow.UseVisualStyleBackColor = true;
+            this.associationArrow.CheckedChanged += new System.EventHandler(this.associationArrow_CheckedChanged);
             // 
             // compositionArrow
             // 
@@ -94,6 +100,7 @@ namespace UMLDesigner
             this.compositionArrow.TabStop = true;
             this.compositionArrow.Text = "composition";
             this.compositionArrow.UseVisualStyleBackColor = true;
+            this.compositionArrow.CheckedChanged += new System.EventHandler(this.compositionArrow_CheckedChanged);
             // 
             // agragationArrow
             // 
@@ -105,12 +112,36 @@ namespace UMLDesigner
             this.agragationArrow.TabStop = true;
             this.agragationArrow.Text = "agregation";
             this.agragationArrow.UseVisualStyleBackColor = true;
+            this.agragationArrow.CheckedChanged += new System.EventHandler(this.agragationArrow_CheckedChanged);
+            // 
+            // colorButton
+            // 
+            this.colorButton.Location = new System.Drawing.Point(12, 24);
+            this.colorButton.Name = "colorButton";
+            this.colorButton.Size = new System.Drawing.Size(45, 79);
+            this.colorButton.TabIndex = 6;
+            this.colorButton.UseVisualStyleBackColor = true;
+            this.colorButton.Click += new System.EventHandler(this.colorButton_Click);
+            // 
+            // widthBar
+            // 
+            this.widthBar.Location = new System.Drawing.Point(12, 109);
+            this.widthBar.Maximum = 5;
+            this.widthBar.Minimum = 1;
+            this.widthBar.Name = "widthBar";
+            this.widthBar.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.widthBar.Size = new System.Drawing.Size(45, 256);
+            this.widthBar.TabIndex = 7;
+            this.widthBar.Value = 4;
+            this.widthBar.Scroll += new System.EventHandler(this.widthBar_Scroll);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 624);
+            this.ClientSize = new System.Drawing.Size(988, 521);
+            this.Controls.Add(this.widthBar);
+            this.Controls.Add(this.colorButton);
             this.Controls.Add(this.agragationArrow);
             this.Controls.Add(this.compositionArrow);
             this.Controls.Add(this.associationArrow);
@@ -121,6 +152,7 @@ namespace UMLDesigner
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.widthBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,6 +166,9 @@ namespace UMLDesigner
         private System.Windows.Forms.RadioButton associationArrow;
         private System.Windows.Forms.RadioButton compositionArrow;
         private System.Windows.Forms.RadioButton agragationArrow;
+        private System.Windows.Forms.Button colorButton;
+        private System.Windows.Forms.TrackBar widthBar;
+        private System.Windows.Forms.ColorDialog colorDialog;
     }
 }
 
