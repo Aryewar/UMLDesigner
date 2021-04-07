@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UMLDesigner
 {
@@ -19,10 +14,10 @@ namespace UMLDesigner
         {
             FinishPoint = finish;
             GraphicsPath hPath = new GraphicsPath();
-            Point[] filledRhombus = new Point[] { new Point(0, -6),
-                                                    new Point(3, 0),
-                                                    new Point(0, 6),
-                                                    new Point(-3, 0)
+            Point[] filledRhombus = new Point[] { new Point(0, -12),
+                                                    new Point(3, -6),
+                                                    new Point(0, 1),
+                                                    new Point(-3, -6)
                                                   };
 
             hPath.AddPolygon(filledRhombus);

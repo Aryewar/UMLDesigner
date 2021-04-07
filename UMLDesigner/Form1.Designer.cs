@@ -126,12 +126,11 @@ namespace UMLDesigner
             // widthBar
             // 
             this.widthBar.Location = new System.Drawing.Point(12, 109);
-            this.widthBar.Maximum = 12;
-            this.widthBar.Minimum = 4;
+            this.widthBar.Maximum = 5;
+            this.widthBar.Minimum = 1;
             this.widthBar.Name = "widthBar";
             this.widthBar.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.widthBar.Size = new System.Drawing.Size(45, 256);
-            this.widthBar.SmallChange = 2;
             this.widthBar.TabIndex = 7;
             this.widthBar.Value = 4;
             this.widthBar.Scroll += new System.EventHandler(this.widthBar_Scroll);
