@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace UMLDesigner
 {
-    class RealizationArrows: Arrow
+    class RealizationArrows: AbstractArrow
     {
         public RealizationArrows(Pen pen, Point start, Point finish) : base(pen, start, finish)
         {
@@ -18,6 +18,8 @@ namespace UMLDesigner
         public override void DrawArrow(Graphics graphics, Point start, Point finish)
         {
             FinishPoint = finish;
+            StartPoint = start;
+
             ArrowPen.DashStyle = DashStyle.Dash;
 
             graphics.DrawLine(ArrowPen, start, finish);

@@ -37,6 +37,7 @@ namespace UMLDesigner
             this.colorButton = new System.Windows.Forms.Button();
             this.widthBar = new System.Windows.Forms.TrackBar();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.moveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             this.SuspendLayout();
@@ -116,16 +117,16 @@ namespace UMLDesigner
             // 
             // colorButton
             // 
-            this.colorButton.Location = new System.Drawing.Point(12, 24);
+            this.colorButton.Location = new System.Drawing.Point(12, 70);
             this.colorButton.Name = "colorButton";
-            this.colorButton.Size = new System.Drawing.Size(45, 79);
+            this.colorButton.Size = new System.Drawing.Size(45, 40);
             this.colorButton.TabIndex = 6;
             this.colorButton.UseVisualStyleBackColor = true;
             this.colorButton.Click += new System.EventHandler(this.colorButton_Click);
             // 
             // widthBar
             // 
-            this.widthBar.Location = new System.Drawing.Point(12, 109);
+            this.widthBar.Location = new System.Drawing.Point(12, 116);
             this.widthBar.Maximum = 5;
             this.widthBar.Minimum = 1;
             this.widthBar.Name = "widthBar";
@@ -135,11 +136,22 @@ namespace UMLDesigner
             this.widthBar.Value = 4;
             this.widthBar.Scroll += new System.EventHandler(this.widthBar_Scroll);
             // 
+            // moveButton
+            // 
+            this.moveButton.Location = new System.Drawing.Point(12, 24);
+            this.moveButton.Name = "moveButton";
+            this.moveButton.Size = new System.Drawing.Size(45, 40);
+            this.moveButton.TabIndex = 8;
+            this.moveButton.Text = "Move";
+            this.moveButton.UseVisualStyleBackColor = true;
+            this.moveButton.Click += new System.EventHandler(this.moveButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 521);
+            this.Controls.Add(this.moveButton);
             this.Controls.Add(this.widthBar);
             this.Controls.Add(this.colorButton);
             this.Controls.Add(this.agragationArrow);
@@ -169,6 +181,7 @@ namespace UMLDesigner
         private System.Windows.Forms.Button colorButton;
         private System.Windows.Forms.TrackBar widthBar;
         private System.Windows.Forms.ColorDialog colorDialog;
+        private System.Windows.Forms.Button moveButton;
     }
 }
 

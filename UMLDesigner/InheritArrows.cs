@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 
 namespace UMLDesigner
 {
-    class InheritArrows : Arrow
+    class InheritArrows : AbstractArrow
     {
         public InheritArrows(Pen pen, Point start, Point finish) : base(pen, start, finish)
         {
@@ -13,6 +13,8 @@ namespace UMLDesigner
         public override void DrawArrow(Graphics graphics, Point start, Point finish)
         {
             FinishPoint = finish;
+            StartPoint = start;
+
             graphics.DrawLine(ArrowPen, start, finish);
         }
     }

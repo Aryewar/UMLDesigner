@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 
 namespace UMLDesigner
 {
-    class AgragationArrows: Arrow
+    class AgragationArrows: AbstractArrow
     {
         public AgragationArrows(Pen pen, Point start, Point finish) : base(pen, start, finish)
         {
@@ -13,6 +13,8 @@ namespace UMLDesigner
         public override void DrawArrow(Graphics graphics, Point start, Point finish)
         {
             FinishPoint = finish;
+            StartPoint = start;
+
             GraphicsPath hPath = new GraphicsPath();
             Point[] filledRhombus = new Point[] { new Point(0, -12),
                                                     new Point(3, -6),
