@@ -53,14 +53,15 @@ namespace UMLDesigner
                 }
                 if (_crntRectangle != null)
                 {
-                    rectangles.Remove(_crntRectangle);
                     _mainBitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
                     _graphics = Graphics.FromImage(_mainBitmap);
-                    //_graphics.Clear(Color.White);
 
                     foreach (AbstractRectangle a in rectangles)
                     {
-                        a.DrawRectangle(_graphics);
+                        if (a != _crntRectangle)
+                        {
+                            a.DrawRectangle(_graphics);
+                        }
                     }
                     pictureBox.Image = _mainBitmap;
                     _start = e.Location;
@@ -69,8 +70,6 @@ namespace UMLDesigner
             }
             else
             {
-
-
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
                 if (_isRectangle)
@@ -97,14 +96,14 @@ namespace UMLDesigner
                 _isRectangle = false;
                 button1.BackColor = Color.White;
             }
-            
+            _crntRectangle = null;
         }
 
         private void pictureBox_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_isClicked)
+            if (_crntRectangle != null)
             {
-                if (_isMove && _crntRectangle!=null)
+                if (_isMove)
                 {
                     _crntRectangle.Move(e.X - _start.X, e.Y - _start.Y);
                     _start = e.Location;
@@ -169,18 +168,23 @@ namespace UMLDesigner
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-
             _isRectangle = true;
             button1.BackColor = Color.Green;
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             _crntRectangle = null;
-            _isMove = true;
+            if(!_isMove)
+            {
+                _isMove = true;
+                button2.BackColor = Color.Red;
+            }
+            else
+            {
+                _isMove = false;
+                button2.BackColor = Color.White;
+            }
         }
     }
 }
