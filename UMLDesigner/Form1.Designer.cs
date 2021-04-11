@@ -37,6 +37,9 @@ namespace UMLDesigner
             this.colorButton = new System.Windows.Forms.Button();
             this.widthBar = new System.Windows.Forms.TrackBar();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +48,7 @@ namespace UMLDesigner
             // 
             this.pictureBox.BackColor = System.Drawing.Color.Gainsboro;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(69, 24);
+            this.pictureBox.Location = new System.Drawing.Point(69, 40);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(907, 485);
             this.pictureBox.TabIndex = 0;
@@ -57,7 +60,7 @@ namespace UMLDesigner
             // inheritanceArrow
             // 
             this.inheritanceArrow.AutoSize = true;
-            this.inheritanceArrow.Location = new System.Drawing.Point(69, 1);
+            this.inheritanceArrow.Location = new System.Drawing.Point(68, 12);
             this.inheritanceArrow.Name = "inheritanceArrow";
             this.inheritanceArrow.Size = new System.Drawing.Size(77, 17);
             this.inheritanceArrow.TabIndex = 1;
@@ -69,7 +72,7 @@ namespace UMLDesigner
             // realizationArrow
             // 
             this.realizationArrow.AutoSize = true;
-            this.realizationArrow.Location = new System.Drawing.Point(160, 1);
+            this.realizationArrow.Location = new System.Drawing.Point(159, 12);
             this.realizationArrow.Name = "realizationArrow";
             this.realizationArrow.Size = new System.Drawing.Size(72, 17);
             this.realizationArrow.TabIndex = 2;
@@ -81,7 +84,7 @@ namespace UMLDesigner
             // associationArrow
             // 
             this.associationArrow.AutoSize = true;
-            this.associationArrow.Location = new System.Drawing.Point(251, 1);
+            this.associationArrow.Location = new System.Drawing.Point(250, 12);
             this.associationArrow.Name = "associationArrow";
             this.associationArrow.Size = new System.Drawing.Size(78, 17);
             this.associationArrow.TabIndex = 3;
@@ -93,7 +96,7 @@ namespace UMLDesigner
             // compositionArrow
             // 
             this.compositionArrow.AutoSize = true;
-            this.compositionArrow.Location = new System.Drawing.Point(342, 1);
+            this.compositionArrow.Location = new System.Drawing.Point(341, 12);
             this.compositionArrow.Name = "compositionArrow";
             this.compositionArrow.Size = new System.Drawing.Size(81, 17);
             this.compositionArrow.TabIndex = 4;
@@ -105,7 +108,7 @@ namespace UMLDesigner
             // agragationArrow
             // 
             this.agragationArrow.AutoSize = true;
-            this.agragationArrow.Location = new System.Drawing.Point(433, 1);
+            this.agragationArrow.Location = new System.Drawing.Point(432, 12);
             this.agragationArrow.Name = "agragationArrow";
             this.agragationArrow.Size = new System.Drawing.Size(75, 17);
             this.agragationArrow.TabIndex = 5;
@@ -135,11 +138,42 @@ namespace UMLDesigner
             this.widthBar.Value = 4;
             this.widthBar.Scroll += new System.EventHandler(this.widthBar_Scroll);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(558, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Rectangle";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.Location = new System.Drawing.Point(234, 82);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 26);
+            this.textBox1.TabIndex = 9;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(690, 9);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "move";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 521);
+            this.ClientSize = new System.Drawing.Size(997, 588);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.widthBar);
             this.Controls.Add(this.colorButton);
             this.Controls.Add(this.agragationArrow);
@@ -169,6 +203,9 @@ namespace UMLDesigner
         private System.Windows.Forms.Button colorButton;
         private System.Windows.Forms.TrackBar widthBar;
         private System.Windows.Forms.ColorDialog colorDialog;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
