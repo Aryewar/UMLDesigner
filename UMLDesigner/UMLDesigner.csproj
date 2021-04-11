@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractRectangle.cs" />
+    <Compile Include="AgragationArrows - Copy.cs" />
     <Compile Include="AgragationArrows.cs" />
     <Compile Include="Arrow.cs" />
     <Compile Include="AssociationArrows.cs" />
+    <Compile Include="CompositionArrows - Copy.cs" />
     <Compile Include="CompositionArrows.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

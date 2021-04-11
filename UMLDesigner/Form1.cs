@@ -95,5 +95,15 @@ namespace UMLDesigner
         {
             _arrow = new AgragationArrows(_pen, _start, _finish);
         }
+
+        private void agregationArrow2_CheckedChanged(object sender, EventArgs e)
+        {
+            _arrow = new AgragationArrows2(_pen, _start, _finish);
+        }
+
+        private void associationArrow2_CheckedChanged(object sender, EventArgs e)
+        {
+            _arrow = new CompositionArrows2(_pen, _start, _finish);
+        }
     }
 }

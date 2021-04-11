@@ -20,6 +20,15 @@ namespace UMLDesigner
             FinishPoint = finish;
             ArrowPen.DashStyle = DashStyle.Dash;
 
+            GraphicsPath hPath = new GraphicsPath();
+            Point[] emptyTriangle = new Point[] { new Point(-6, 0),
+                                                    new Point(6, 0),
+                                                    new Point(0, 12),
+                                                  };
+
+            hPath.AddPolygon(emptyTriangle);
+            ArrowPen.CustomEndCap = new CustomLineCap(null, hPath);
+
             graphics.DrawLine(ArrowPen, start, finish);
         }
     }

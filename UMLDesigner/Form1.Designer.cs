@@ -37,6 +37,8 @@ namespace UMLDesigner
             this.colorButton = new System.Windows.Forms.Button();
             this.widthBar = new System.Windows.Forms.TrackBar();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.agragationArrow2 = new System.Windows.Forms.RadioButton();
+            this.compositionArrow2 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +61,7 @@ namespace UMLDesigner
             this.inheritanceArrow.AutoSize = true;
             this.inheritanceArrow.Location = new System.Drawing.Point(69, 1);
             this.inheritanceArrow.Name = "inheritanceArrow";
-            this.inheritanceArrow.Size = new System.Drawing.Size(77, 17);
+            this.inheritanceArrow.Size = new System.Drawing.Size(89, 19);
             this.inheritanceArrow.TabIndex = 1;
             this.inheritanceArrow.TabStop = true;
             this.inheritanceArrow.Text = "inheritance";
@@ -71,7 +73,7 @@ namespace UMLDesigner
             this.realizationArrow.AutoSize = true;
             this.realizationArrow.Location = new System.Drawing.Point(160, 1);
             this.realizationArrow.Name = "realizationArrow";
-            this.realizationArrow.Size = new System.Drawing.Size(72, 17);
+            this.realizationArrow.Size = new System.Drawing.Size(85, 19);
             this.realizationArrow.TabIndex = 2;
             this.realizationArrow.TabStop = true;
             this.realizationArrow.Text = "realization";
@@ -83,7 +85,7 @@ namespace UMLDesigner
             this.associationArrow.AutoSize = true;
             this.associationArrow.Location = new System.Drawing.Point(251, 1);
             this.associationArrow.Name = "associationArrow";
-            this.associationArrow.Size = new System.Drawing.Size(78, 17);
+            this.associationArrow.Size = new System.Drawing.Size(90, 19);
             this.associationArrow.TabIndex = 3;
             this.associationArrow.TabStop = true;
             this.associationArrow.Text = "association";
@@ -95,7 +97,7 @@ namespace UMLDesigner
             this.compositionArrow.AutoSize = true;
             this.compositionArrow.Location = new System.Drawing.Point(342, 1);
             this.compositionArrow.Name = "compositionArrow";
-            this.compositionArrow.Size = new System.Drawing.Size(81, 17);
+            this.compositionArrow.Size = new System.Drawing.Size(95, 19);
             this.compositionArrow.TabIndex = 4;
             this.compositionArrow.TabStop = true;
             this.compositionArrow.Text = "composition";
@@ -105,9 +107,9 @@ namespace UMLDesigner
             // agragationArrow
             // 
             this.agragationArrow.AutoSize = true;
-            this.agragationArrow.Location = new System.Drawing.Point(433, 1);
+            this.agragationArrow.Location = new System.Drawing.Point(443, 1);
             this.agragationArrow.Name = "agragationArrow";
-            this.agragationArrow.Size = new System.Drawing.Size(75, 17);
+            this.agragationArrow.Size = new System.Drawing.Size(87, 19);
             this.agragationArrow.TabIndex = 5;
             this.agragationArrow.TabStop = true;
             this.agragationArrow.Text = "agregation";
@@ -130,16 +132,43 @@ namespace UMLDesigner
             this.widthBar.Minimum = 1;
             this.widthBar.Name = "widthBar";
             this.widthBar.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.widthBar.Size = new System.Drawing.Size(45, 256);
+            this.widthBar.Size = new System.Drawing.Size(56, 256);
             this.widthBar.TabIndex = 7;
             this.widthBar.Value = 4;
             this.widthBar.Scroll += new System.EventHandler(this.widthBar_Scroll);
+            // 
+            // agragationArrow2
+            // 
+            this.agragationArrow2.AutoSize = true;
+            this.agragationArrow2.Location = new System.Drawing.Point(538, 1);
+            this.agragationArrow2.Name = "agragationArrow2";
+            this.agragationArrow2.Size = new System.Drawing.Size(94, 19);
+            this.agragationArrow2.TabIndex = 8;
+            this.agragationArrow2.TabStop = true;
+            this.agragationArrow2.Text = "agragation2";
+            this.agragationArrow2.UseVisualStyleBackColor = true;
+            this.agragationArrow2.CheckedChanged += new System.EventHandler(this.agregationArrow2_CheckedChanged);
+            // 
+            // compositionArrow2
+            // 
+            this.compositionArrow2.AutoSize = true;
+            this.compositionArrow2.Location = new System.Drawing.Point(638, 1);
+            this.compositionArrow2.Name = "compositionArrow2";
+            this.compositionArrow2.Size = new System.Drawing.Size(133, 19);
+            this.compositionArrow2.TabIndex = 9;
+            this.compositionArrow2.TabStop = true;
+            this.compositionArrow2.Text = "compositionArrow2";
+            this.compositionArrow2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.compositionArrow2.UseVisualStyleBackColor = true;
+            this.compositionArrow2.CheckedChanged += new System.EventHandler(this.associationArrow2_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 521);
+            this.Controls.Add(this.compositionArrow2);
+            this.Controls.Add(this.agragationArrow2);
             this.Controls.Add(this.widthBar);
             this.Controls.Add(this.colorButton);
             this.Controls.Add(this.agragationArrow);
@@ -169,6 +198,8 @@ namespace UMLDesigner
         private System.Windows.Forms.Button colorButton;
         private System.Windows.Forms.TrackBar widthBar;
         private System.Windows.Forms.ColorDialog colorDialog;
+        private System.Windows.Forms.RadioButton agragationArrow2;
+        private System.Windows.Forms.RadioButton compositionArrow2;
     }
 }
 
