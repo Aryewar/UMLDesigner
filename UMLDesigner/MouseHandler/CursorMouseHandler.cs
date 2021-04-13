@@ -18,7 +18,7 @@ namespace UMLDesigner.MouseHandler
             throw new NotImplementedException();
         }
 
-        public void MouseUp(MouseEventArgs e, IFigure curentFigure, List<IFigure> figures)
+        public void MouseUp(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures)
         {
             throw new NotImplementedException();
         }

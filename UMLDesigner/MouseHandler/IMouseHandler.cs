@@ -8,7 +8,7 @@ namespace UMLDesigner.MouseHandler
 {
     public interface IMouseHandler
     {
-        void MouseUp(MouseEventArgs e, IFigure curentFigure, List<IFigure> figures);
+        void MouseUp(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures);
         void MouseDown(MouseEventArgs e, ref IFigure curentFigure, IFigureFabric fabric);
         void MouseMove(MouseEventArgs e, IFigure curentFigure);
     }

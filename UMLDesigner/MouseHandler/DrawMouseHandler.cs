@@ -19,14 +19,16 @@ namespace UMLDesigner.MouseHandler
         {
             Painter.UpdateTmpBitmap();
             curentFigure.FinishPoint = e.Location;
-            curentFigure.Draw();
             Painter.UpdatePictureBox();
+            curentFigure.Draw();
+            GC.Collect();
         }
 
-        public void MouseUp(MouseEventArgs e, IFigure curentFigure, List<IFigure> figures)
+        public void MouseUp(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures)
         {
             Painter.SetMainBitmap();
             figures.Add(curentFigure);
+            curentFigure = null;
         }
     }
 }

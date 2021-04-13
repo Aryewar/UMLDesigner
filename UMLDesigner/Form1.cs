@@ -17,16 +17,17 @@ namespace UMLDesigner
         private Bitmap _mainBitmap;
         private Graphics _graphics;
         private Pen _pen;
-        private IFigure _curentFigure;
-        private List<IFigure> _figures;
-        private IFigureFabric _fabric;
-        private IMouseHandler _mouseHandler;
-        private Painter _painter;
         private AbstractArrow _curentArrow;
         private List<AbstractArrow> _arrows;
         private bool _isClicked = false;
         private bool _isMoved = false;
         private AbstractArrow.Arrows _arrowType;
+
+        private IFigure _curentFigure;
+        private List<IFigure> _figures;
+        private IFigureFabric _fabric;
+        private IMouseHandler _mouseHandler;
+        private Painter _painter;
 
         public Form1()
         {
@@ -207,7 +208,7 @@ namespace UMLDesigner
 
         private void CustomMouseUp(object sender, MouseEventArgs e)
         {
-            _mouseHandler.MouseUp(e, _curentFigure, _figures);
+            _mouseHandler.MouseUp(e, ref _curentFigure, _figures);
         }
     }
 }
