@@ -20,7 +20,7 @@ namespace UMLDesigner.Figures.SinglePainter
             _mainBitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
-            _pictureBox.BackColor = Color.Red;
+            _pictureBox.BackColor = Color.White;
             _pictureBox.Image = _tmpBitmap;
         }
 

@@ -46,11 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractRectangle.cs" />
-    <Compile Include="AgragationArrows.cs" />
-    <Compile Include="AbstractArrow.cs" />
-    <Compile Include="AssociationArrows.cs" />
-    <Compile Include="CompositionArrows.cs" />
     <Compile Include="Figures\Arrows\AbstractArrow.cs" />
     <Compile Include="Figures\Arrows\InharitanceArrow.cs" />
     <Compile Include="Figures\Fabrics\IFigureFabric.cs" />
@@ -65,14 +60,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="IMovableArrow.cs" />
-    <Compile Include="InheritArrows.cs" />
     <Compile Include="MouseHandler\CursorMouseHandler.cs" />
     <Compile Include="MouseHandler\DrawMouseHandler.cs" />
     <Compile Include="MouseHandler\IMouseHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RealizationArrows.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
