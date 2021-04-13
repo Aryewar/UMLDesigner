@@ -2,10 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using UMLDesigner.Figures;
+using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.Figures.SinglePainter;
+using UMLDesigner.MouseHandler;
 
 namespace UMLDesigner
 {
-    public partial class Form1: Form
+    public partial class Form1 : Form
     {
         private Point _start;
         private Point _finish;
@@ -13,10 +17,15 @@ namespace UMLDesigner
         private Bitmap _mainBitmap;
         private Graphics _graphics;
         private Pen _pen;
+        private IFigure _curentFigure;
+        private List<IFigure> _figures;
+        private IFigureFabric _fabric;
+        private IMouseHandler _mouseHandler;
+        private Painter _painter;
         private AbstractArrow _curentArrow;
+        private List<AbstractArrow> _arrows;
         private bool _isClicked = false;
         private bool _isMoved = false;
-        private List<AbstractArrow> _arrows;
         private AbstractArrow.Arrows _arrowType;
 
         public Form1()
@@ -35,13 +44,13 @@ namespace UMLDesigner
                     a.IsItEndArrow(e.Location);
                     a.IsItStartArrow(e.Location);
 
-                    if(a.StrartArrow || a.EndArrow)
+                    if (a.StrartArrow || a.EndArrow)
                     {
                         _curentArrow = a;
                     }
                 }
 
-                if (_curentArrow != null )
+                if (_curentArrow != null)
                 {
                     _arrows.Remove(_curentArrow);
 
@@ -115,12 +124,12 @@ namespace UMLDesigner
         private void Form1_Load(object sender, EventArgs e)
         {
             colorButton.BackColor = colorDialog.Color;
-            _arrows = new List<AbstractArrow>();
-            _pen = new Pen(colorDialog.Color, widthBar.Value);
-            _mainBitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
-            _graphics = Graphics.FromImage(_mainBitmap);
-
-            pictureBox.Image = _mainBitmap;
+            //_arrows = new List<AbstractArrow>();
+            //_pen = new Pen(colorDialog.Color, widthBar.Value);
+            //_mainBitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
+            //_graphics = Graphics.FromImage(_mainBitmap);
+            _painter = Painter.GetPainter(pictureBox);
+            _figures = new List<IFigure>();
         }
 
         private void colorButton_Click(object sender, EventArgs e)
@@ -128,11 +137,14 @@ namespace UMLDesigner
             colorDialog.ShowDialog();
             colorButton.BackColor = colorDialog.Color;
             _pen.Color = colorDialog.Color;
+            Painter.PainterPen.Color = colorDialog.Color;
+
         }
 
         private void widthBar_Scroll(object sender, EventArgs e)
         {
             _pen.Width = widthBar.Value;
+            Painter.PainterPen.Width = widthBar.Value;
         }
 
         private void realizationArrow_CheckedChanged(object sender, EventArgs e)
@@ -162,7 +174,7 @@ namespace UMLDesigner
 
         private void moveButton_Click(object sender, EventArgs e)
         {
-            if(_isMoved)
+            if (_isMoved)
             {
                 _isMoved = false;
                 moveButton.BackColor = Color.White;
@@ -172,6 +184,30 @@ namespace UMLDesigner
                 _isMoved = true;
                 moveButton.BackColor = Color.Gray;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _fabric = new InharitanceArrowFabric();
+            _mouseHandler = new DrawMouseHandler();
+        }
+
+        private void CustomMouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseHandler.MouseDown(e,ref _curentFigure, _fabric);
+        }
+
+        private void CustomMouseMove(object sender, MouseEventArgs e)
+        {
+            if (_curentFigure != null)
+            {
+                _mouseHandler.MouseMove(e, _curentFigure);
+            }
+        }
+
+        private void CustomMouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseHandler.MouseUp(e, _curentFigure, _figures);
         }
     }
 }
