@@ -9,6 +9,7 @@ namespace UMLDesigner.MouseHandler
 {
     public class DrawMouseHandler : IMouseHandler
     {
+        private Painter _painter = Painter.GetPainter();
         public void MouseDown(MouseEventArgs e,ref IFigure curentFigure, IFigureFabric fabric)
         {
             curentFigure = fabric.GetFigure();
@@ -17,16 +18,16 @@ namespace UMLDesigner.MouseHandler
 
         public void MouseMove(MouseEventArgs e, IFigure curentFigure)
         {
-            Painter.UpdateTmpBitmap();
+            _painter.UpdateTmpBitmap();
             curentFigure.FinishPoint = e.Location;
-            Painter.UpdatePictureBox();
+            _painter.UpdatePictureBox();
             curentFigure.Draw();
             GC.Collect();
         }
 
         public void MouseUp(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures)
         {
-            Painter.SetMainBitmap();
+            _painter.SetMainBitmap();
             figures.Add(curentFigure);
             curentFigure = null;
         }

@@ -3,9 +3,9 @@ using System.Drawing.Drawing2D;
 
 namespace UMLDesigner.Figures.Arrows
 {
-    public class InharitanceArrow : AbstractArrow
+    public class RealizationArrow : AbstractArrow
     {
-        public InharitanceArrow()
+        public RealizationArrow()
         {
             FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
             GraphicsPath hPath = new GraphicsPath();
@@ -16,6 +16,8 @@ namespace UMLDesigner.Figures.Arrows
 
             hPath.AddPolygon(emptyTriangle);
             FigurePen.CustomEndCap = new CustomLineCap(null, hPath);
+            FigurePen.DashStyle = DashStyle.Dash;
         }
+        
     }
 }

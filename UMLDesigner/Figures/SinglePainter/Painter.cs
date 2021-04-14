@@ -5,46 +5,49 @@ namespace UMLDesigner.Figures.SinglePainter
 {
     public class Painter
     {
-        public static Graphics PainterGraphics { get; set; }
-        public static Pen PainterPen { get; set; }
+        public Graphics PainterGraphics { get; set; }
+        public Pen PainterPen { get; set; }
 
-        private static Bitmap _tmpBitmap;
-        private static Bitmap _mainBitmap;
-        private static PictureBox _pictureBox;
+        private Bitmap _tmpBitmap;
+        private Bitmap _mainBitmap;
+        private PictureBox _pictureBox;
         private static Painter _painter;
 
-        private Painter(PictureBox pictureBox)
+        private Painter()
+        {
+            PainterPen = new Pen(Color.Black, 3);
+        }
+
+        public void SetPictureBox(PictureBox pictureBox)
         {
             _pictureBox = pictureBox;
-            PainterPen = new Pen(Color.Black, 3);
-            _mainBitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
+            _mainBitmap = new Bitmap(_pictureBox.Width, _pictureBox.Height);
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
             _pictureBox.BackColor = Color.White;
             _pictureBox.Image = _tmpBitmap;
         }
-
-        public static Painter GetPainter(PictureBox pictureBox)
+        public static Painter GetPainter()
         {
             if (_painter is null)
             {
-                return new Painter(pictureBox);
+                _painter = new Painter();
             }
 
             return _painter;
         }
 
-        public static void UpdateTmpBitmap()
+        public void UpdateTmpBitmap()
         {
            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
         }
 
-        public static void SetMainBitmap()
+        public void SetMainBitmap()
         {
             _mainBitmap = _tmpBitmap;
         }
 
-        public static void UpdatePictureBox()
+        public void UpdatePictureBox()
         {
             _pictureBox.Image = _tmpBitmap;
             PainterGraphics = Graphics.FromImage(_tmpBitmap);

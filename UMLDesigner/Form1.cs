@@ -27,7 +27,8 @@ namespace UMLDesigner
         private void Form1_Load(object sender, EventArgs e)
         {
             colorButton.BackColor = colorDialog.Color;
-            _painter = Painter.GetPainter(pictureBox);
+            _painter = Painter.GetPainter();
+            _painter.SetPictureBox(pictureBox);
             _figures = new List<IFigure>();
         }
 
@@ -35,13 +36,13 @@ namespace UMLDesigner
         {
             colorDialog.ShowDialog();
             colorButton.BackColor = colorDialog.Color;
-            Painter.PainterPen.Color = colorDialog.Color;
+            _painter.PainterPen.Color = colorDialog.Color;
 
         }
 
         private void widthBar_Scroll(object sender, EventArgs e)
         {
-            Painter.PainterPen.Width = widthBar.Value;
+            _painter.PainterPen.Width = widthBar.Value;
         }
 
         private void moveButton_Click(object sender, EventArgs e)
@@ -56,12 +57,6 @@ namespace UMLDesigner
                 _isMoved = true;
                 moveButton.BackColor = Color.Gray;
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            _fabric = new InharitanceArrowFabric();
-            _mouseHandler = new DrawMouseHandler();
         }
 
         private void CustomMouseDown(object sender, MouseEventArgs e)
@@ -80,6 +75,48 @@ namespace UMLDesigner
         private void CustomMouseUp(object sender, MouseEventArgs e)
         {
             _mouseHandler.MouseUp(e, ref _curentFigure, _figures);
+        }
+
+        private void buttonRealizationArrow_Click(object sender, EventArgs e)
+        {
+            _fabric = new RealizationArrowFabric();
+            _mouseHandler = new DrawMouseHandler();
+        }
+
+        private void buttonAssociationArrow_Click(object sender, EventArgs e)
+        {
+            _fabric = new AssociationArrowFabric();
+            _mouseHandler = new DrawMouseHandler();
+        }
+
+        private void buttonCompozitionArrow_Click(object sender, EventArgs e)
+        {
+            _fabric = new CompositionArrowFabric();
+            _mouseHandler = new DrawMouseHandler();
+        }
+
+        private void buttonAlternateCompositionArrow_Click(object sender, EventArgs e)
+        {
+            _fabric = new AlternateCompositionArrowFabric();
+            _mouseHandler = new DrawMouseHandler();
+        }
+
+        private void buttonAgregationArrow_Click(object sender, EventArgs e)
+        {
+            _fabric = new AgregationArrowFabric();
+            _mouseHandler = new DrawMouseHandler();
+        }
+
+        private void buttonAlternateAgregationArrow_Click(object sender, EventArgs e)
+        {
+            _fabric = new AlternateAgragationArrowFabric();
+            _mouseHandler = new DrawMouseHandler();
+        }
+
+        private void buttonInheritanceArrow_Click(object sender, EventArgs e)
+        {
+            _fabric = new InharitanceArrowFabric();
+            _mouseHandler = new DrawMouseHandler();
         }
     }
 }
