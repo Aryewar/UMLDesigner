@@ -23,14 +23,24 @@ namespace UMLDesigner.Figures.Rectangles
             _painter.PainterGraphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, Width, Height);
         }
 
-        public bool IsSelected(Point curentPoint)
+        public bool IsSelected(Point currentPoint)
         {
-            throw new NotImplementedException();
+            FinishPoint = new Point(StartPoint.X + Width, StartPoint.Y + Height);
+            
+            if (currentPoint.X >= StartPoint.X && currentPoint.X <= FinishPoint.X
+                && currentPoint.Y >= StartPoint.Y && currentPoint.Y <= FinishPoint.Y)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Move(int deltaX, int deltaY)
         {
-            throw new NotImplementedException();
+            StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
         }
     }
 }

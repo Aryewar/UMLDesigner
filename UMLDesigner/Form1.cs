@@ -44,24 +44,17 @@ namespace UMLDesigner
         {
             _painter.PainterPen.Width = widthBar.Value;
         }
-
-        private void moveButton_Click(object sender, EventArgs e)
+        private void buttonCursor_Click(object sender, EventArgs e)
         {
-            if (_isMoved)
-            {
-                _isMoved = false;
-                moveButton.BackColor = Color.White;
-            }
-            else
-            {
-                _isMoved = true;
-                moveButton.BackColor = Color.Gray;
-            }
+            _fabric = null;
+            _mouseHandler = new CursorMouseHandler();
+            buttonCursor.BackColor = Color.Green;
+
         }
 
         private void CustomMouseDown(object sender, MouseEventArgs e)
         {
-            _mouseHandler.MouseDown(e,ref _curentFigure, _fabric);
+            _mouseHandler.MouseDown(e,ref _curentFigure, _fabric, _figures);
         }
 
         private void CustomMouseMove(object sender, MouseEventArgs e)

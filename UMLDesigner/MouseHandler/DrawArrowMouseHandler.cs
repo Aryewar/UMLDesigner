@@ -10,7 +10,7 @@ namespace UMLDesigner.MouseHandler
     public class DrawArrowMouseHandler : IMouseHandler
     {
         private Painter _painter = Painter.GetPainter();
-        public void MouseDown(MouseEventArgs e,ref IFigure curentFigure, IFigureFabric fabric)
+        public void MouseDown(MouseEventArgs e,ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures)
         {
             curentFigure = fabric.GetFigure();
             curentFigure.StartPoint = e.Location;

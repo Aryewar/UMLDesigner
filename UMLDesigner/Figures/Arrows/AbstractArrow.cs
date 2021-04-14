@@ -19,7 +19,7 @@ namespace UMLDesigner.Figures.Arrows
             FigurePen.Width = _painter.PainterPen.Width;
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint, FinishPoint);
         }
-        public bool IsSelected(Point curentPoint)
+        public bool IsSelected(Point currentPoint)
         {
             throw new NotImplementedException();
         }

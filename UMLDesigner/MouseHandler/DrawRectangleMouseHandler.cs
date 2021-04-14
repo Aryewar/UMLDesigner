@@ -13,7 +13,7 @@ namespace UMLDesigner.MouseHandler
     class DrawRectangleMouseHandler : IMouseHandler
     {
         private Painter _painter = Painter.GetPainter();
-        public void MouseDown(MouseEventArgs e, ref IFigure curentFigure, IFigureFabric fabric)
+        public void MouseDown(MouseEventArgs e, ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures)
         {
             curentFigure = fabric.GetFigure();
         }

@@ -52,5 +52,10 @@ namespace UMLDesigner.Figures.SinglePainter
             _pictureBox.Image = _tmpBitmap;
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
         }
+
+        public void Clear()
+        {
+            _mainBitmap = new Bitmap(_pictureBox.Width, _pictureBox.Height);
+        }
     }
 }

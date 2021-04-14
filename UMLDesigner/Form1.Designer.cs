@@ -32,7 +32,7 @@ namespace UMLDesigner
             this.colorButton = new System.Windows.Forms.Button();
             this.widthBar = new System.Windows.Forms.TrackBar();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.moveButton = new System.Windows.Forms.Button();
+            this.buttonCursor = new System.Windows.Forms.Button();
             this.buttonInharitanceArrow = new System.Windows.Forms.Button();
             this.buttonRealizationArrow = new System.Windows.Forms.Button();
             this.buttonAssociationArrow = new System.Windows.Forms.Button();
@@ -79,15 +79,15 @@ namespace UMLDesigner
             this.widthBar.Value = 4;
             this.widthBar.Scroll += new System.EventHandler(this.widthBar_Scroll);
             // 
-            // moveButton
+            // buttonCursor
             // 
-            this.moveButton.Location = new System.Drawing.Point(12, 24);
-            this.moveButton.Name = "moveButton";
-            this.moveButton.Size = new System.Drawing.Size(45, 40);
-            this.moveButton.TabIndex = 8;
-            this.moveButton.Text = "Move";
-            this.moveButton.UseVisualStyleBackColor = true;
-            this.moveButton.Click += new System.EventHandler(this.moveButton_Click);
+            this.buttonCursor.Location = new System.Drawing.Point(12, 24);
+            this.buttonCursor.Name = "buttonCursor";
+            this.buttonCursor.Size = new System.Drawing.Size(114, 40);
+            this.buttonCursor.TabIndex = 8;
+            this.buttonCursor.Text = "Cursor";
+            this.buttonCursor.UseVisualStyleBackColor = true;
+            this.buttonCursor.Click += new System.EventHandler(this.buttonCursor_Click);
             // 
             // buttonInharitanceArrow
             // 
@@ -121,7 +121,7 @@ namespace UMLDesigner
             // 
             // buttonCompozitionArrow
             // 
-            this.buttonCompozitionArrow.Location = new System.Drawing.Point(12, 215);
+            this.buttonCompozitionArrow.Location = new System.Drawing.Point(12, 175);
             this.buttonCompozitionArrow.Name = "buttonCompozitionArrow";
             this.buttonCompozitionArrow.Size = new System.Drawing.Size(114, 23);
             this.buttonCompozitionArrow.TabIndex = 12;
@@ -131,7 +131,7 @@ namespace UMLDesigner
             // 
             // buttonAgregationArrow
             // 
-            this.buttonAgregationArrow.Location = new System.Drawing.Point(12, 274);
+            this.buttonAgregationArrow.Location = new System.Drawing.Point(12, 233);
             this.buttonAgregationArrow.Name = "buttonAgregationArrow";
             this.buttonAgregationArrow.Size = new System.Drawing.Size(114, 23);
             this.buttonAgregationArrow.TabIndex = 13;
@@ -141,7 +141,7 @@ namespace UMLDesigner
             // 
             // buttonAlternateCompositionArrow
             // 
-            this.buttonAlternateCompositionArrow.Location = new System.Drawing.Point(12, 244);
+            this.buttonAlternateCompositionArrow.Location = new System.Drawing.Point(12, 204);
             this.buttonAlternateCompositionArrow.Name = "buttonAlternateCompositionArrow";
             this.buttonAlternateCompositionArrow.Size = new System.Drawing.Size(114, 23);
             this.buttonAlternateCompositionArrow.TabIndex = 14;
@@ -151,7 +151,7 @@ namespace UMLDesigner
             // 
             // buttonAlternateAgregationArrow
             // 
-            this.buttonAlternateAgregationArrow.Location = new System.Drawing.Point(12, 303);
+            this.buttonAlternateAgregationArrow.Location = new System.Drawing.Point(12, 262);
             this.buttonAlternateAgregationArrow.Name = "buttonAlternateAgregationArrow";
             this.buttonAlternateAgregationArrow.Size = new System.Drawing.Size(114, 23);
             this.buttonAlternateAgregationArrow.TabIndex = 15;
@@ -161,7 +161,7 @@ namespace UMLDesigner
             // 
             // ButtonClassRectangle
             // 
-            this.ButtonClassRectangle.Location = new System.Drawing.Point(12, 332);
+            this.ButtonClassRectangle.Location = new System.Drawing.Point(12, 291);
             this.ButtonClassRectangle.Name = "ButtonClassRectangle";
             this.ButtonClassRectangle.Size = new System.Drawing.Size(114, 23);
             this.ButtonClassRectangle.TabIndex = 16;
@@ -182,7 +182,7 @@ namespace UMLDesigner
             this.Controls.Add(this.buttonAssociationArrow);
             this.Controls.Add(this.buttonRealizationArrow);
             this.Controls.Add(this.buttonInharitanceArrow);
-            this.Controls.Add(this.moveButton);
+            this.Controls.Add(this.buttonCursor);
             this.Controls.Add(this.widthBar);
             this.Controls.Add(this.colorButton);
             this.Controls.Add(this.pictureBox);
@@ -202,7 +202,7 @@ namespace UMLDesigner
         private System.Windows.Forms.Button colorButton;
         private System.Windows.Forms.TrackBar widthBar;
         private System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.Button moveButton;
+        private System.Windows.Forms.Button buttonCursor;
         private System.Windows.Forms.Button buttonInharitanceArrow;
         private System.Windows.Forms.Button buttonRealizationArrow;
         private System.Windows.Forms.Button buttonAssociationArrow;
