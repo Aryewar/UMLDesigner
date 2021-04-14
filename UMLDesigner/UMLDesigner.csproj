@@ -58,6 +58,7 @@
     <Compile Include="Figures\Fabrics\AlternateAgregationArrowFabric.cs" />
     <Compile Include="Figures\Fabrics\AlternateCompositionArrowFabric.cs" />
     <Compile Include="Figures\Fabrics\AssociationArrowFabric.cs" />
+    <Compile Include="Figures\Fabrics\ClassRectangleFabric.cs" />
     <Compile Include="Figures\Fabrics\IFigureFabric.cs" />
     <Compile Include="Figures\Fabrics\InharitanceArrowFabric.cs" />
     <Compile Include="Figures\Fabrics\CompositionArrowFabric.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Figures\IFigure.cs" />
     <Compile Include="Figures\IMovable.cs" />
     <Compile Include="Figures\Rectangles\AbstractRectangle.cs" />
+    <Compile Include="Figures\Rectangles\ClassRectangle.cs" />
     <Compile Include="Figures\SinglePainter\Painter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -73,7 +75,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="MouseHandler\CursorMouseHandler.cs" />
-    <Compile Include="MouseHandler\DrawMouseHandler.cs" />
+    <Compile Include="MouseHandler\DrawArrowMouseHandler.cs" />
+    <Compile Include="MouseHandler\DrawRectangleMouseHandler.cs" />
     <Compile Include="MouseHandler\IMouseHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

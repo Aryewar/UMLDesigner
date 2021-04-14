@@ -80,43 +80,49 @@ namespace UMLDesigner
         private void buttonRealizationArrow_Click(object sender, EventArgs e)
         {
             _fabric = new RealizationArrowFabric();
-            _mouseHandler = new DrawMouseHandler();
+            _mouseHandler = new DrawArrowMouseHandler();
         }
 
         private void buttonAssociationArrow_Click(object sender, EventArgs e)
         {
             _fabric = new AssociationArrowFabric();
-            _mouseHandler = new DrawMouseHandler();
+            _mouseHandler = new DrawArrowMouseHandler();
         }
 
         private void buttonCompozitionArrow_Click(object sender, EventArgs e)
         {
             _fabric = new CompositionArrowFabric();
-            _mouseHandler = new DrawMouseHandler();
+            _mouseHandler = new DrawArrowMouseHandler();
         }
 
         private void buttonAlternateCompositionArrow_Click(object sender, EventArgs e)
         {
             _fabric = new AlternateCompositionArrowFabric();
-            _mouseHandler = new DrawMouseHandler();
+            _mouseHandler = new DrawArrowMouseHandler();
         }
 
         private void buttonAgregationArrow_Click(object sender, EventArgs e)
         {
             _fabric = new AgregationArrowFabric();
-            _mouseHandler = new DrawMouseHandler();
+            _mouseHandler = new DrawArrowMouseHandler();
         }
 
         private void buttonAlternateAgregationArrow_Click(object sender, EventArgs e)
         {
             _fabric = new AlternateAgragationArrowFabric();
-            _mouseHandler = new DrawMouseHandler();
+            _mouseHandler = new DrawArrowMouseHandler();
         }
 
         private void buttonInheritanceArrow_Click(object sender, EventArgs e)
         {
             _fabric = new InharitanceArrowFabric();
-            _mouseHandler = new DrawMouseHandler();
+            _mouseHandler = new DrawArrowMouseHandler();
+        }
+
+        private void ButtonClassRectangle_Click(object sender, EventArgs e)
+        {
+            _fabric = new ClassRectangleFabric();
+            _mouseHandler = new DrawRectangleMouseHandler();
         }
     }
 }

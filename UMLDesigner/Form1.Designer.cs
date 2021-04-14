@@ -40,6 +40,7 @@ namespace UMLDesigner
             this.buttonAgregationArrow = new System.Windows.Forms.Button();
             this.buttonAlternateCompositionArrow = new System.Windows.Forms.Button();
             this.buttonAlternateAgregationArrow = new System.Windows.Forms.Button();
+            this.ButtonClassRectangle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             this.SuspendLayout();
@@ -158,11 +159,22 @@ namespace UMLDesigner
             this.buttonAlternateAgregationArrow.UseVisualStyleBackColor = true;
             this.buttonAlternateAgregationArrow.Click += new System.EventHandler(this.buttonAlternateAgregationArrow_Click);
             // 
+            // ButtonClassRectangle
+            // 
+            this.ButtonClassRectangle.Location = new System.Drawing.Point(12, 332);
+            this.ButtonClassRectangle.Name = "ButtonClassRectangle";
+            this.ButtonClassRectangle.Size = new System.Drawing.Size(114, 23);
+            this.ButtonClassRectangle.TabIndex = 16;
+            this.ButtonClassRectangle.Text = "Class";
+            this.ButtonClassRectangle.UseVisualStyleBackColor = true;
+            this.ButtonClassRectangle.Click += new System.EventHandler(this.ButtonClassRectangle_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 580);
+            this.Controls.Add(this.ButtonClassRectangle);
             this.Controls.Add(this.buttonAlternateAgregationArrow);
             this.Controls.Add(this.buttonAlternateCompositionArrow);
             this.Controls.Add(this.buttonAgregationArrow);
@@ -198,6 +210,7 @@ namespace UMLDesigner
         private System.Windows.Forms.Button buttonAgregationArrow;
         private System.Windows.Forms.Button buttonAlternateCompositionArrow;
         private System.Windows.Forms.Button buttonAlternateAgregationArrow;
+        private System.Windows.Forms.Button ButtonClassRectangle;
     }
 }
 
