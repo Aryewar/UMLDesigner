@@ -9,9 +9,18 @@ namespace UMLDesigner.Figures.Arrows
     {
         public Point StartPoint { get; set; }
         public Point FinishPoint { get; set; }
-        public Pen FigurePen { get; set;}
+        public Pen FigurePen { get; set; }
 
-        protected Painter _painter = Painter.GetPainter();
+        private bool _selectedEnd;
+        private bool _selectedStart;
+        protected Painter _painter;
+
+        public AbstractArrow()
+        {
+            _selectedEnd = false;
+            _selectedStart = false;
+            _painter = Painter.GetPainter();
+        }
 
         public void Draw()
         {
@@ -24,7 +33,7 @@ namespace UMLDesigner.Figures.Arrows
             throw new NotImplementedException();
         }
 
-        public void Move(int deltaX, int deltaY)
+        public void Move(Point currentPoint)
         {
             throw new NotImplementedException();
         }

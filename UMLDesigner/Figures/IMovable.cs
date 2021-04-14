@@ -5,6 +5,6 @@ namespace UMLDesigner.Figures
     public interface IMovable
     {
         bool IsSelected(Point currentPoint);
-        void Move(int deltaX, int deltaY);
+        void Move(Point currentPoint);
     }
 }
