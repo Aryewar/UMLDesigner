@@ -27,6 +27,7 @@ namespace UMLDesigner.Figures.SinglePainter
             _pictureBox.BackColor = Color.White;
             _pictureBox.Image = _tmpBitmap;
         }
+
         public static Painter GetPainter()
         {
             if (_painter is null)

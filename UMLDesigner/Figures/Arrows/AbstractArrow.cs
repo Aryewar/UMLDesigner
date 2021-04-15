@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-
+﻿using System.Drawing;
 using UMLDesigner.Figures.SinglePainter;
 
 namespace UMLDesigner.Figures.Arrows
@@ -25,8 +23,6 @@ namespace UMLDesigner.Figures.Arrows
 
         public void Draw()
         {
-            FigurePen.Color = _painter.PainterPen.Color;
-            FigurePen.Width = _painter.PainterPen.Width;
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint, FinishPoint);
         }
         public bool IsSelected(Point currentPoint)
