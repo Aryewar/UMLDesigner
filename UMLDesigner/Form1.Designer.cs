@@ -57,6 +57,7 @@ namespace UMLDesigner
             this.pictureBox.Size = new System.Drawing.Size(848, 459);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
+            this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.CustomMouseDoubleClick);
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CustomMouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CustomMouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CustomMouseUp);
@@ -254,7 +255,6 @@ namespace UMLDesigner
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.CustomMouseDoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();

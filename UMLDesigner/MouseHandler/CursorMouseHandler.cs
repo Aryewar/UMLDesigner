@@ -22,6 +22,11 @@ namespace UMLDesigner.MouseHandler
                     break;
                 }
             }
+            if (curentFigure is ClassRectangle)
+            {
+                ClassRectangle cur = (ClassRectangle)curentFigure;
+                cur.PrevPosition = e.Location;
+            }
             if (curentFigure != null)
             {
                 _painter.Clear();
@@ -65,7 +70,7 @@ namespace UMLDesigner.MouseHandler
             }
             if (curentFigure is ClassRectangle)
             {
-                _classDialogForm.ShowDialog();
+                _classDialogForm.OpenCurrentFigure((ClassRectangle)curentFigure);
             }
         }
     }

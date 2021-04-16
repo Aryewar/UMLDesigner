@@ -19,19 +19,22 @@ namespace UMLDesigner.Figures.Rectangles
 
         protected Painter _painter;
 
+        public Point PrevPosition;
+
         public AbstractRectangle()
         {
             Width = 120;
             Height = 30;
-            Title = new StringBuilder();
-            Properties = new StringBuilder();
-            Fields = new StringBuilder();
-            Methods = new StringBuilder();
+            Title = new StringBuilder("Title");
+            Properties = new StringBuilder("Properties");
+            Fields = new StringBuilder("Fields");
+            Methods = new StringBuilder("Methods");
             _painter = Painter.GetPainter();
         }
         public void Draw()
         {
             _painter.PainterGraphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, Width, Height);
+            _painter.PainterGraphics.DrawString(Title.ToString(), new Font("Ariel", 14), new SolidBrush(FigurePen.Color), StartPoint);
         }
 
         public bool IsSelected(Point currentPoint)
@@ -51,9 +54,10 @@ namespace UMLDesigner.Figures.Rectangles
 
         public void Move(Point currentPoint)
         {
-            int deltaX = currentPoint.X - StartPoint.X;
-            int deltaY = currentPoint.Y - StartPoint.Y;
+            int deltaX = currentPoint.X - PrevPosition.X;
+            int deltaY = currentPoint.Y - PrevPosition.Y;
             StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
+            PrevPosition = currentPoint;
         }
     }
 }

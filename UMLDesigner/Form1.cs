@@ -64,7 +64,10 @@ namespace UMLDesigner
 
         private void CustomMouseDoubleClick(object sender, MouseEventArgs e)
         {
+
             _mouseHandler.MouseDoubleClick(e, ref _curentFigure, _figures, _classDialogForm);
+
+
         }
 
         private void radioButtonInheritanceArrow_CheckedChanged(object sender, EventArgs e)
@@ -123,8 +126,7 @@ namespace UMLDesigner
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            _classDialogForm.ShowDialog();
+            
         }
 
        
