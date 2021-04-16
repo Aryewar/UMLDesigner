@@ -1,18 +1,13 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace UMLDesigner
+namespace UMLDesigner.Figures.Arrows
 {
-    class CompositionArrows: Arrow
+    public class CompositionArrow : AbstractArrow
     {
-        public CompositionArrows(Pen pen, Point start, Point finish) : base(pen, start, finish)
+        public CompositionArrow()
         {
-
-        }
-
-        public override void DrawArrow(Graphics graphics, Point start, Point finish)
-        {
-            FinishPoint = finish;
+            FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
             GraphicsPath hPath = new GraphicsPath();
             Point[] filledRhombus = new Point[] { new Point(0, 0),
                                                     new Point(3, 6),
@@ -21,9 +16,7 @@ namespace UMLDesigner
                                                   };
 
             hPath.AddPolygon(filledRhombus);
-            ArrowPen.CustomEndCap = new CustomLineCap(null, hPath);
-
-            graphics.DrawLine(ArrowPen, start, finish);
+            FigurePen.CustomEndCap = new CustomLineCap(null, hPath);
         }
     }
 }

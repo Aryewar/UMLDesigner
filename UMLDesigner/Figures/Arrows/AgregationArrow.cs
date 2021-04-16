@@ -1,18 +1,15 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
+using UMLDesigner.Figures.SinglePainter;
 
-namespace UMLDesigner
+namespace UMLDesigner.Figures.Arrows
 {
-    class AgragationArrows: Arrow
+    public class AgregationArrow : AbstractArrow
     {
-        public AgragationArrows(Pen pen, Point start, Point finish) : base(pen, start, finish)
+        public AgregationArrow()
         {
+            FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
 
-        }
-
-        public override void DrawArrow(Graphics graphics, Point start, Point finish)
-        {
-            FinishPoint = finish;
             GraphicsPath hPath = new GraphicsPath();
             Point[] filledRhombus = new Point[] { new Point(0, -12),
                                                     new Point(3, -6),
@@ -21,9 +18,7 @@ namespace UMLDesigner
                                                   };
 
             hPath.AddPolygon(filledRhombus);
-            ArrowPen.CustomEndCap = new CustomLineCap(hPath, null);
-
-            graphics.DrawLine(ArrowPen, start, finish);
+            FigurePen.CustomEndCap = new CustomLineCap(hPath, null);
         }
     }
 }
