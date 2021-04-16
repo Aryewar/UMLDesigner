@@ -11,5 +11,6 @@ namespace UMLDesigner.MouseHandler
         void MouseDown(MouseEventArgs e, ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures);
         void MouseMove(MouseEventArgs e, IFigure curentFigure);
         void MouseUp(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures);
+        void MouseDoubleClick(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures, ClassDialogForm _classDialogForm);
     }
 }

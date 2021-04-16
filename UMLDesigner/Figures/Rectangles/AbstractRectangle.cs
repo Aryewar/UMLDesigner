@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Text;
 using UMLDesigner.Figures.SinglePainter;
 
 namespace UMLDesigner.Figures.Rectangles
@@ -11,12 +12,22 @@ namespace UMLDesigner.Figures.Rectangles
         public Pen FigurePen { get; set; }
         public int Width { get; protected set; }
         public int Height { get; protected set; }
-        protected Painter _painter = Painter.GetPainter();
+        public StringBuilder Title { get; set; }
+        public StringBuilder Properties { get; set; }
+        public StringBuilder Fields { get; set; }
+        public StringBuilder Methods { get; set; }
+
+        protected Painter _painter;
 
         public AbstractRectangle()
         {
             Width = 120;
             Height = 30;
+            Title = new StringBuilder();
+            Properties = new StringBuilder();
+            Fields = new StringBuilder();
+            Methods = new StringBuilder();
+            _painter = Painter.GetPainter();
         }
         public void Draw()
         {
