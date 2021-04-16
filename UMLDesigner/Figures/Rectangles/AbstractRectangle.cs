@@ -49,8 +49,10 @@ namespace UMLDesigner.Figures.Rectangles
             }
         }
 
-        public void Move(int deltaX, int deltaY)
+        public void Move(Point currentPoint)
         {
+            int deltaX = currentPoint.X - StartPoint.X;
+            int deltaY = currentPoint.Y - StartPoint.Y;
             StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
         }
     }

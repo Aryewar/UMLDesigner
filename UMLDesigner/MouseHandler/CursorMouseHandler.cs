@@ -43,7 +43,7 @@ namespace UMLDesigner.MouseHandler
         {
             _painter.UpdateTmpBitmap();
             _painter.UpdatePictureBox();
-            curentFigure.Move(e.X - curentFigure.StartPoint.X, e.Y - curentFigure.StartPoint.Y);
+            curentFigure.Move(e.Location);
             curentFigure.Draw();
             GC.Collect();
         }
