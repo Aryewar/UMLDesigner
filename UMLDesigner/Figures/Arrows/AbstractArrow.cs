@@ -8,6 +8,7 @@ namespace UMLDesigner.Figures.Arrows
         public Point StartPoint { get; set; }
         public Point FinishPoint { get; set; }
         public Pen FigurePen { get; set; }
+        public Font textFont { get; set; }
 
         private bool _selectedEnd;
         private bool _selectedStart;

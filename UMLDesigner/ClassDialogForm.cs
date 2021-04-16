@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UMLDesigner.Figures.Rectangles;
+using UMLDesigner.Figures.SinglePainter;
 
 namespace UMLDesigner
 {
     public partial class ClassDialogForm : Form
     {
         private ClassRectangle _currentFigure;
+        private Painter _painter;
         public ClassDialogForm()
         {
             InitializeComponent();
@@ -26,6 +21,7 @@ namespace UMLDesigner
             textBoxFields.Text = _currentFigure.Fields.ToString();
             textBoxProperties.Text = _currentFigure.Properties.ToString();
             textBoxMethods.Text = _currentFigure.Methods.ToString();
+            _painter = Painter.GetPainter();
             this.ShowDialog();
         }
         private void textBoxTitle_TextChanged(object sender, EventArgs e)
@@ -59,7 +55,10 @@ namespace UMLDesigner
             _currentFigure.Fields.Append(textBoxFields.Text);
             _currentFigure.Properties.Append(textBoxProperties.Text);
             _currentFigure.Methods.Append(textBoxMethods.Text);
-
+            _painter.UpdateTmpBitmap();
+            _painter.UpdatePictureBox();
+            _currentFigure.Draw();
+            _painter.SetMainBitmap();
             this.Close();
         }
     }
