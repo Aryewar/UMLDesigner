@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassDialogForm.Designer.cs">
+      <DependentUpon>ClassDialogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Figures\Arrows\AbstractArrow.cs" />
     <Compile Include="Figures\Arrows\AgregationArrow.cs" />
     <Compile Include="Figures\Arrows\AlternateAgragationArrow.cs" />
@@ -80,6 +86,9 @@
     <Compile Include="MouseHandler\IMouseHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ClassDialogForm.resx">
+      <DependentUpon>ClassDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

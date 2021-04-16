@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
 using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.Figures.SinglePainter;
 
 namespace UMLDesigner.MouseHandler
@@ -51,6 +52,21 @@ namespace UMLDesigner.MouseHandler
         {
             _painter.SetMainBitmap();
             curentFigure = null;
+        }
+        public void MouseDoubleClick(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures, ClassDialogForm _classDialogForm)
+        {
+            foreach (IFigure a in figures)
+            {
+                if (a.IsSelected(e.Location))
+                {
+                    curentFigure = a;
+                    break;
+                }
+            }
+            if (curentFigure is ClassRectangle)
+            {
+                _classDialogForm.ShowDialog();
+            }
         }
     }
 }

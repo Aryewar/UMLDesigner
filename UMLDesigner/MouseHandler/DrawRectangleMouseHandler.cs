@@ -33,5 +33,9 @@ namespace UMLDesigner.MouseHandler
             figures.Add(curentFigure);
             curentFigure = null;
         }
+        public void MouseDoubleClick(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures, ClassDialogForm _classDialogForm)
+        {
+
+        }
     }
 }

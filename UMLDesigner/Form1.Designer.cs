@@ -32,17 +32,20 @@ namespace UMLDesigner
             this.colorButton = new System.Windows.Forms.Button();
             this.widthBar = new System.Windows.Forms.TrackBar();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.buttonCursor = new System.Windows.Forms.Button();
-            this.buttonInharitanceArrow = new System.Windows.Forms.Button();
-            this.buttonRealizationArrow = new System.Windows.Forms.Button();
-            this.buttonAssociationArrow = new System.Windows.Forms.Button();
-            this.buttonCompozitionArrow = new System.Windows.Forms.Button();
-            this.buttonAgregationArrow = new System.Windows.Forms.Button();
-            this.buttonAlternateCompositionArrow = new System.Windows.Forms.Button();
-            this.buttonAlternateAgregationArrow = new System.Windows.Forms.Button();
-            this.ButtonClassRectangle = new System.Windows.Forms.Button();
+            this.radioButtonCursor = new System.Windows.Forms.RadioButton();
+            this.radioButtonInheritanceArrow = new System.Windows.Forms.RadioButton();
+            this.radioButtonRealizationArrow = new System.Windows.Forms.RadioButton();
+            this.radioButtonAssociationArrow = new System.Windows.Forms.RadioButton();
+            this.radioButtonCompositionArrow = new System.Windows.Forms.RadioButton();
+            this.radioButtonAlternateCompositionArrow = new System.Windows.Forms.RadioButton();
+            this.radioButtonAgregationArrow = new System.Windows.Forms.RadioButton();
+            this.radioButtonAlternateAgregationArrow = new System.Windows.Forms.RadioButton();
+            this.radioButtonClass = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -79,118 +82,182 @@ namespace UMLDesigner
             this.widthBar.Value = 4;
             this.widthBar.Scroll += new System.EventHandler(this.widthBar_Scroll);
             // 
-            // buttonCursor
+            // radioButtonCursor
             // 
-            this.buttonCursor.Location = new System.Drawing.Point(12, 24);
-            this.buttonCursor.Name = "buttonCursor";
-            this.buttonCursor.Size = new System.Drawing.Size(114, 40);
-            this.buttonCursor.TabIndex = 8;
-            this.buttonCursor.Text = "Cursor";
-            this.buttonCursor.UseVisualStyleBackColor = true;
-            this.buttonCursor.Click += new System.EventHandler(this.buttonCursor_Click);
+            this.radioButtonCursor.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonCursor.Cursor = System.Windows.Forms.Cursors.Default;
+            this.radioButtonCursor.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.radioButtonCursor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonCursor.Location = new System.Drawing.Point(12, 60);
+            this.radioButtonCursor.Name = "radioButtonCursor";
+            this.radioButtonCursor.Size = new System.Drawing.Size(120, 25);
+            this.radioButtonCursor.TabIndex = 17;
+            this.radioButtonCursor.TabStop = true;
+            this.radioButtonCursor.Text = "Cursor";
+            this.radioButtonCursor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonCursor.UseVisualStyleBackColor = true;
+            this.radioButtonCursor.CheckedChanged += new System.EventHandler(this.radioButtonCursor_CheckedChanged);
             // 
-            // buttonInharitanceArrow
+            // radioButtonInheritanceArrow
             // 
-            this.buttonInharitanceArrow.Location = new System.Drawing.Point(12, 88);
-            this.buttonInharitanceArrow.Name = "buttonInharitanceArrow";
-            this.buttonInharitanceArrow.Size = new System.Drawing.Size(114, 23);
-            this.buttonInharitanceArrow.TabIndex = 9;
-            this.buttonInharitanceArrow.Text = "inharitanceArrow";
-            this.buttonInharitanceArrow.UseVisualStyleBackColor = true;
-            this.buttonInharitanceArrow.Click += new System.EventHandler(this.buttonInheritanceArrow_Click);
+            this.radioButtonInheritanceArrow.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonInheritanceArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.radioButtonInheritanceArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonInheritanceArrow.Location = new System.Drawing.Point(12, 89);
+            this.radioButtonInheritanceArrow.Name = "radioButtonInheritanceArrow";
+            this.radioButtonInheritanceArrow.Size = new System.Drawing.Size(120, 25);
+            this.radioButtonInheritanceArrow.TabIndex = 18;
+            this.radioButtonInheritanceArrow.TabStop = true;
+            this.radioButtonInheritanceArrow.Text = "Inheritance Arrow";
+            this.radioButtonInheritanceArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonInheritanceArrow.UseVisualStyleBackColor = true;
+            this.radioButtonInheritanceArrow.CheckedChanged += new System.EventHandler(this.radioButtonInheritanceArrow_CheckedChanged);
             // 
-            // buttonRealizationArrow
+            // radioButtonRealizationArrow
             // 
-            this.buttonRealizationArrow.Location = new System.Drawing.Point(12, 117);
-            this.buttonRealizationArrow.Name = "buttonRealizationArrow";
-            this.buttonRealizationArrow.Size = new System.Drawing.Size(114, 23);
-            this.buttonRealizationArrow.TabIndex = 10;
-            this.buttonRealizationArrow.Text = "realizationArrow";
-            this.buttonRealizationArrow.UseVisualStyleBackColor = true;
-            this.buttonRealizationArrow.Click += new System.EventHandler(this.buttonRealizationArrow_Click);
+            this.radioButtonRealizationArrow.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonRealizationArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.radioButtonRealizationArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonRealizationArrow.Location = new System.Drawing.Point(13, 118);
+            this.radioButtonRealizationArrow.Name = "radioButtonRealizationArrow";
+            this.radioButtonRealizationArrow.Size = new System.Drawing.Size(120, 25);
+            this.radioButtonRealizationArrow.TabIndex = 19;
+            this.radioButtonRealizationArrow.TabStop = true;
+            this.radioButtonRealizationArrow.Text = "Realization Arrow";
+            this.radioButtonRealizationArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonRealizationArrow.UseVisualStyleBackColor = true;
+            this.radioButtonRealizationArrow.CheckedChanged += new System.EventHandler(this.radioButtonRealizationArrow_CheckedChanged);
             // 
-            // buttonAssociationArrow
+            // radioButtonAssociationArrow
             // 
-            this.buttonAssociationArrow.Location = new System.Drawing.Point(12, 146);
-            this.buttonAssociationArrow.Name = "buttonAssociationArrow";
-            this.buttonAssociationArrow.Size = new System.Drawing.Size(114, 23);
-            this.buttonAssociationArrow.TabIndex = 11;
-            this.buttonAssociationArrow.Text = "associationArrow";
-            this.buttonAssociationArrow.UseVisualStyleBackColor = true;
-            this.buttonAssociationArrow.Click += new System.EventHandler(this.buttonAssociationArrow_Click);
+            this.radioButtonAssociationArrow.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonAssociationArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.radioButtonAssociationArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonAssociationArrow.Location = new System.Drawing.Point(13, 147);
+            this.radioButtonAssociationArrow.Name = "radioButtonAssociationArrow";
+            this.radioButtonAssociationArrow.Size = new System.Drawing.Size(120, 25);
+            this.radioButtonAssociationArrow.TabIndex = 20;
+            this.radioButtonAssociationArrow.TabStop = true;
+            this.radioButtonAssociationArrow.Text = "Association Arrow";
+            this.radioButtonAssociationArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAssociationArrow.UseVisualStyleBackColor = true;
+            this.radioButtonAssociationArrow.CheckedChanged += new System.EventHandler(this.radioButtonAssociationArrow_CheckedChanged);
             // 
-            // buttonCompozitionArrow
+            // radioButtonCompositionArrow
             // 
-            this.buttonCompozitionArrow.Location = new System.Drawing.Point(12, 175);
-            this.buttonCompozitionArrow.Name = "buttonCompozitionArrow";
-            this.buttonCompozitionArrow.Size = new System.Drawing.Size(114, 23);
-            this.buttonCompozitionArrow.TabIndex = 12;
-            this.buttonCompozitionArrow.Text = "compozitionArrow";
-            this.buttonCompozitionArrow.UseVisualStyleBackColor = true;
-            this.buttonCompozitionArrow.Click += new System.EventHandler(this.buttonCompozitionArrow_Click);
+            this.radioButtonCompositionArrow.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonCompositionArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.radioButtonCompositionArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonCompositionArrow.Location = new System.Drawing.Point(13, 176);
+            this.radioButtonCompositionArrow.Name = "radioButtonCompositionArrow";
+            this.radioButtonCompositionArrow.Size = new System.Drawing.Size(120, 25);
+            this.radioButtonCompositionArrow.TabIndex = 21;
+            this.radioButtonCompositionArrow.TabStop = true;
+            this.radioButtonCompositionArrow.Text = "Composition Arrow";
+            this.radioButtonCompositionArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonCompositionArrow.UseVisualStyleBackColor = true;
+            this.radioButtonCompositionArrow.CheckedChanged += new System.EventHandler(this.radioButtonCompositionArrow_CheckedChanged);
             // 
-            // buttonAgregationArrow
+            // radioButtonAlternateCompositionArrow
             // 
-            this.buttonAgregationArrow.Location = new System.Drawing.Point(12, 233);
-            this.buttonAgregationArrow.Name = "buttonAgregationArrow";
-            this.buttonAgregationArrow.Size = new System.Drawing.Size(114, 23);
-            this.buttonAgregationArrow.TabIndex = 13;
-            this.buttonAgregationArrow.Text = "agregationArrow";
-            this.buttonAgregationArrow.UseVisualStyleBackColor = true;
-            this.buttonAgregationArrow.Click += new System.EventHandler(this.buttonAgregationArrow_Click);
+            this.radioButtonAlternateCompositionArrow.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonAlternateCompositionArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.radioButtonAlternateCompositionArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonAlternateCompositionArrow.Location = new System.Drawing.Point(13, 205);
+            this.radioButtonAlternateCompositionArrow.Name = "radioButtonAlternateCompositionArrow";
+            this.radioButtonAlternateCompositionArrow.Size = new System.Drawing.Size(120, 25);
+            this.radioButtonAlternateCompositionArrow.TabIndex = 22;
+            this.radioButtonAlternateCompositionArrow.TabStop = true;
+            this.radioButtonAlternateCompositionArrow.Text = "Alternate Composition";
+            this.radioButtonAlternateCompositionArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAlternateCompositionArrow.UseVisualStyleBackColor = true;
+            this.radioButtonAlternateCompositionArrow.CheckedChanged += new System.EventHandler(this.radioButtonAlternateCompositionArrow_CheckedChanged);
             // 
-            // buttonAlternateCompositionArrow
+            // radioButtonAgregationArrow
             // 
-            this.buttonAlternateCompositionArrow.Location = new System.Drawing.Point(12, 204);
-            this.buttonAlternateCompositionArrow.Name = "buttonAlternateCompositionArrow";
-            this.buttonAlternateCompositionArrow.Size = new System.Drawing.Size(114, 23);
-            this.buttonAlternateCompositionArrow.TabIndex = 14;
-            this.buttonAlternateCompositionArrow.Text = "alternateCompositionArrow";
-            this.buttonAlternateCompositionArrow.UseVisualStyleBackColor = true;
-            this.buttonAlternateCompositionArrow.Click += new System.EventHandler(this.buttonAlternateCompositionArrow_Click);
+            this.radioButtonAgregationArrow.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonAgregationArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.radioButtonAgregationArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonAgregationArrow.Location = new System.Drawing.Point(14, 234);
+            this.radioButtonAgregationArrow.Name = "radioButtonAgregationArrow";
+            this.radioButtonAgregationArrow.Size = new System.Drawing.Size(120, 25);
+            this.radioButtonAgregationArrow.TabIndex = 23;
+            this.radioButtonAgregationArrow.TabStop = true;
+            this.radioButtonAgregationArrow.Text = "Agregation Arrow";
+            this.radioButtonAgregationArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAgregationArrow.UseVisualStyleBackColor = true;
+            this.radioButtonAgregationArrow.CheckedChanged += new System.EventHandler(this.radioButtonAgregationArrow_CheckedChanged);
             // 
-            // buttonAlternateAgregationArrow
+            // radioButtonAlternateAgregationArrow
             // 
-            this.buttonAlternateAgregationArrow.Location = new System.Drawing.Point(12, 262);
-            this.buttonAlternateAgregationArrow.Name = "buttonAlternateAgregationArrow";
-            this.buttonAlternateAgregationArrow.Size = new System.Drawing.Size(114, 23);
-            this.buttonAlternateAgregationArrow.TabIndex = 15;
-            this.buttonAlternateAgregationArrow.Text = "alternateAgregation";
-            this.buttonAlternateAgregationArrow.UseVisualStyleBackColor = true;
-            this.buttonAlternateAgregationArrow.Click += new System.EventHandler(this.buttonAlternateAgregationArrow_Click);
+            this.radioButtonAlternateAgregationArrow.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonAlternateAgregationArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.radioButtonAlternateAgregationArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonAlternateAgregationArrow.Location = new System.Drawing.Point(14, 263);
+            this.radioButtonAlternateAgregationArrow.Name = "radioButtonAlternateAgregationArrow";
+            this.radioButtonAlternateAgregationArrow.Size = new System.Drawing.Size(120, 25);
+            this.radioButtonAlternateAgregationArrow.TabIndex = 24;
+            this.radioButtonAlternateAgregationArrow.TabStop = true;
+            this.radioButtonAlternateAgregationArrow.Text = "Alternate Agregation Arrow";
+            this.radioButtonAlternateAgregationArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonAlternateAgregationArrow.UseVisualStyleBackColor = true;
+            this.radioButtonAlternateAgregationArrow.CheckedChanged += new System.EventHandler(this.radioButtonAlternateAgregationArrow_CheckedChanged);
             // 
-            // ButtonClassRectangle
+            // radioButtonClass
             // 
-            this.ButtonClassRectangle.Location = new System.Drawing.Point(12, 291);
-            this.ButtonClassRectangle.Name = "ButtonClassRectangle";
-            this.ButtonClassRectangle.Size = new System.Drawing.Size(114, 23);
-            this.ButtonClassRectangle.TabIndex = 16;
-            this.ButtonClassRectangle.Text = "Class";
-            this.ButtonClassRectangle.UseVisualStyleBackColor = true;
-            this.ButtonClassRectangle.Click += new System.EventHandler(this.ButtonClassRectangle_Click);
+            this.radioButtonClass.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonClass.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.radioButtonClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonClass.Location = new System.Drawing.Point(14, 292);
+            this.radioButtonClass.Name = "radioButtonClass";
+            this.radioButtonClass.Size = new System.Drawing.Size(120, 25);
+            this.radioButtonClass.TabIndex = 25;
+            this.radioButtonClass.TabStop = true;
+            this.radioButtonClass.Text = "Class";
+            this.radioButtonClass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonClass.UseVisualStyleBackColor = true;
+            this.radioButtonClass.CheckedChanged += new System.EventHandler(this.radioButtonClass_CheckedChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(290, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1159, 580);
-            this.Controls.Add(this.ButtonClassRectangle);
-            this.Controls.Add(this.buttonAlternateAgregationArrow);
-            this.Controls.Add(this.buttonAlternateCompositionArrow);
-            this.Controls.Add(this.buttonAgregationArrow);
-            this.Controls.Add(this.buttonCompozitionArrow);
-            this.Controls.Add(this.buttonAssociationArrow);
-            this.Controls.Add(this.buttonRealizationArrow);
-            this.Controls.Add(this.buttonInharitanceArrow);
-            this.Controls.Add(this.buttonCursor);
+            this.ClientSize = new System.Drawing.Size(1175, 549);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.radioButtonClass);
+            this.Controls.Add(this.radioButtonAlternateAgregationArrow);
+            this.Controls.Add(this.radioButtonAgregationArrow);
+            this.Controls.Add(this.radioButtonAlternateCompositionArrow);
+            this.Controls.Add(this.radioButtonCompositionArrow);
+            this.Controls.Add(this.radioButtonAssociationArrow);
+            this.Controls.Add(this.radioButtonRealizationArrow);
+            this.Controls.Add(this.radioButtonInheritanceArrow);
+            this.Controls.Add(this.radioButtonCursor);
             this.Controls.Add(this.widthBar);
             this.Controls.Add(this.colorButton);
             this.Controls.Add(this.pictureBox);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.CustomMouseDoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,15 +269,17 @@ namespace UMLDesigner
         private System.Windows.Forms.Button colorButton;
         private System.Windows.Forms.TrackBar widthBar;
         private System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.Button buttonCursor;
-        private System.Windows.Forms.Button buttonInharitanceArrow;
-        private System.Windows.Forms.Button buttonRealizationArrow;
-        private System.Windows.Forms.Button buttonAssociationArrow;
-        private System.Windows.Forms.Button buttonCompozitionArrow;
-        private System.Windows.Forms.Button buttonAgregationArrow;
-        private System.Windows.Forms.Button buttonAlternateCompositionArrow;
-        private System.Windows.Forms.Button buttonAlternateAgregationArrow;
-        private System.Windows.Forms.Button ButtonClassRectangle;
+        private System.Windows.Forms.RadioButton radioButtonCursor;
+        private System.Windows.Forms.RadioButton radioButtonInheritanceArrow;
+        private System.Windows.Forms.RadioButton radioButtonRealizationArrow;
+        private System.Windows.Forms.RadioButton radioButtonAssociationArrow;
+        private System.Windows.Forms.RadioButton radioButtonCompositionArrow;
+        private System.Windows.Forms.RadioButton radioButtonAlternateCompositionArrow;
+        private System.Windows.Forms.RadioButton radioButtonAgregationArrow;
+        private System.Windows.Forms.RadioButton radioButtonAlternateAgregationArrow;
+        private System.Windows.Forms.RadioButton radioButtonClass;
+        private System.Windows.Forms.Button button1;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
 
