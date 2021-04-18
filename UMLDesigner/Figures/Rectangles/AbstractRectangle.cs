@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using UMLDesigner.Figures.SinglePainter;
+using UMLDesigner.Figures.Arrows;
 
 namespace UMLDesigner.Figures.Rectangles
 {
@@ -16,6 +18,8 @@ namespace UMLDesigner.Figures.Rectangles
         public StringBuilder Properties { get; set; }
         public StringBuilder Fields { get; set; }
         public StringBuilder Methods { get; set; }
+        public List<Port> Ports { get;protected set; }
+        public List<AbstractArrow> ArrowList { get; set; }
         public Font textFont { get; set; }
         public Point PrevPosition;
 
@@ -24,6 +28,7 @@ namespace UMLDesigner.Figures.Rectangles
         private int _startPropertiesPointY;
         private int _startFieldsPointY;
         private int _startMethodsPointY;
+        private int _countOfPorts;
 
 
         public AbstractRectangle()
@@ -37,10 +42,19 @@ namespace UMLDesigner.Figures.Rectangles
             _painter = Painter.GetPainter();
             _textSize = new SizeF[4];
             textFont = new Font("Ariel", 14);
+            ArrowList = new List<AbstractArrow>();
+            _countOfPorts = 20;
+            Ports = new List<Port>();
+
+            for(int i = 0; i < _countOfPorts; ++i)
+            {
+                Ports.Add(new Port());
+            }
         }
         public void Draw()
         {
             MeasureText();
+            SetPorts();
 
             _painter.PainterGraphics.DrawString(Title.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, StartPoint.Y);
             _painter.PainterGraphics.DrawString(Properties.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, _startPropertiesPointY);
@@ -51,6 +65,12 @@ namespace UMLDesigner.Figures.Rectangles
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startPropertiesPointY, StartPoint.X + Width, _startPropertiesPointY);
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startFieldsPointY, StartPoint.X + Width, _startFieldsPointY);
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startMethodsPointY, StartPoint.X + Width, _startMethodsPointY);
+
+            foreach(Port a in Ports)
+            {
+                _painter.PainterGraphics.DrawEllipse(FigurePen, a.ConnectingPoint.X, a.ConnectingPoint.Y, FigurePen.Width, FigurePen.Width);
+                a.PointWidth = (int)FigurePen.Width;
+            }
         }
 
         public void MeasureText()
@@ -99,6 +119,33 @@ namespace UMLDesigner.Figures.Rectangles
             int deltaY = currentPoint.Y - PrevPosition.Y;
             StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
             PrevPosition = currentPoint;
+
+            foreach(AbstractArrow a in ArrowList)
+            {
+                a.Draw();
+            }
+        }
+
+        private void SetPorts()
+        {
+            int temp = StartPoint.X;
+
+            for(int i = 0; i < 5; ++i)
+            {
+                temp += Width / 6;
+                Ports[i].ConnectingPoint = new Point(temp, StartPoint.Y - (int)FigurePen.Width);
+                Ports[i + 10].ConnectingPoint = new Point(temp, StartPoint.Y + Height);
+
+            }
+
+            temp = StartPoint.Y;
+            for(int i = 5; i < 10; ++i)
+            {
+                temp += Height / 6;
+                Ports[i].ConnectingPoint = new Point(StartPoint.X + Width, temp);
+                Ports[i + 10].ConnectingPoint = new Point(StartPoint.X - (int)FigurePen.Width, temp);
+            }
+
         }
     }
 }
