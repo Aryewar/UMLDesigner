@@ -51,7 +51,15 @@ namespace UMLDesigner
             _currentFigure.Properties.Clear();
             _currentFigure.Methods.Clear();
 
-            _currentFigure.Title.Append(textBoxTitle.Text);
+            if(!textBoxTitle.Text.Equals(string.Empty))
+            {
+                _currentFigure.Title.Append(textBoxTitle.Text);
+            }
+            else
+            {
+                _currentFigure.Title.Append("Title");
+            }
+
             _currentFigure.Fields.Append(textBoxFields.Text);
             _currentFigure.Properties.Append(textBoxProperties.Text);
             _currentFigure.Methods.Append(textBoxMethods.Text);
