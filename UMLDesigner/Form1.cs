@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
 using UMLDesigner.Figures.Fabrics;
@@ -43,6 +44,12 @@ namespace UMLDesigner
             colorDialog1.ShowDialog();
             buttonBackColor.BackColor = colorDialog1.Color;
             _painter.PainterBrush = new SolidBrush(colorDialog1.Color);
+        }
+        private void buttonExport_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.ShowDialog();
+            string path = saveFileDialog1.FileName;
+            _painter.ExportImage(path);
         }
 
         private void widthBar_Scroll(object sender, EventArgs e)
@@ -127,6 +134,6 @@ namespace UMLDesigner
             _mouseHandler = new CursorMouseHandler();
         }
 
-
+        
     }
 }

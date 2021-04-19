@@ -1,4 +1,7 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 
 namespace UMLDesigner.Figures.SinglePainter
@@ -59,6 +62,36 @@ namespace UMLDesigner.Figures.SinglePainter
         public void Clear()
         {
             _mainBitmap = new Bitmap(_pictureBox.Width, _pictureBox.Height);
+        }
+
+        public void ExportImage(string path)
+        {
+            using (var bitmap = new Bitmap(_pictureBox.Width, _pictureBox.Height))
+            {
+                _pictureBox.DrawToBitmap(bitmap, _pictureBox.ClientRectangle);
+                ImageFormat imageFormat = null;
+
+                var extension = Path.GetExtension(path);
+                switch (extension)
+                {
+                    case ".bmp":
+                        imageFormat = ImageFormat.Bmp;
+                        break;
+                    case ".png":
+                        imageFormat = ImageFormat.Png;
+                        break;
+                    case ".jpg":
+                        imageFormat = ImageFormat.Jpeg;
+                        break;
+                    case ".gif":
+                        imageFormat = ImageFormat.Gif;
+                        break;
+                    default:
+                        throw new NotSupportedException("File extension is not supported");
+                }
+
+                bitmap.Save(path, imageFormat);
+            }
         }
     }
 }

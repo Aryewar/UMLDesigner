@@ -44,6 +44,8 @@ namespace UMLDesigner
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.buttonBackColor = new System.Windows.Forms.Button();
+            this.buttonExport = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -234,11 +236,26 @@ namespace UMLDesigner
             this.buttonBackColor.UseVisualStyleBackColor = true;
             this.buttonBackColor.Click += new System.EventHandler(this.buttonBackColor_Click);
             // 
+            // buttonExport
+            // 
+            this.buttonExport.Location = new System.Drawing.Point(402, 24);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(126, 23);
+            this.buttonExport.TabIndex = 27;
+            this.buttonExport.Text = "Export Image";
+            this.buttonExport.UseVisualStyleBackColor = true;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.gif|*.gif";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 549);
+            this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.buttonBackColor);
             this.Controls.Add(this.radioButtonClass);
             this.Controls.Add(this.radioButtonAlternateAgregationArrow);
@@ -281,6 +298,8 @@ namespace UMLDesigner
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button buttonBackColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button buttonExport;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
