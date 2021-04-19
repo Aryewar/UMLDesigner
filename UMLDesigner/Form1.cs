@@ -38,6 +38,12 @@ namespace UMLDesigner
             _painter.PainterPen.Color = colorDialog.Color;
 
         }
+        private void buttonBackColor_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            buttonBackColor.BackColor = colorDialog1.Color;
+            _painter.PainterBrush = new SolidBrush(colorDialog1.Color);
+        }
 
         private void widthBar_Scroll(object sender, EventArgs e)
         {
@@ -64,10 +70,7 @@ namespace UMLDesigner
 
         private void CustomMouseDoubleClick(object sender, MouseEventArgs e)
         {
-
             _mouseHandler.MouseDoubleClick(e, ref _curentFigure, _figures, _classDialogForm);
-
-
         }
 
         private void radioButtonInheritanceArrow_CheckedChanged(object sender, EventArgs e)
@@ -124,11 +127,6 @@ namespace UMLDesigner
             _mouseHandler = new CursorMouseHandler();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
 
-       
     }
 }

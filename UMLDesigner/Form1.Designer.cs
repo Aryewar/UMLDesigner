@@ -42,6 +42,8 @@ namespace UMLDesigner
             this.radioButtonAlternateAgregationArrow = new System.Windows.Forms.RadioButton();
             this.radioButtonClass = new System.Windows.Forms.RadioButton();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.buttonBackColor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -63,7 +65,7 @@ namespace UMLDesigner
             // 
             // colorButton
             // 
-            this.colorButton.Location = new System.Drawing.Point(33, 427);
+            this.colorButton.Location = new System.Drawing.Point(14, 424);
             this.colorButton.Name = "colorButton";
             this.colorButton.Size = new System.Drawing.Size(45, 40);
             this.colorButton.TabIndex = 6;
@@ -223,11 +225,21 @@ namespace UMLDesigner
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // buttonBackColor
+            // 
+            this.buttonBackColor.Location = new System.Drawing.Point(75, 424);
+            this.buttonBackColor.Name = "buttonBackColor";
+            this.buttonBackColor.Size = new System.Drawing.Size(46, 40);
+            this.buttonBackColor.TabIndex = 26;
+            this.buttonBackColor.UseVisualStyleBackColor = true;
+            this.buttonBackColor.Click += new System.EventHandler(this.buttonBackColor_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 549);
+            this.Controls.Add(this.buttonBackColor);
             this.Controls.Add(this.radioButtonClass);
             this.Controls.Add(this.radioButtonAlternateAgregationArrow);
             this.Controls.Add(this.radioButtonAgregationArrow);
@@ -267,6 +279,8 @@ namespace UMLDesigner
         private System.Windows.Forms.RadioButton radioButtonAlternateAgregationArrow;
         private System.Windows.Forms.RadioButton radioButtonClass;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button buttonBackColor;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
