@@ -14,7 +14,6 @@ namespace UMLDesigner.MouseHandler
         private Painter _painter = Painter.GetPainter();
         public void MouseDown(MouseEventArgs e,ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures)
         {
-            AbstractRectangle cur = new ClassRectangle();
             foreach (IFigure a in figures)
             {
                 if (a.IsSelected(e.Location))
@@ -23,27 +22,19 @@ namespace UMLDesigner.MouseHandler
                     break;
                 }
             }
-            if (curentFigure is ClassRectangle)
-            {
-                cur = (ClassRectangle)curentFigure;
-                cur.PrevPosition = e.Location;
-            }
             if (curentFigure != null)
             {
+                curentFigure.PrevPosition = e.Location;
                 _painter.Clear();
-                _painter.UpdateTmpBitmap();
-                _painter.UpdatePictureBox();
                 foreach (IFigure a in figures)
                 {
-                    if (curentFigure != a)
+                    if (curentFigure != a && !curentFigure.Links.Contains(a))
                     {
-                        if (a is AbstractArrow && cur.ArrowList.Contains((AbstractArrow)a))
-                        {
-                            continue;
-                        }
                         a.Draw();
                     }
+
                 }
+
                 _painter.SetMainBitmap();
                 MouseMove(e, curentFigure);
             }
@@ -51,7 +42,6 @@ namespace UMLDesigner.MouseHandler
 
         public void MouseMove(MouseEventArgs e, IFigure curentFigure)
         {
-            _painter.UpdateTmpBitmap();
             _painter.UpdatePictureBox();
             curentFigure.Move(e.Location);
             curentFigure.Draw();

@@ -38,11 +38,6 @@ namespace UMLDesigner.Figures.SinglePainter
             return _painter;
         }
 
-        public void UpdateTmpBitmap()
-        {
-           _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-        }
-
         public void SetMainBitmap()
         {
             _mainBitmap = _tmpBitmap;
@@ -50,6 +45,7 @@ namespace UMLDesigner.Figures.SinglePainter
 
         public void UpdatePictureBox()
         {
+           _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _pictureBox.Image = _tmpBitmap;
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
         }
@@ -57,6 +53,7 @@ namespace UMLDesigner.Figures.SinglePainter
         public void Clear()
         {
             _mainBitmap = new Bitmap(_pictureBox.Width, _pictureBox.Height);
+            UpdatePictureBox();
         }
     }
 }

@@ -63,7 +63,6 @@ namespace UMLDesigner
             _currentFigure.Fields.Append(textBoxFields.Text);
             _currentFigure.Properties.Append(textBoxProperties.Text);
             _currentFigure.Methods.Append(textBoxMethods.Text);
-            _painter.UpdateTmpBitmap();
             _painter.UpdatePictureBox();
             _currentFigure.Draw();
             _painter.SetMainBitmap();

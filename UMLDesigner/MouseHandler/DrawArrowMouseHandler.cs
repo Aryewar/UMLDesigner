@@ -12,6 +12,7 @@ namespace UMLDesigner.MouseHandler
     public class DrawArrowMouseHandler : IMouseHandler
     {
         private Painter _painter = Painter.GetPainter();
+
         public void MouseDown(MouseEventArgs e, ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures)
         {
             curentFigure = fabric.GetFigure();
@@ -28,11 +29,11 @@ namespace UMLDesigner.MouseHandler
                         if(b.SelectedPort(e.Location))
                         {
                             b.isTaken = true;
+                            b.ArrowType = curentFigure.GetType();
                             curentArrow.StartPort = b;
                             curentArrow.StartPoint = curentArrow.StartPort.ConnectingPoint;
-                            b.ArrowType = curentFigure.GetType();
                             isSelected = true;
-                            temp.ArrowList.Add(curentArrow);
+                            curentArrow.Links.Add(a);
                             break;
                         }
                     }
@@ -48,7 +49,6 @@ namespace UMLDesigner.MouseHandler
         public void MouseMove(MouseEventArgs e, IFigure curentFigure)
         {
             AbstractArrow curentArrow = (AbstractArrow)curentFigure;
-            _painter.UpdateTmpBitmap();
             curentArrow.FinishPort.ConnectingPoint = e.Location;
             _painter.UpdatePictureBox();
             curentFigure.Draw();
@@ -74,7 +74,7 @@ namespace UMLDesigner.MouseHandler
                             b.isTaken = true;
                             b.ArrowType = curentFigure.GetType();
                             isSelected = true;
-                            temp.ArrowList.Add(curentArrow);
+                            curentFigure.Links.Add(a);
                             break;
                         }
                     }
@@ -85,11 +85,14 @@ namespace UMLDesigner.MouseHandler
             {
                 _painter.SetMainBitmap();
                 figures.Add(curentFigure);
+                foreach(IFigure a in curentFigure.Links)
+                {
+                    a.Links.Add(curentFigure);
+                }
                 curentFigure = null;
             }
             else
             {
-                _painter.UpdateTmpBitmap();
                 _painter.UpdatePictureBox();
                 curentFigure = null;
             }

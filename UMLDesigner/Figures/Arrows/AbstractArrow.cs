@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.Figures.SinglePainter;
 
@@ -8,10 +9,12 @@ namespace UMLDesigner.Figures.Arrows
     {
         public Point StartPoint { get; set; }
         public Point FinishPoint { get; set; }
+        public Point PrevPosition { get; set; }
         public Pen FigurePen { get; set; }
         public Font textFont { get; set; }
         public Port StartPort { get; set; }
         public Port FinishPort { get; set; }
+        public List<IFigure> Links { get; set; }
 
         private bool _selectedEnd;
         private bool _selectedStart;
@@ -25,6 +28,7 @@ namespace UMLDesigner.Figures.Arrows
             _painter = Painter.GetPainter();
             StartPort = new Port();
             FinishPort = new Port();
+            Links = new List<IFigure>();
         }
 
         public void Draw()

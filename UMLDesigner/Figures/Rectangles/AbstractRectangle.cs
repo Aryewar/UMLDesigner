@@ -11,6 +11,7 @@ namespace UMLDesigner.Figures.Rectangles
     {
         public Point StartPoint { get; set; }
         public Point FinishPoint { get; set; }
+        public Point PrevPosition { get; set; }
         public Pen FigurePen { get; set; }
         public int Width { get; protected set; }
         public int Height { get; protected set; }
@@ -19,9 +20,8 @@ namespace UMLDesigner.Figures.Rectangles
         public StringBuilder Fields { get; set; }
         public StringBuilder Methods { get; set; }
         public List<Port> Ports { get;protected set; }
-        public List<AbstractArrow> ArrowList { get; set; }
+        public List<IFigure> Links { get; set; }
         public Font textFont { get; set; }
-        public Point PrevPosition;
 
         protected Painter _painter;
         private SizeF[] _textSize;
@@ -42,9 +42,9 @@ namespace UMLDesigner.Figures.Rectangles
             _painter = Painter.GetPainter();
             _textSize = new SizeF[4];
             textFont = new Font("Ariel", 14);
-            ArrowList = new List<AbstractArrow>();
             _countOfPorts = 20;
             Ports = new List<Port>();
+            Links = new List<IFigure>();
 
             for(int i = 0; i < _countOfPorts; ++i)
             {
@@ -120,7 +120,7 @@ namespace UMLDesigner.Figures.Rectangles
             StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
             PrevPosition = currentPoint;
 
-            foreach(AbstractArrow a in ArrowList)
+            foreach(IFigure a in Links)
             {
                 a.Draw();
             }

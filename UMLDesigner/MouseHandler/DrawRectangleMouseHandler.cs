@@ -26,7 +26,6 @@ namespace UMLDesigner.MouseHandler
         public void MouseUp(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures)
         {
             curentFigure.StartPoint = e.Location;
-            _painter.UpdateTmpBitmap();
             _painter.UpdatePictureBox();
             curentFigure.Draw();
             _painter.SetMainBitmap();

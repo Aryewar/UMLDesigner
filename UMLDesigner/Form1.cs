@@ -129,6 +129,10 @@ namespace UMLDesigner
             
         }
 
-       
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            _figures = new List<IFigure>();
+            _painter.Clear();
+        }
     }
 }
