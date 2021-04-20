@@ -11,12 +11,14 @@ namespace UMLDesigner
 {
     public partial class Form1 : Form
     {
+        private List<IFigure> _removedFigures;
         private IFigure _curentFigure;
         private List<IFigure> _figures;
         private IFigureFabric _fabric;
         private IMouseHandler _mouseHandler;
         private Painter _painter;
         private ClassDialogForm _classDialogForm;
+        private bool isRemoving = false;
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace UMLDesigner
             _painter.SetPictureBox(pictureBox);
             _figures = new List<IFigure>();
             _classDialogForm = new ClassDialogForm();
+            _removedFigures = new List<IFigure>();
         }
 
         private void colorButton_Click(object sender, EventArgs e)
@@ -45,6 +48,11 @@ namespace UMLDesigner
             _painter.PainterBrush = new SolidBrush(colorDialog1.Color);
         }
 
+        private void ButtonUndo_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void widthBar_Scroll(object sender, EventArgs e)
         {
             _painter.PainterPen.Width = widthBar.Value;
@@ -52,7 +60,7 @@ namespace UMLDesigner
 
         private void CustomMouseDown(object sender, MouseEventArgs e)
         {
-            _mouseHandler.MouseDown(e,ref _curentFigure, _fabric, _figures);
+            _mouseHandler.MouseDown(e, ref _curentFigure, _fabric, _figures, _removedFigures);
         }
 
         private void CustomMouseMove(object sender, MouseEventArgs e)
@@ -127,6 +135,9 @@ namespace UMLDesigner
             _mouseHandler = new CursorMouseHandler();
         }
 
-
+        private void RemoveRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            _mouseHandler = new RemoveMouseHndler();
+        }
     }
 }

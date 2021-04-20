@@ -44,6 +44,8 @@ namespace UMLDesigner
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.buttonBackColor = new System.Windows.Forms.Button();
+            this.ButtonUndo = new System.Windows.Forms.Button();
+            this.RemoveRadioButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -234,11 +236,36 @@ namespace UMLDesigner
             this.buttonBackColor.UseVisualStyleBackColor = true;
             this.buttonBackColor.Click += new System.EventHandler(this.buttonBackColor_Click);
             // 
+            // ButtonUndo
+            // 
+            this.ButtonUndo.Location = new System.Drawing.Point(14, 378);
+            this.ButtonUndo.Name = "ButtonUndo";
+            this.ButtonUndo.Size = new System.Drawing.Size(107, 40);
+            this.ButtonUndo.TabIndex = 28;
+            this.ButtonUndo.Text = "Undo";
+            this.ButtonUndo.UseVisualStyleBackColor = true;
+            this.ButtonUndo.Click += new System.EventHandler(this.ButtonUndo_Click);
+            // 
+            // RemoveRadioButton
+            // 
+            this.RemoveRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
+            this.RemoveRadioButton.Location = new System.Drawing.Point(14, 470);
+            this.RemoveRadioButton.Name = "RemoveRadioButton";
+            this.RemoveRadioButton.Size = new System.Drawing.Size(120, 25);
+            this.RemoveRadioButton.TabIndex = 29;
+            this.RemoveRadioButton.TabStop = true;
+            this.RemoveRadioButton.Text = "Remove";
+            this.RemoveRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RemoveRadioButton.UseVisualStyleBackColor = true;
+            this.RemoveRadioButton.CheckedChanged += new System.EventHandler(this.RemoveRadioButton_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 549);
+            this.Controls.Add(this.RemoveRadioButton);
+            this.Controls.Add(this.ButtonUndo);
             this.Controls.Add(this.buttonBackColor);
             this.Controls.Add(this.radioButtonClass);
             this.Controls.Add(this.radioButtonAlternateAgregationArrow);
@@ -281,6 +308,8 @@ namespace UMLDesigner
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button buttonBackColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button ButtonUndo;
+        private System.Windows.Forms.RadioButton RemoveRadioButton;
     }
 }
 

@@ -84,6 +84,7 @@
     <Compile Include="MouseHandler\DrawArrowMouseHandler.cs" />
     <Compile Include="MouseHandler\DrawRectangleMouseHandler.cs" />
     <Compile Include="MouseHandler\IMouseHandler.cs" />
+    <Compile Include="MouseHandler\RemoveMouseHndler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ClassDialogForm.resx">

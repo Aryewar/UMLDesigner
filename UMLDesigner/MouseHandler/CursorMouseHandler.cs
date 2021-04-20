@@ -11,7 +11,7 @@ namespace UMLDesigner.MouseHandler
     public class CursorMouseHandler : IMouseHandler
     {
         private Painter _painter = Painter.GetPainter();
-        public void MouseDown(MouseEventArgs e,ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures)
+        public void MouseDown(MouseEventArgs e,ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures, List<IFigure> _removedFigures)
         {
             
             foreach (IFigure a in figures)
