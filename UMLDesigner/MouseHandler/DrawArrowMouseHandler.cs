@@ -16,7 +16,6 @@ namespace UMLDesigner.MouseHandler
         public void MouseDown(MouseEventArgs e, ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures)
         {
             curentFigure = fabric.GetFigure();
-            bool isSelected = false;
             AbstractArrow curentArrow = (AbstractArrow)curentFigure;
 
             foreach (IFigure a in figures)
@@ -26,13 +25,12 @@ namespace UMLDesigner.MouseHandler
                     ClassRectangle temp = (ClassRectangle)a;
                     foreach (Port b in temp.Ports)
                     {
-                        if(b.SelectedPort(e.Location))
+                        if(b.SelectedPort(e.Location) 
+                            && (b.ArrowType is null || b.ArrowType == curentFigure.GetType())
+                           )
                         {
-                            b.isTaken = true;
-                            b.ArrowType = curentFigure.GetType();
                             curentArrow.StartPort = b;
-                            curentArrow.StartPoint = curentArrow.StartPort.ConnectingPoint;
-                            isSelected = true;
+                            curentFigure.StartPoint = b.ConnectingPoint;
                             curentArrow.Links.Add(a);
                             break;
                         }
@@ -40,7 +38,7 @@ namespace UMLDesigner.MouseHandler
                 }
             }
 
-            if(!isSelected)
+            if(curentArrow.StartPort is null)
             {
                 curentFigure = null;
             }
@@ -48,8 +46,7 @@ namespace UMLDesigner.MouseHandler
 
         public void MouseMove(MouseEventArgs e, IFigure curentFigure)
         {
-            AbstractArrow curentArrow = (AbstractArrow)curentFigure;
-            curentArrow.FinishPort.ConnectingPoint = e.Location;
+            curentFigure.FinishPoint = e.Location;
             _painter.UpdatePictureBox();
             curentFigure.Draw();
             GC.Collect();
@@ -57,7 +54,6 @@ namespace UMLDesigner.MouseHandler
 
         public void MouseUp(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures)
         {
-            bool isSelected = false;
             AbstractArrow curentArrow = (AbstractArrow)curentFigure;
 
             foreach (IFigure a in figures)
@@ -65,15 +61,15 @@ namespace UMLDesigner.MouseHandler
                 if (a is ClassRectangle)
                 {
                     ClassRectangle temp = (ClassRectangle)a;
+
                     foreach (Port b in temp.Ports)
                     {
-                        if (b.SelectedPort(e.Location))
+                        if (b.SelectedPort(e.Location)
+                            && (b.ArrowType is null || b.ArrowType == curentFigure.GetType())
+                           )
                         {
                             curentArrow.FinishPort = b;
-                            curentArrow.FinishPoint = curentArrow.FinishPort.ConnectingPoint;
-                            b.isTaken = true;
-                            b.ArrowType = curentFigure.GetType();
-                            isSelected = true;
+                            curentFigure.FinishPoint = b.ConnectingPoint;
                             curentFigure.Links.Add(a);
                             break;
                         }
@@ -81,7 +77,7 @@ namespace UMLDesigner.MouseHandler
                 }
             }
 
-            if(isSelected)
+            if(curentArrow.FinishPort != null)
             {
                 _painter.SetMainBitmap();
                 figures.Add(curentFigure);
@@ -89,6 +85,8 @@ namespace UMLDesigner.MouseHandler
                 {
                     a.Links.Add(curentFigure);
                 }
+                curentArrow.StartPort.ArrowType = curentArrow.GetType();
+                curentArrow.FinishPort.ArrowType = curentArrow.GetType();
                 curentFigure = null;
             }
             else

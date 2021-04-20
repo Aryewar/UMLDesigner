@@ -7,12 +7,10 @@ namespace UMLDesigner.Figures.Rectangles
     {
         public Point ConnectingPoint { get; set; }
         public Type ArrowType { get; set; }
-        public bool isTaken { get; set; }
         public int PointWidth { get; set; }
 
         public Port()
         {
-            isTaken = false;
             ArrowType = null;
             PointWidth = 0;
         }
