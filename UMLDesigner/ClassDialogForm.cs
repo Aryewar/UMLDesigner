@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.Figures.SinglePainter;
@@ -68,6 +69,25 @@ namespace UMLDesigner
             _currentFigure.Draw();
             _painter.SetMainBitmap();
             this.Close();
+        }
+
+        private void buttonTextColor_Click(object sender, EventArgs e)
+        {
+            colorDialogText.ShowDialog();
+            buttonTextColor.BackColor = colorDialogText.Color;
+            _currentFigure.FigurePen.Color = colorDialogText.Color;
+        }
+
+        private void buttonBackColor_Click(object sender, EventArgs e)
+        {
+            colorDialogBackground.ShowDialog();
+            buttonBackColor.BackColor = colorDialogBackground.Color;
+            _currentFigure.FigureBackColor = new SolidBrush(colorDialogBackground.Color);
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            _currentFigure.FigurePen.Width = trackBar1.Value;
         }
     }
 }
