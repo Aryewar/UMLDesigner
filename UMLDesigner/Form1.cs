@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
 using UMLDesigner.Figures.Fabrics;
@@ -124,15 +123,12 @@ namespace UMLDesigner
             _mouseHandler = new CursorMouseHandler();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttonClear_Click(object sender, EventArgs e)
         {
             _figures = new List<IFigure>();
             _painter.Clear();
         }
+
+
     }
 }

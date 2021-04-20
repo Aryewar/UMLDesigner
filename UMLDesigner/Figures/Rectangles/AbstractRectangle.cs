@@ -54,8 +54,6 @@ namespace UMLDesigner.Figures.Rectangles
         public void Draw()
         {
             MeasureText();
-            SetPorts();
-
             _painter.PainterGraphics.DrawString(Title.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, StartPoint.Y);
             _painter.PainterGraphics.DrawString(Properties.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, _startPropertiesPointY);
             _painter.PainterGraphics.DrawString(Fields.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, _startFieldsPointY);
@@ -65,8 +63,14 @@ namespace UMLDesigner.Figures.Rectangles
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startPropertiesPointY, StartPoint.X + Width, _startPropertiesPointY);
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startFieldsPointY, StartPoint.X + Width, _startFieldsPointY);
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startMethodsPointY, StartPoint.X + Width, _startMethodsPointY);
+            DrawPorts();
+        }
 
-            foreach(Port a in Ports)
+        public void DrawPorts()
+        {
+            SetPorts();
+
+            foreach (Port a in Ports)
             {
                 _painter.PainterGraphics.DrawEllipse(FigurePen, a.ConnectingPoint.X, a.ConnectingPoint.Y, FigurePen.Width, FigurePen.Width);
                 a.PointWidth = (int)FigurePen.Width;
