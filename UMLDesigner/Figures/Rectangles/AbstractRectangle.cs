@@ -10,7 +10,7 @@ namespace UMLDesigner.Figures.Rectangles
         public Point StartPoint { get; set; }
         public Point FinishPoint { get; set; }
         public Pen FigurePen { get; set; }
-        public Brush FigureBackColor { get; set; }
+        public SolidBrush FigureBackColor { get; set; }
         public int Width { get; protected set; }
         public int Height { get; protected set; }
         public StringBuilder Title { get; set; }

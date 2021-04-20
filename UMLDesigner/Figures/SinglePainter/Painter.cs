@@ -10,7 +10,7 @@ namespace UMLDesigner.Figures.SinglePainter
     {
         public Graphics PainterGraphics { get; set; }
         public Pen PainterPen { get; set; }
-        public Brush PainterBrush { get; set; }
+        public SolidBrush PainterBrush { get; set; }
 
         private Bitmap _tmpBitmap;
         private Bitmap _mainBitmap;
