@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
+using UMLDesigner.Figures.Arrows;
 using UMLDesigner.Figures.Fabrics;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.Figures.SinglePainter;
@@ -13,7 +14,7 @@ namespace UMLDesigner.MouseHandler
         private Painter _painter = Painter.GetPainter();
         public void MouseDown(MouseEventArgs e,ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures)
         {
-            
+            AbstractRectangle cur = new ClassRectangle();
             foreach (IFigure a in figures)
             {
                 if (a.IsSelected(e.Location))
@@ -24,7 +25,7 @@ namespace UMLDesigner.MouseHandler
             }
             if (curentFigure is ClassRectangle)
             {
-                ClassRectangle cur = (ClassRectangle)curentFigure;
+                cur = (ClassRectangle)curentFigure;
                 cur.PrevPosition = e.Location;
             }
             if (curentFigure != null)
@@ -36,6 +37,10 @@ namespace UMLDesigner.MouseHandler
                 {
                     if (curentFigure != a)
                     {
+                        if (a is AbstractArrow && cur.ArrowList.Contains((AbstractArrow)a))
+                        {
+                            continue;
+                        }
                         a.Draw();
                     }
                 }
