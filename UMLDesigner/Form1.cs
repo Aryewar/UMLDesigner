@@ -15,7 +15,6 @@ namespace UMLDesigner
        
         private Painter _painter;
         private ClassDialogForm _classDialogForm;
-        private bool isRemoving = false;
         public Form1()
         {
             InitializeComponent();
@@ -89,54 +88,63 @@ namespace UMLDesigner
         {
             _painter.Fabric = new InharitanceArrowFabric();
             _painter.MouseHandler = new DrawArrowMouseHandler();
+            _painter.SetRectanleShowPorts(true);
         }
 
         private void radioButtonRealizationArrow_CheckedChanged(object sender, EventArgs e)
         {
             _painter.Fabric = new RealizationArrowFabric();
             _painter.MouseHandler = new DrawArrowMouseHandler();
+            _painter.SetRectanleShowPorts(true);
         }
 
         private void radioButtonAssociationArrow_CheckedChanged(object sender, EventArgs e)
         {
             _painter.Fabric = new AssociationArrowFabric();
             _painter.MouseHandler = new DrawArrowMouseHandler();
+            _painter.SetRectanleShowPorts(true);
         }
 
         private void radioButtonCompositionArrow_CheckedChanged(object sender, EventArgs e)
         {
             _painter.Fabric = new CompositionArrowFabric();
             _painter.MouseHandler = new DrawArrowMouseHandler();
+            _painter.SetRectanleShowPorts(true);
         }
 
         private void radioButtonAlternateCompositionArrow_CheckedChanged(object sender, EventArgs e)
         {
             _painter.Fabric = new AlternateCompositionArrowFabric();
             _painter.MouseHandler = new DrawArrowMouseHandler();
+            _painter.SetRectanleShowPorts(true);
         }
 
         private void radioButtonAgregationArrow_CheckedChanged(object sender, EventArgs e)
         {
             _painter.Fabric = new AgregationArrowFabric();
             _painter.MouseHandler = new DrawArrowMouseHandler();
+            _painter.SetRectanleShowPorts(true);
         }
 
         private void radioButtonAlternateAgregationArrow_CheckedChanged(object sender, EventArgs e)
         {
             _painter.Fabric = new AlternateAgragationArrowFabric();
             _painter.MouseHandler = new DrawArrowMouseHandler();
+            _painter.SetRectanleShowPorts(true);
         }
 
         private void radioButtonClass_CheckedChanged(object sender, EventArgs e)
         {
             _painter.Fabric = new ClassRectangleFabric();
             _painter.MouseHandler = new DrawRectangleMouseHandler();
+            _painter.SetRectanleShowPorts(false);
         }
 
         private void radioButtonCursor_CheckedChanged(object sender, EventArgs e)
         {
             _painter.Fabric = null;
             _painter.MouseHandler = new CursorMouseHandler();
+            _painter.SetRectanleShowPorts(false);
         }
 
         private void buttonClear_Click(object sender, EventArgs e)

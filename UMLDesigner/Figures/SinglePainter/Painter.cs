@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.MouseHandler;
 
 namespace UMLDesigner.Figures.SinglePainter
@@ -71,6 +72,18 @@ namespace UMLDesigner.Figures.SinglePainter
             UpdatePictureBox();
         }
 
+        public void Refresh()
+        {
+            Clear();
+
+            foreach(IFigure fgr in Figures)
+            {
+                fgr.Draw();
+            }
+
+            SetMainBitmap();
+        }
+
         public void ExportImage(string path)
         {
             using (var bitmap = new Bitmap(_pictureBox.Width, _pictureBox.Height))
@@ -99,6 +112,19 @@ namespace UMLDesigner.Figures.SinglePainter
 
                 bitmap.Save(path, imageFormat);
             }
+        }
+
+        public void SetRectanleShowPorts(bool showPorts)
+        {
+            foreach(IFigure fgr in Figures)
+            {
+                if(fgr is ClassRectangle)
+                {
+                    ((ClassRectangle)fgr).ShowPorts = showPorts;
+                }
+            }
+
+            Refresh();
         }
     }
 }
