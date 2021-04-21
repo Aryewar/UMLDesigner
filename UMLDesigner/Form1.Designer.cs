@@ -46,6 +46,10 @@ namespace UMLDesigner
             this.buttonBackColor = new System.Windows.Forms.Button();
             this.buttonExport = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.buttonSaveProject = new System.Windows.Forms.Button();
+            this.buttonOpenProject = new System.Windows.Forms.Button();
+            this.saveProjectDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openProjectDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -250,11 +254,37 @@ namespace UMLDesigner
             // 
             this.saveFileDialog1.Filter = "*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.gif|*.gif";
             // 
+            // buttonSaveProject
+            // 
+            this.buttonSaveProject.Location = new System.Drawing.Point(568, 24);
+            this.buttonSaveProject.Name = "buttonSaveProject";
+            this.buttonSaveProject.Size = new System.Drawing.Size(112, 23);
+            this.buttonSaveProject.TabIndex = 28;
+            this.buttonSaveProject.Text = "Save Project";
+            this.buttonSaveProject.UseVisualStyleBackColor = true;
+            this.buttonSaveProject.Click += new System.EventHandler(this.buttonSaveProject_Click);
+            // 
+            // buttonOpenProject
+            // 
+            this.buttonOpenProject.Location = new System.Drawing.Point(708, 24);
+            this.buttonOpenProject.Name = "buttonOpenProject";
+            this.buttonOpenProject.Size = new System.Drawing.Size(112, 23);
+            this.buttonOpenProject.TabIndex = 29;
+            this.buttonOpenProject.Text = "Open Project";
+            this.buttonOpenProject.UseVisualStyleBackColor = true;
+            this.buttonOpenProject.Click += new System.EventHandler(this.buttonOpenProject_Click);
+            // 
+            // openProjectDialog
+            // 
+            this.openProjectDialog.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 549);
+            this.Controls.Add(this.buttonOpenProject);
+            this.Controls.Add(this.buttonSaveProject);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.buttonBackColor);
             this.Controls.Add(this.radioButtonClass);
@@ -300,6 +330,10 @@ namespace UMLDesigner
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button buttonExport;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button buttonOpenProject;
+        private System.Windows.Forms.Button buttonSaveProject;
+        private System.Windows.Forms.SaveFileDialog saveProjectDialog;
+        private System.Windows.Forms.OpenFileDialog openProjectDialog;
     }
 }
 

@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
 using UMLDesigner.Figures.Fabrics;
 using UMLDesigner.Figures.SinglePainter;
 using UMLDesigner.MouseHandler;
+using System.Text.Json;
 
 namespace UMLDesigner
 {
@@ -18,6 +20,7 @@ namespace UMLDesigner
         private IMouseHandler _mouseHandler;
         private Painter _painter;
         private ClassDialogForm _classDialogForm;
+        private Converter _convert;
         public Form1()
         {
             InitializeComponent();
@@ -30,6 +33,7 @@ namespace UMLDesigner
             _painter.SetPictureBox(pictureBox);
             _figures = new List<IFigure>();
             _classDialogForm = new ClassDialogForm();
+            _convert = new Converter();
         }
 
         private void colorButton_Click(object sender, EventArgs e)
@@ -134,6 +138,21 @@ namespace UMLDesigner
             _mouseHandler = new CursorMouseHandler();
         }
 
-        
+        private void buttonSaveProject_Click(object sender, EventArgs e)
+        {
+            saveProjectDialog.ShowDialog();
+            string path = saveProjectDialog.FileName;
+            string fileText = _convert.SerializeList(_figures);
+            using (StreamWriter sw = new StreamWriter(path, false))
+            {
+                sw.Write(fileText);
+            }
+        }
+
+        private void buttonOpenProject_Click(object sender, EventArgs e)
+        {
+            openProjectDialog.ShowDialog();
+            string path = openProjectDialog.FileName; 
+        }
     }
 }
