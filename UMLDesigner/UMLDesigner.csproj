@@ -102,6 +102,7 @@
     <Compile Include="Figures\IMovable.cs" />
     <Compile Include="Figures\Rectangles\AbstractRectangle.cs" />
     <Compile Include="Figures\Rectangles\ClassRectangle.cs" />
+    <Compile Include="Figures\Rectangles\Port.cs" />
     <Compile Include="Figures\SinglePainter\Painter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -113,6 +114,7 @@
     <Compile Include="MouseHandler\DrawArrowMouseHandler.cs" />
     <Compile Include="MouseHandler\DrawRectangleMouseHandler.cs" />
     <Compile Include="MouseHandler\IMouseHandler.cs" />
+    <Compile Include="MouseHandler\RemoveMouseHndler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ClassDialogForm.resx">

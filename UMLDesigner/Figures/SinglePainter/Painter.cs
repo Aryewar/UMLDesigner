@@ -1,8 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
+using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.MouseHandler;
 
 namespace UMLDesigner.Figures.SinglePainter
 {
@@ -10,7 +12,12 @@ namespace UMLDesigner.Figures.SinglePainter
     {
         public Graphics PainterGraphics { get; set; }
         public Pen PainterPen { get; set; }
-        public Brush PainterBrush { get; set; }
+        public SolidBrush PainterBrush { get; set; }
+        public IFigure CurentFigure { get; set; }
+        public List<IFigure> Figures { get; set; }
+        public List<IFigure> RemovedFigures { get; set; }
+        public IFigureFabric Fabric { get; set; }
+        public IMouseHandler MouseHandler { get; set; }
 
         private Bitmap _tmpBitmap;
         private Bitmap _mainBitmap;
@@ -21,6 +28,8 @@ namespace UMLDesigner.Figures.SinglePainter
         {
             PainterPen = new Pen(Color.Black, 3);
             PainterBrush = new SolidBrush(Color.White);
+            Figures = new List<IFigure>();
+            RemovedFigures = new List<IFigure>();
         }
 
         public void SetPictureBox(PictureBox pictureBox)
@@ -43,11 +52,6 @@ namespace UMLDesigner.Figures.SinglePainter
             return _painter;
         }
 
-        public void UpdateTmpBitmap()
-        {
-           _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-        }
-
         public void SetMainBitmap()
         {
             _mainBitmap = _tmpBitmap;
@@ -55,6 +59,7 @@ namespace UMLDesigner.Figures.SinglePainter
 
         public void UpdatePictureBox()
         {
+           _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _pictureBox.Image = _tmpBitmap;
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
         }
@@ -62,6 +67,7 @@ namespace UMLDesigner.Figures.SinglePainter
         public void Clear()
         {
             _mainBitmap = new Bitmap(_pictureBox.Width, _pictureBox.Height);
+            UpdatePictureBox();
         }
 
         public void ExportImage(string path)
@@ -87,7 +93,7 @@ namespace UMLDesigner.Figures.SinglePainter
                         imageFormat = ImageFormat.Gif;
                         break;
                     default:
-                        throw new NotSupportedException("File extension is not supported");
+                        break;
                 }
 
                 bitmap.Save(path, imageFormat);

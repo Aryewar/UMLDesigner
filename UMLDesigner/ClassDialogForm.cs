@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using UMLDesigner.Figures;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.Figures.SinglePainter;
 
@@ -22,6 +23,12 @@ namespace UMLDesigner
             textBoxFields.Text = _currentFigure.Fields.ToString();
             textBoxProperties.Text = _currentFigure.Properties.ToString();
             textBoxMethods.Text = _currentFigure.Methods.ToString();
+            colorDialogBackground.Color = _currentFigure.FigureBackColor.Color;
+            buttonBackColor.BackColor = _currentFigure.FigureBackColor.Color;
+            colorDialogText.Color = _currentFigure.FigurePen.Color;
+            buttonTextColor.BackColor = _currentFigure.FigurePen.Color;
+            trackBar1.Value = (int) _currentFigure.FigurePen.Width;
+            
             _painter = Painter.GetPainter();
             this.ShowDialog();
         }
@@ -64,9 +71,12 @@ namespace UMLDesigner
             _currentFigure.Fields.Append(textBoxFields.Text);
             _currentFigure.Properties.Append(textBoxProperties.Text);
             _currentFigure.Methods.Append(textBoxMethods.Text);
-            _painter.UpdateTmpBitmap();
             _painter.UpdatePictureBox();
             _currentFigure.Draw();
+            foreach(IFigure a in _currentFigure.Links)
+            {
+                a.Draw();
+            }
             _painter.SetMainBitmap();
             this.Close();
         }
