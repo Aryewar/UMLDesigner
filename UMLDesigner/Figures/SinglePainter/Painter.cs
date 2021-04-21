@@ -10,6 +10,7 @@ namespace UMLDesigner.Figures.SinglePainter
     {
         public Graphics PainterGraphics { get; set; }
         public Pen PainterPen { get; set; }
+        public SolidBrush PainterBrush { get; set; }
         public IFigure CurentFigure { get; set; }
         public List<IFigure> Figures { get; set; }
         public IFigureFabric Fabric { get; set; }
@@ -23,6 +24,7 @@ namespace UMLDesigner.Figures.SinglePainter
         private Painter()
         {
             PainterPen = new Pen(Color.Black, 3);
+            PainterBrush = new SolidBrush(Color.White);
             Figures = new List<IFigure>();
         }
 
@@ -62,6 +64,36 @@ namespace UMLDesigner.Figures.SinglePainter
         {
             _mainBitmap = new Bitmap(_pictureBox.Width, _pictureBox.Height);
             UpdatePictureBox();
+        }
+
+        public void ExportImage(string path)
+        {
+            using (var bitmap = new Bitmap(_pictureBox.Width, _pictureBox.Height))
+            {
+                _pictureBox.DrawToBitmap(bitmap, _pictureBox.ClientRectangle);
+                ImageFormat imageFormat = null;
+
+                var extension = Path.GetExtension(path);
+                switch (extension)
+                {
+                    case ".bmp":
+                        imageFormat = ImageFormat.Bmp;
+                        break;
+                    case ".png":
+                        imageFormat = ImageFormat.Png;
+                        break;
+                    case ".jpg":
+                        imageFormat = ImageFormat.Jpeg;
+                        break;
+                    case ".gif":
+                        imageFormat = ImageFormat.Gif;
+                        break;
+                    default:
+                        throw new NotSupportedException("File extension is not supported");
+                }
+
+                bitmap.Save(path, imageFormat);
+            }
         }
     }
 }

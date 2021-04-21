@@ -7,6 +7,7 @@ namespace UMLDesigner.Figures.Rectangles
         public ClassRectangle()
         {
             FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
+            FigureBackColor = _painter.PainterBrush;
         }
     }
 }

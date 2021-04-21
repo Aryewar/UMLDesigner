@@ -13,6 +13,7 @@ namespace UMLDesigner.Figures.Rectangles
         public Point FinishPoint { get; set; }
         public Point PrevPosition { get; set; }
         public Pen FigurePen { get; set; }
+        public SolidBrush FigureBackColor { get; set; }
         public int Width { get; protected set; }
         public int Height { get; protected set; }
         public StringBuilder Title { get; set; }
@@ -22,6 +23,7 @@ namespace UMLDesigner.Figures.Rectangles
         public List<Port> Ports { get;protected set; }
         public List<IFigure> Links { get; set; }
         public Font textFont { get; set; }
+
 
         protected Painter _painter;
         private SizeF[] _textSize;
@@ -54,6 +56,9 @@ namespace UMLDesigner.Figures.Rectangles
         public void Draw()
         {
             MeasureText();
+
+            _painter.PainterGraphics.FillRectangle(FigureBackColor, StartPoint.X, StartPoint.Y, Width, Height);
+
             _painter.PainterGraphics.DrawString(Title.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, StartPoint.Y);
             _painter.PainterGraphics.DrawString(Properties.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, _startPropertiesPointY);
             _painter.PainterGraphics.DrawString(Fields.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, _startFieldsPointY);
