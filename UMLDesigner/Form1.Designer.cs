@@ -232,9 +232,9 @@ namespace UMLDesigner
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(176, 60);
+            this.buttonClear.Location = new System.Drawing.Point(14, 501);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.Size = new System.Drawing.Size(107, 23);
             this.buttonClear.TabIndex = 26;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@ namespace UMLDesigner
             this.RemoveRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
             this.RemoveRadioButton.Location = new System.Drawing.Point(14, 470);
             this.RemoveRadioButton.Name = "RemoveRadioButton";
-            this.RemoveRadioButton.Size = new System.Drawing.Size(120, 25);
+            this.RemoveRadioButton.Size = new System.Drawing.Size(107, 25);
             this.RemoveRadioButton.TabIndex = 29;
             this.RemoveRadioButton.TabStop = true;
             this.RemoveRadioButton.Text = "Remove";
@@ -274,9 +274,9 @@ namespace UMLDesigner
             // 
             // buttonExport
             // 
-            this.buttonExport.Location = new System.Drawing.Point(402, 24);
+            this.buttonExport.Location = new System.Drawing.Point(14, 349);
             this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Size = new System.Drawing.Size(126, 23);
+            this.buttonExport.Size = new System.Drawing.Size(107, 23);
             this.buttonExport.TabIndex = 27;
             this.buttonExport.Text = "Export Image";
             this.buttonExport.UseVisualStyleBackColor = true;
