@@ -42,6 +42,7 @@ namespace UMLDesigner
             this.radioButtonAlternateAgregationArrow = new System.Windows.Forms.RadioButton();
             this.radioButtonClass = new System.Windows.Forms.RadioButton();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.buttonBackColor = new System.Windows.Forms.Button();
             this.buttonExport = new System.Windows.Forms.Button();
@@ -227,6 +228,16 @@ namespace UMLDesigner
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(176, 60);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.TabIndex = 26;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // buttonBackColor
             // 
             this.buttonBackColor.Location = new System.Drawing.Point(75, 424);
@@ -255,6 +266,7 @@ namespace UMLDesigner
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 549);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.buttonBackColor);
             this.Controls.Add(this.radioButtonClass);
@@ -296,6 +308,7 @@ namespace UMLDesigner
         private System.Windows.Forms.RadioButton radioButtonAlternateAgregationArrow;
         private System.Windows.Forms.RadioButton radioButtonClass;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonBackColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button buttonExport;

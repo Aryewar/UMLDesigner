@@ -3,38 +3,101 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
 using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.Figures.SinglePainter;
+using UMLDesigner.Figures.Arrows;
 
 namespace UMLDesigner.MouseHandler
 {
     public class DrawArrowMouseHandler : IMouseHandler
     {
         private Painter _painter = Painter.GetPainter();
-        public void MouseDown(MouseEventArgs e,ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures)
+
+        public void MouseDown(MouseEventArgs e)
         {
-            curentFigure = fabric.GetFigure();
-            curentFigure.StartPoint = e.Location;
+            _painter.CurentFigure = _painter.Fabric.GetFigure();
+            AbstractArrow curentArrow = (AbstractArrow)_painter.CurentFigure;
+
+            foreach (IFigure a in _painter.Figures)
+            {
+                if (a is ClassRectangle)
+                {
+                    ClassRectangle temp = (ClassRectangle)a;
+                    foreach (Port b in temp.Ports)
+                    {
+                        if(b.SelectedPort(e.Location) 
+                            && (b.ArrowType is null || b.ArrowType == _painter.CurentFigure.GetType())
+                           )
+                        {
+                            curentArrow.StartPort = b;
+                            _painter.CurentFigure.StartPoint = b.ConnectingPoint;
+                            curentArrow.Links.Add(a);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if(curentArrow.StartPort is null)
+            {
+                _painter.CurentFigure = null;
+            }
         }
 
-        public void MouseMove(MouseEventArgs e, IFigure curentFigure)
+        public void MouseMove(MouseEventArgs e)
         {
-            _painter.UpdateTmpBitmap();
-            curentFigure.FinishPoint = e.Location;
+            _painter.CurentFigure.FinishPoint = e.Location;
             _painter.UpdatePictureBox();
-            curentFigure.Draw();
+            _painter.CurentFigure.Draw();
             GC.Collect();
         }
 
-        public void MouseUp(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures)
+        public void MouseUp(MouseEventArgs e)
         {
-            _painter.SetMainBitmap();
-            figures.Add(curentFigure);
-            curentFigure = null;
+            AbstractArrow curentArrow = (AbstractArrow)_painter.CurentFigure;
+
+            foreach (IFigure a in _painter.Figures)
+            {
+                if (a is ClassRectangle)
+                {
+                    ClassRectangle temp = (ClassRectangle)a;
+
+                    foreach (Port b in temp.Ports)
+                    {
+                        if (b.SelectedPort(e.Location)
+                            && (b.ArrowType is null || b.ArrowType == _painter.CurentFigure.GetType())
+                           )
+                        {
+                            curentArrow.FinishPort = b;
+                            _painter.CurentFigure.FinishPoint = b.ConnectingPoint;
+                            _painter.CurentFigure.Links.Add(a);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if(curentArrow.FinishPort != null)
+            {
+                _painter.SetMainBitmap();
+                _painter.Figures.Add(_painter.CurentFigure);
+                foreach(IFigure a in _painter.CurentFigure.Links)
+                {
+                    a.Links.Add(_painter.CurentFigure);
+                }
+                curentArrow.StartPort.ArrowType = curentArrow.GetType();
+                curentArrow.FinishPort.ArrowType = curentArrow.GetType();
+                _painter.CurentFigure = null;
+            }
+            else
+            {
+                _painter.UpdatePictureBox();
+                _painter.CurentFigure = null;
+            }
         }
 
-        public void MouseDoubleClick(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures, ClassDialogForm _classDialogForm)
+        public void MouseDoubleClick(MouseEventArgs e, ClassDialogForm _classDialogForm)
         {
-
         }
     }
 }
