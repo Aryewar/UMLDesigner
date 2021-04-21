@@ -16,6 +16,8 @@ namespace UMLDesigner.Figures.Arrows
         public Port FinishPort { get; set; }
         public List<IFigure> Links { get; set; }
 
+        public string FigureType { get; set; }
+
         private bool _selectedEnd;
         private bool _selectedStart;
         private int _deltaXY = 10;

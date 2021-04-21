@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using UMLDesigner.Figures.SinglePainter;
 
 namespace UMLDesigner.Figures.Rectangles
 {
@@ -8,6 +10,7 @@ namespace UMLDesigner.Figures.Rectangles
         {
             FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
             FigureBackColor = _painter.PainterBrush;
+            FigureType = Painter.FigureType.ClassRectangle.ToString();
         }
     }
 }

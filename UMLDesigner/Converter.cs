@@ -21,11 +21,11 @@ namespace UMLDesigner
         private List<InharitanceArrow> inharitanceArrows = new List<InharitanceArrow>();
         private List<RealizationArrow> realizationArrows = new List<RealizationArrow>();
         private List<ClassRectangle> classRectangles = new List<ClassRectangle>();
-        private Painter _painter;
+        private Painter _painter = Painter.GetPainter();
         public string SerializeList(List<IFigure> _figures)
         {
             string result = String.Empty;
-            ConvertListOfFigures(_figures);
+            ConvertListOfFigures();
             _painter = Painter.GetPainter();
             result += JsonSerializer.Serialize<List<AgregationArrow>>(agregationArrows) + Environment.NewLine;
             result += JsonSerializer.Serialize<List<AlternateAgragationArrow>>(alternateAgragationArrows) + Environment.NewLine;
@@ -34,16 +34,16 @@ namespace UMLDesigner
             result += JsonSerializer.Serialize<List<AssociationArrow>>(associationArrows) + Environment.NewLine;
             result += JsonSerializer.Serialize<List<InharitanceArrow>>(inharitanceArrows) + Environment.NewLine;
             result += JsonSerializer.Serialize<List<RealizationArrow>>(realizationArrows) + Environment.NewLine;
-            result += JsonSerializer.Serialize<List<ClassRectangle>>(classRectangles) + Environment.NewLine;
+            result += JsonSerializer.Serialize<List<ClassRectangle>>(classRectangles);
             //result += JsonSerializer.Serialize<Painter>(_painter);
 
             return result;
         }
-        private void ConvertListOfFigures(List<IFigure> _figures)
+        private void ConvertListOfFigures()
         {
-            foreach (IFigure a in _figures)
+            foreach (IFigure a in _painter.Figures)
             {
-                switch (a.GetType().ToString())
+                switch (a.FigureType)
                 {
                     case "AgregationArrow":
                         agregationArrows.Add((AgregationArrow)a);

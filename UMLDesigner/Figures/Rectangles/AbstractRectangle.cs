@@ -23,6 +23,7 @@ namespace UMLDesigner.Figures.Rectangles
         public List<Port> Ports { get;protected set; }
         public List<IFigure> Links { get; set; }
         public Font textFont { get; set; }
+        public string FigureType { get; set; }
 
 
         protected Painter _painter;

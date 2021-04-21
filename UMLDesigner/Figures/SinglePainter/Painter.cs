@@ -18,6 +18,17 @@ namespace UMLDesigner.Figures.SinglePainter
         public List<IFigure> RemovedFigures { get; set; }
         public IFigureFabric Fabric { get; set; }
         public IMouseHandler MouseHandler { get; set; }
+        public enum FigureType
+        {
+            AgregationArrow,
+            AlternateAgragationArrow,
+            AlternateCompositionArrow,
+            AssociationArrow,
+            CompositionArrow,
+            InharitanceArrow,
+            RealizationArrow,
+            ClassRectangle
+        }
 
         private Bitmap _tmpBitmap;
         private Bitmap _mainBitmap;

@@ -20,6 +20,7 @@ namespace UMLDesigner.Figures.Arrows
             hPath.AddPolygon(filledRhombus);
             FigurePen.CustomStartCap = new CustomLineCap(hPath, null);
             FigurePen.CustomEndCap = new AdjustableArrowCap(9, 9, false);
+            FigureType = Painter.FigureType.AlternateAgragationArrow.ToString();
         }
     }
 }

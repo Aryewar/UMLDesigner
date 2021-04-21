@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
+using UMLDesigner.Figures.SinglePainter;
 
 namespace UMLDesigner.Figures.Arrows
 {
@@ -16,6 +17,7 @@ namespace UMLDesigner.Figures.Arrows
 
             hPath.AddPolygon(emptyTriangle);
             FigurePen.CustomEndCap = new CustomLineCap(null, hPath);
+            FigureType = Painter.FigureType.InharitanceArrow.ToString();
         }
     }
 }

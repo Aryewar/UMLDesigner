@@ -158,7 +158,7 @@ namespace UMLDesigner
         {
             saveProjectDialog.ShowDialog();
             string path = saveProjectDialog.FileName;
-            string fileText = _convert.SerializeList(_figures);
+            string fileText = _convert.SerializeList(_painter.Figures);
             using (StreamWriter sw = new StreamWriter(path, false))
             {
                 sw.Write(fileText);

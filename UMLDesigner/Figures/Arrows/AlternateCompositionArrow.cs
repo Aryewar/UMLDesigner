@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
+using UMLDesigner.Figures.SinglePainter;
 
 namespace UMLDesigner.Figures.Arrows
 {
@@ -19,6 +20,7 @@ namespace UMLDesigner.Figures.Arrows
             hPath.AddPolygon(filledRhombus);
             FigurePen.CustomStartCap = new CustomLineCap(null, hPath);
             FigurePen.CustomEndCap = new AdjustableArrowCap(9, 9, false);
+            FigureType = Painter.FigureType.AlternateCompositionArrow.ToString();
         }
         
     }

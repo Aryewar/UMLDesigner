@@ -11,6 +11,7 @@ namespace UMLDesigner.Figures
         Pen FigurePen { get; set; }
         Font textFont { get; set; }
         List<IFigure> Links { get; set; }
+        string FigureType { get; set; }
 
         void Draw();
     }
