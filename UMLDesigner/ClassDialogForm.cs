@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using UMLDesigner.Figures;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.Figures.SinglePainter;
 
@@ -65,6 +66,10 @@ namespace UMLDesigner
             _currentFigure.Methods.Append(textBoxMethods.Text);
             _painter.UpdatePictureBox();
             _currentFigure.Draw();
+            foreach(IFigure a in _currentFigure.Links)
+            {
+                a.Draw();
+            }
             _painter.SetMainBitmap();
             this.Close();
         }
