@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 using UMLDesigner.Figures.Fabrics;
 using UMLDesigner.MouseHandler;
@@ -89,7 +91,7 @@ namespace UMLDesigner.Figures.SinglePainter
                         imageFormat = ImageFormat.Gif;
                         break;
                     default:
-                        throw new NotSupportedException("File extension is not supported");
+                        break;
                 }
 
                 bitmap.Save(path, imageFormat);
