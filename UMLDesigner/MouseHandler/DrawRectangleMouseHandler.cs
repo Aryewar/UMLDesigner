@@ -13,26 +13,26 @@ namespace UMLDesigner.MouseHandler
     class DrawRectangleMouseHandler : IMouseHandler
     {
         private Painter _painter = Painter.GetPainter();
-        public void MouseDown(MouseEventArgs e, ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures)
+        public void MouseDown(MouseEventArgs e)
         {
-            curentFigure = fabric.GetFigure();
+            _painter.CurentFigure = _painter.Fabric.GetFigure();
         }
 
-        public void MouseMove(MouseEventArgs e, IFigure curentFigure)
+        public void MouseMove(MouseEventArgs e)
         {
 
         }
 
-        public void MouseUp(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures)
+        public void MouseUp(MouseEventArgs e)
         {
-            curentFigure.StartPoint = e.Location;
+            _painter.CurentFigure.StartPoint = e.Location;
             _painter.UpdatePictureBox();
-            curentFigure.Draw();
+            _painter.CurentFigure.Draw();
             _painter.SetMainBitmap();
-            figures.Add(curentFigure);
-            curentFigure = null;
+            _painter.Figures.Add(_painter.CurentFigure);
+            _painter.CurentFigure = null;
         }
-        public void MouseDoubleClick(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures, ClassDialogForm _classDialogForm)
+        public void MouseDoubleClick(MouseEventArgs e, ClassDialogForm _classDialogForm)
         {
 
         }

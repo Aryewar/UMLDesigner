@@ -1,5 +1,8 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
+using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.MouseHandler;
 
 namespace UMLDesigner.Figures.SinglePainter
 {
@@ -7,6 +10,10 @@ namespace UMLDesigner.Figures.SinglePainter
     {
         public Graphics PainterGraphics { get; set; }
         public Pen PainterPen { get; set; }
+        public IFigure CurentFigure { get; set; }
+        public List<IFigure> Figures { get; set; }
+        public IFigureFabric Fabric { get; set; }
+        public IMouseHandler MouseHandler { get; set; }
 
         private Bitmap _tmpBitmap;
         private Bitmap _mainBitmap;
@@ -16,6 +23,7 @@ namespace UMLDesigner.Figures.SinglePainter
         private Painter()
         {
             PainterPen = new Pen(Color.Black, 3);
+            Figures = new List<IFigure>();
         }
 
         public void SetPictureBox(PictureBox pictureBox)

@@ -11,59 +11,59 @@ namespace UMLDesigner.MouseHandler
     public class CursorMouseHandler : IMouseHandler
     {
         private Painter _painter = Painter.GetPainter();
-        public void MouseDown(MouseEventArgs e,ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures)
+        public void MouseDown(MouseEventArgs e)
         {
-            foreach (IFigure a in figures)
+            foreach (IFigure a in _painter.Figures)
             {
                 if (a.IsSelected(e.Location))
                 {
-                    curentFigure = a;
+                   _painter.CurentFigure = a;
                     break;
                 }
             }
-            if (curentFigure != null)
+            if (_painter.CurentFigure != null)
             {
-                curentFigure.PrevPosition = e.Location;
+                _painter.CurentFigure.PrevPosition = e.Location;
                 _painter.Clear();
-                foreach (IFigure a in figures)
+                foreach (IFigure a in _painter.Figures)
                 {
-                    if (curentFigure != a && !curentFigure.Links.Contains(a))
+                    if (_painter.CurentFigure != a && !_painter.CurentFigure.Links.Contains(a))
                     {
                         a.Draw();
                     }
                 }
 
                 _painter.SetMainBitmap();
-                MouseMove(e, curentFigure);
+                MouseMove(e);
             }
         }
 
-        public void MouseMove(MouseEventArgs e, IFigure curentFigure)
+        public void MouseMove(MouseEventArgs e)
         {
             _painter.UpdatePictureBox();
-            curentFigure.Move(e.Location);
-            curentFigure.Draw();
+            _painter.CurentFigure.Move(e.Location);
+            _painter.CurentFigure.Draw();
             GC.Collect();
         }
 
-        public void MouseUp(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures)
+        public void MouseUp(MouseEventArgs e)
         {
             _painter.SetMainBitmap();
-            curentFigure = null;
+            _painter.CurentFigure = null;
         }
-        public void MouseDoubleClick(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures, ClassDialogForm _classDialogForm)
+        public void MouseDoubleClick(MouseEventArgs e, ClassDialogForm _classDialogForm)
         {
-            foreach (IFigure a in figures)
+            foreach (IFigure a in _painter.Figures)
             {
                 if (a.IsSelected(e.Location))
                 {
-                    curentFigure = a;
+                    _painter.CurentFigure = a;
                     break;
                 }
             }
-            if (curentFigure is ClassRectangle)
+            if (_painter.CurentFigure is ClassRectangle)
             {
-                _classDialogForm.OpenCurrentFigure((ClassRectangle)curentFigure);
+                _classDialogForm.OpenCurrentFigure((ClassRectangle)_painter.CurentFigure);
             }
         }
     }
