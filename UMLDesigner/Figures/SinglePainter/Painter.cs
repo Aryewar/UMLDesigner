@@ -40,6 +40,7 @@ namespace UMLDesigner.Figures.SinglePainter
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
             _pictureBox.BackColor = Color.White;
             _pictureBox.Image = _tmpBitmap;
+            MouseHandler = new CursorMouseHandler();
         }
 
         public static Painter GetPainter()

@@ -58,9 +58,9 @@ namespace UMLDesigner
             // 
             this.pictureBox.BackColor = System.Drawing.Color.Gainsboro;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(310, 70);
+            this.pictureBox.Location = new System.Drawing.Point(311, 60);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(848, 459);
+            this.pictureBox.Size = new System.Drawing.Size(948, 612);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.CustomMouseDoubleClick);
@@ -232,9 +232,9 @@ namespace UMLDesigner
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(176, 60);
+            this.buttonClear.Location = new System.Drawing.Point(14, 501);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.Size = new System.Drawing.Size(118, 23);
             this.buttonClear.TabIndex = 26;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -242,7 +242,7 @@ namespace UMLDesigner
             // 
             // buttonBackColor
             // 
-            this.buttonBackColor.Location = new System.Drawing.Point(75, 424);
+            this.buttonBackColor.Location = new System.Drawing.Point(86, 424);
             this.buttonBackColor.Name = "buttonBackColor";
             this.buttonBackColor.Size = new System.Drawing.Size(46, 40);
             this.buttonBackColor.TabIndex = 26;
@@ -253,7 +253,7 @@ namespace UMLDesigner
             // 
             this.ButtonUndo.Location = new System.Drawing.Point(14, 378);
             this.ButtonUndo.Name = "ButtonUndo";
-            this.ButtonUndo.Size = new System.Drawing.Size(107, 40);
+            this.ButtonUndo.Size = new System.Drawing.Size(118, 40);
             this.ButtonUndo.TabIndex = 28;
             this.ButtonUndo.Text = "Undo";
             this.ButtonUndo.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@ namespace UMLDesigner
             this.RemoveRadioButton.Appearance = System.Windows.Forms.Appearance.Button;
             this.RemoveRadioButton.Location = new System.Drawing.Point(14, 470);
             this.RemoveRadioButton.Name = "RemoveRadioButton";
-            this.RemoveRadioButton.Size = new System.Drawing.Size(120, 25);
+            this.RemoveRadioButton.Size = new System.Drawing.Size(118, 25);
             this.RemoveRadioButton.TabIndex = 29;
             this.RemoveRadioButton.TabStop = true;
             this.RemoveRadioButton.Text = "Remove";
@@ -274,9 +274,9 @@ namespace UMLDesigner
             // 
             // buttonExport
             // 
-            this.buttonExport.Location = new System.Drawing.Point(402, 24);
+            this.buttonExport.Location = new System.Drawing.Point(14, 349);
             this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Size = new System.Drawing.Size(126, 23);
+            this.buttonExport.Size = new System.Drawing.Size(118, 23);
             this.buttonExport.TabIndex = 27;
             this.buttonExport.Text = "Export Image";
             this.buttonExport.UseVisualStyleBackColor = true;
@@ -290,7 +290,7 @@ namespace UMLDesigner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 549);
+            this.ClientSize = new System.Drawing.Size(1266, 679);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.RemoveRadioButton);
