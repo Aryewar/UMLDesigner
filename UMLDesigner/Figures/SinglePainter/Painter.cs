@@ -18,6 +18,7 @@ namespace UMLDesigner.Figures.SinglePainter
         public List<IFigure> RemovedFigures { get; set; }
         public IFigureFabric Fabric { get; set; }
         public IMouseHandler MouseHandler { get; set; }
+        public Font PainterFont { get; set; }
 
         private Bitmap _tmpBitmap;
         private Bitmap _mainBitmap;
@@ -30,6 +31,7 @@ namespace UMLDesigner.Figures.SinglePainter
             PainterBrush = new SolidBrush(Color.White);
             Figures = new List<IFigure>();
             RemovedFigures = new List<IFigure>();
+            PainterFont = new Font("Ariel", 12);
         }
 
         public void SetPictureBox(PictureBox pictureBox)

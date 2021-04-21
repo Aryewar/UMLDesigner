@@ -43,7 +43,7 @@ namespace UMLDesigner.Figures.Rectangles
             Methods = new StringBuilder("Methods");
             _painter = Painter.GetPainter();
             _textSize = new SizeF[4];
-            textFont = new Font("Ariel", 14);
+            textFont = _painter.PainterFont;
             _countOfPorts = 20;
             Ports = new List<Port>();
             Links = new List<IFigure>();

@@ -150,5 +150,11 @@ namespace UMLDesigner
         {
             _painter.MouseHandler = new RemoveMouseHndler();
         }
+
+        private void buttonFont_Click(object sender, EventArgs e)
+        {
+            fontDialogMain.ShowDialog();
+            _painter.PainterFont = fontDialogMain.Font;
+        }
     }
 }
