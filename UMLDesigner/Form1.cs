@@ -12,8 +12,10 @@ namespace UMLDesigner
 {
     public partial class Form1 : Form
     {
+       
         private Painter _painter;
         private ClassDialogForm _classDialogForm;
+        private bool isRemoving = false;
         public Form1()
         {
             InitializeComponent();
@@ -45,6 +47,11 @@ namespace UMLDesigner
             saveFileDialog1.ShowDialog();
             string path = saveFileDialog1.FileName;
             _painter.ExportImage(path);
+        }
+
+        private void ButtonUndo_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void widthBar_Scroll(object sender, EventArgs e)
@@ -139,5 +146,9 @@ namespace UMLDesigner
         }
 
 
+        private void RemoveRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            _painter.MouseHandler = new RemoveMouseHndler();
+        }
     }
 }
