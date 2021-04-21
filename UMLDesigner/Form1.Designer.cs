@@ -232,7 +232,7 @@ namespace UMLDesigner
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(14, 501);
+            this.buttonClear.Location = new System.Drawing.Point(176, 60);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(118, 23);
             this.buttonClear.TabIndex = 26;
@@ -274,7 +274,7 @@ namespace UMLDesigner
             // 
             // buttonExport
             // 
-            this.buttonExport.Location = new System.Drawing.Point(14, 349);
+            this.buttonExport.Location = new System.Drawing.Point(402, 24);
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(118, 23);
             this.buttonExport.TabIndex = 27;
