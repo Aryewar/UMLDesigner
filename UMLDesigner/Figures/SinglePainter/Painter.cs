@@ -15,6 +15,7 @@ namespace UMLDesigner.Figures.SinglePainter
         public SolidBrush PainterBrush { get; set; }
         public IFigure CurentFigure { get; set; }
         public List<IFigure> Figures { get; set; }
+        public List<IFigure> RemovedFigures { get; set; }
         public IFigureFabric Fabric { get; set; }
         public IMouseHandler MouseHandler { get; set; }
 
@@ -28,6 +29,7 @@ namespace UMLDesigner.Figures.SinglePainter
             PainterPen = new Pen(Color.Black, 3);
             PainterBrush = new SolidBrush(Color.White);
             Figures = new List<IFigure>();
+            RemovedFigures = new List<IFigure>();
         }
 
         public void SetPictureBox(PictureBox pictureBox)

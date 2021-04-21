@@ -14,23 +14,23 @@ namespace UMLDesigner.MouseHandler
     {
         private Painter _painter = Painter.GetPainter();
         
-        public void MouseDoubleClick(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures, ClassDialogForm _classDialogForm)
+        public void MouseDoubleClick(MouseEventArgs e, ClassDialogForm _classDialogForm)
         {
             
         }
 
-        public void MouseDown(MouseEventArgs e, ref IFigure curentFigure, IFigureFabric fabric, List<IFigure> figures, List<IFigure> _removedFigures)
+        public void MouseDown(MouseEventArgs e)
         {
-            foreach (IFigure a in figures)
+            
+            foreach (IFigure a in _painter.Figures)
             {
                 if (a.IsSelected(e.Location))
                 {
-                    figures.Remove(a);
-                    _removedFigures.Add(a);
+                    _painter.Figures.Remove(a);
+                    _painter.RemovedFigures.Add(a);
                     _painter.Clear();
-                    _painter.UpdateTmpBitmap();
                     _painter.UpdatePictureBox();
-                    foreach (IFigure b in figures)
+                    foreach (IFigure b in _painter.Figures)
                     {
                             b.Draw();
                     }
@@ -40,12 +40,12 @@ namespace UMLDesigner.MouseHandler
             }
         }
 
-        public void MouseMove(MouseEventArgs e, IFigure curentFigure)
+        public void MouseMove(MouseEventArgs e)
         {
             
         }
 
-        public void MouseUp(MouseEventArgs e, ref IFigure curentFigure, List<IFigure> figures)
+        public void MouseUp(MouseEventArgs e)
         {
             
         }

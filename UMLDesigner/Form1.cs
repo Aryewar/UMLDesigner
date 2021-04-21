@@ -12,7 +12,7 @@ namespace UMLDesigner
 {
     public partial class Form1 : Form
     {
-        private List<IFigure> _removedFigures;
+       
         private Painter _painter;
         private ClassDialogForm _classDialogForm;
         private bool isRemoving = false;
@@ -27,7 +27,6 @@ namespace UMLDesigner
             _painter = Painter.GetPainter();
             _painter.SetPictureBox(pictureBox);
             _classDialogForm = new ClassDialogForm();
-            _removedFigures = new List<IFigure>();
         }
 
         private void colorButton_Click(object sender, EventArgs e)
@@ -149,7 +148,7 @@ namespace UMLDesigner
 
         private void RemoveRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            _mouseHandler = new RemoveMouseHndler();
+            _painter.MouseHandler = new RemoveMouseHndler();
         }
     }
 }
