@@ -73,6 +73,7 @@
     <Compile Include="Figures\IMovable.cs" />
     <Compile Include="Figures\Rectangles\AbstractRectangle.cs" />
     <Compile Include="Figures\Rectangles\ClassRectangle.cs" />
+    <Compile Include="Figures\Rectangles\Port.cs" />
     <Compile Include="Figures\SinglePainter\Painter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

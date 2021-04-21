@@ -42,10 +42,13 @@ namespace UMLDesigner
             this.radioButtonAlternateAgregationArrow = new System.Windows.Forms.RadioButton();
             this.radioButtonClass = new System.Windows.Forms.RadioButton();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.buttonBackColor = new System.Windows.Forms.Button();
             this.ButtonUndo = new System.Windows.Forms.Button();
             this.RemoveRadioButton = new System.Windows.Forms.RadioButton();
+            this.buttonExport = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -227,6 +230,16 @@ namespace UMLDesigner
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(176, 60);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.TabIndex = 26;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // buttonBackColor
             // 
             this.buttonBackColor.Location = new System.Drawing.Point(75, 424);
@@ -259,11 +272,27 @@ namespace UMLDesigner
             this.RemoveRadioButton.UseVisualStyleBackColor = true;
             this.RemoveRadioButton.CheckedChanged += new System.EventHandler(this.RemoveRadioButton_CheckedChanged);
             // 
+            // buttonExport
+            // 
+            this.buttonExport.Location = new System.Drawing.Point(402, 24);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(126, 23);
+            this.buttonExport.TabIndex = 27;
+            this.buttonExport.Text = "Export Image";
+            this.buttonExport.UseVisualStyleBackColor = true;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.gif|*.gif";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 549);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.RemoveRadioButton);
             this.Controls.Add(this.ButtonUndo);
             this.Controls.Add(this.buttonBackColor);
@@ -306,8 +335,11 @@ namespace UMLDesigner
         private System.Windows.Forms.RadioButton radioButtonAlternateAgregationArrow;
         private System.Windows.Forms.RadioButton radioButtonClass;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonBackColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button buttonExport;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button ButtonUndo;
         private System.Windows.Forms.RadioButton RemoveRadioButton;
     }
