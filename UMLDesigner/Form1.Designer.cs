@@ -295,7 +295,7 @@ namespace UMLDesigner
             // 
             // trackBarScale
             // 
-            this.trackBarScale.Location = new System.Drawing.Point(744, 19);
+            this.trackBarScale.Location = new System.Drawing.Point(744, 12);
             this.trackBarScale.Maximum = 150;
             this.trackBarScale.Minimum = 50;
             this.trackBarScale.Name = "trackBarScale";
