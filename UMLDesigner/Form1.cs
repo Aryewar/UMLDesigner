@@ -173,7 +173,6 @@ namespace UMLDesigner
             {
                 trackBarScale.Value = 150;
             }
-            trackBarScale_Scroll(sender, e);
         }
 
         private void trackBarScale_Scroll(object sender, EventArgs e)
@@ -188,12 +187,21 @@ namespace UMLDesigner
                     ClassRectangle cur = (ClassRectangle)a;
                     cur.textFont = new Font(cur.textFont.FontFamily, cur.FontSize * _painter.Scale, cur.textFont.Style);
                     cur.PenWidth *= _painter.Scale;
+                    cur.FigurePen.Width = cur.PenWidth;
                 }
                 a.Draw();
             }
 
             _painter.SetMainBitmap();
 
+        }
+
+        private void textBoxScale_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                trackBarScale_Scroll(sender, e);
+            }
         }
     }
 }
