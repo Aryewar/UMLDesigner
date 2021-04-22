@@ -27,7 +27,6 @@ namespace UMLDesigner.Figures.Rectangles
         public bool ShowPorts { get; set; }
 
         public float FontSize { get; set; }
-        public float PenWidth { get; set; }
 
 
         protected Painter _painter;
@@ -54,7 +53,6 @@ namespace UMLDesigner.Figures.Rectangles
             _countOfPorts = 20;
             Ports = new List<Port>();
             Links = new List<IFigure>();
-            PenWidth = _painter.PainterPen.Width;
 
             for(int i = 0; i < _countOfPorts; ++i)
             {
@@ -74,9 +72,9 @@ namespace UMLDesigner.Figures.Rectangles
             _painter.PainterGraphics.DrawString(Methods.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, _startMethodsPointY);
 
             _painter.PainterGraphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, Width, Height);
-            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startPropertiesPointY, StartPoint.X + Width, _startPropertiesPointY);
-            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startFieldsPointY, StartPoint.X + Width, _startFieldsPointY);
-            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startMethodsPointY, StartPoint.X + Width, _startMethodsPointY);
+            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startPropertiesPointY - 3, StartPoint.X + Width, _startPropertiesPointY - 3);
+            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startFieldsPointY - 3, StartPoint.X + Width, _startFieldsPointY - 3);
+            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startMethodsPointY - 3, StartPoint.X + Width, _startMethodsPointY - 3);
             
             if(ShowPorts)
             {
@@ -103,6 +101,10 @@ namespace UMLDesigner.Figures.Rectangles
             _textSize[1] = _painter.PainterGraphics.MeasureString(Properties.ToString(), textFont);
             _textSize[2] = _painter.PainterGraphics.MeasureString(Fields.ToString(), textFont);
             _textSize[3] = _painter.PainterGraphics.MeasureString(Methods.ToString(), textFont);
+            _textSize[0].Height += 6;
+            _textSize[1].Height += 6;
+            _textSize[2].Height += 6;
+            _textSize[3].Height += 6;
 
             _startPropertiesPointY = (int)(StartPoint.Y + _textSize[0].Height);
             _startFieldsPointY = (int)(StartPoint.Y + _textSize[0].Height + _textSize[1].Height);

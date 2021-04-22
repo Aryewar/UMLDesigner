@@ -27,7 +27,6 @@ namespace UMLDesigner
             _painter = Painter.GetPainter();
             _painter.SetPictureBox(pictureBox);
             _classDialogForm = new ClassDialogForm();
-            _painter.MouseHandler = new CursorMouseHandler();
         }
 
         private void colorButton_Click(object sender, EventArgs e)
@@ -194,8 +193,6 @@ namespace UMLDesigner
                 {
                     ClassRectangle cur = (ClassRectangle)a;
                     cur.textFont = new Font(cur.textFont.FontFamily, cur.FontSize * _painter.Scale, cur.textFont.Style);
-                    cur.PenWidth *= _painter.Scale;
-                    cur.FigurePen.Width = cur.PenWidth;
                 }
                 a.Draw();
             }

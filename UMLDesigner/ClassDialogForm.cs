@@ -27,8 +27,8 @@ namespace UMLDesigner
             buttonBackColor.BackColor = _currentFigure.FigureBackColor.Color;
             colorDialogText.Color = _currentFigure.FigurePen.Color;
             buttonTextColor.BackColor = _currentFigure.FigurePen.Color;
-            trackBar1.Value = (int) _currentFigure.FigurePen.Width;
-            
+            trackBar1.Value = (int)_currentFigure.FigurePen.Width;
+
             _painter = Painter.GetPainter();
             this.ShowDialog();
         }

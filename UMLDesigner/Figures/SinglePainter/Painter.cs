@@ -30,7 +30,7 @@ namespace UMLDesigner.Figures.SinglePainter
 
         private Painter()
         {
-            PainterPen = new Pen(Color.Black, 3);
+            PainterPen = new Pen(Color.Black, 1);
             PainterBrush = new SolidBrush(Color.White);
             Figures = new List<IFigure>();
             RemovedFigures = new List<IFigure>();
