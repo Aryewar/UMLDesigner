@@ -49,16 +49,16 @@ namespace UMLDesigner
             this.RemoveRadioButton = new System.Windows.Forms.RadioButton();
             this.buttonExport = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.fontDialogMain = new System.Windows.Forms.FontDialog();
-            this.buttonFont = new System.Windows.Forms.Button();
             this.trackBarScale = new System.Windows.Forms.TrackBar();
             this.labelScale = new System.Windows.Forms.Label();
             this.textBoxScale = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.fontDialogMain = new System.Windows.Forms.FontDialog();
+            this.buttonFont = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarScale)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -289,6 +289,45 @@ namespace UMLDesigner
             this.buttonExport.UseVisualStyleBackColor = true;
             this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
+            // trackBarScale
+            // 
+            this.trackBarScale.Location = new System.Drawing.Point(744, 19);
+            this.trackBarScale.Maximum = 150;
+            this.trackBarScale.Minimum = 50;
+            this.trackBarScale.Name = "trackBarScale";
+            this.trackBarScale.Size = new System.Drawing.Size(414, 45);
+            this.trackBarScale.TabIndex = 30;
+            this.trackBarScale.Value = 100;
+            this.trackBarScale.Scroll += new System.EventHandler(this.trackBarScale_Scroll);
+            // 
+            // labelScale
+            // 
+            this.labelScale.AutoSize = true;
+            this.labelScale.Location = new System.Drawing.Point(635, 28);
+            this.labelScale.Name = "labelScale";
+            this.labelScale.Size = new System.Drawing.Size(34, 13);
+            this.labelScale.TabIndex = 31;
+            this.labelScale.Text = "Scale";
+            // 
+            // textBoxScale
+            // 
+            this.textBoxScale.Location = new System.Drawing.Point(675, 25);
+            this.textBoxScale.MaxLength = 3;
+            this.textBoxScale.Name = "textBoxScale";
+            this.textBoxScale.Size = new System.Drawing.Size(39, 20);
+            this.textBoxScale.TabIndex = 32;
+            this.textBoxScale.Text = "100";
+            this.textBoxScale.TextChanged += new System.EventHandler(this.textBoxScale_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(720, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "%";
+            // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.Filter = "*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.gif|*.gif";
@@ -347,6 +386,10 @@ namespace UMLDesigner
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 549);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxScale);
+            this.Controls.Add(this.labelScale);
+            this.Controls.Add(this.trackBarScale);
             this.Controls.Add(this.buttonFont);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonExport);
