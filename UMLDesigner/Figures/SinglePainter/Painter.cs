@@ -18,8 +18,8 @@ namespace UMLDesigner.Figures.SinglePainter
         public List<IFigure> RemovedFigures { get; set; }
         public IFigureFabric Fabric { get; set; }
         public IMouseHandler MouseHandler { get; set; }
-        public Font PainterFont { get; set; }
         public float Scale { get; set; }
+        public Font PainterFont { get; set; }
         
 
         private Bitmap _tmpBitmap;
