@@ -19,7 +19,7 @@ namespace UMLDesigner.Figures.SinglePainter
         public IFigureFabric Fabric { get; set; }
         public IMouseHandler MouseHandler { get; set; }
         public Font PainterFont { get; set; }
-        public int Scale { get; set; }
+        public float Scale { get; set; }
         
 
         private Bitmap _tmpBitmap;
@@ -44,7 +44,7 @@ namespace UMLDesigner.Figures.SinglePainter
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
             _pictureBox.BackColor = Color.White;
             _pictureBox.Image = _tmpBitmap;
-            Scale = 100;
+            Scale = 1;
         }
 
         public static Painter GetPainter()

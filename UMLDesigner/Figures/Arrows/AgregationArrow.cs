@@ -19,6 +19,7 @@ namespace UMLDesigner.Figures.Arrows
 
             hPath.AddPolygon(filledRhombus);
             FigurePen.CustomEndCap = new CustomLineCap(hPath, null);
+            Type = "AgregationArrow";
         }
     }
 }

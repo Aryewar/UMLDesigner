@@ -17,6 +17,7 @@ namespace UMLDesigner.Figures.Arrows
             hPath.AddPolygon(emptyTriangle);
             FigurePen.CustomEndCap = new CustomLineCap(null, hPath);
             FigurePen.DashStyle = DashStyle.Dash;
+            Type = "RealizationArrow";
         }
         
     }

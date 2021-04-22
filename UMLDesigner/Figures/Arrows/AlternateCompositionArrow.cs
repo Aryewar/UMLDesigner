@@ -19,6 +19,7 @@ namespace UMLDesigner.Figures.Arrows
             hPath.AddPolygon(filledRhombus);
             FigurePen.CustomStartCap = new CustomLineCap(null, hPath);
             FigurePen.CustomEndCap = new AdjustableArrowCap(9, 9, false);
+            Type = "AlternateCompositionArrow";
         }
         
     }

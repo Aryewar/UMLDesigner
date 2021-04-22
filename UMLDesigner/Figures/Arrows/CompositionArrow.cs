@@ -17,6 +17,7 @@ namespace UMLDesigner.Figures.Arrows
 
             hPath.AddPolygon(filledRhombus);
             FigurePen.CustomEndCap = new CustomLineCap(null, hPath);
+            Type = "CompositionArrow";
         }
     }
 }

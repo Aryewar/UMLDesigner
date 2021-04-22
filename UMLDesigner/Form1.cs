@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
 using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.Figures.SinglePainter;
 using UMLDesigner.MouseHandler;
 
@@ -27,6 +28,7 @@ namespace UMLDesigner
             _painter = Painter.GetPainter();
             _painter.SetPictureBox(pictureBox);
             _classDialogForm = new ClassDialogForm();
+            _painter.MouseHandler = new CursorMouseHandler();
         }
 
         private void colorButton_Click(object sender, EventArgs e)
@@ -171,17 +173,27 @@ namespace UMLDesigner
             {
                 trackBarScale.Value = 150;
             }
-            _painter.Scale = trackBarScale.Value;
+            _painter.Scale = (float)trackBarScale.Value/100;
         }
 
         private void trackBarScale_Scroll(object sender, EventArgs e)
         {
             textBoxScale.Text = (trackBarScale.Value).ToString();
-            _painter.Scale = trackBarScale.Value;
-            foreach(IFigure a in _painter.Figures)
+            _painter.Scale = (float)trackBarScale.Value/100;
+            _painter.Clear();
+            foreach (IFigure a in _painter.Figures)
             {
+                if (a.Type == "ClassRectangle")
+                {
+                    ClassRectangle cur = (ClassRectangle)a;
+                    cur.textFont = new Font(cur.textFont.FontFamily, cur.FontSize * _painter.Scale);
+                    cur.PenWidth *= _painter.Scale;
+                }
                 a.Draw();
             }
+
+            _painter.SetMainBitmap();
+
         }
     }
 }

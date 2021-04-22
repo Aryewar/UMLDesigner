@@ -23,6 +23,10 @@ namespace UMLDesigner.Figures.Rectangles
         public List<Port> Ports { get;protected set; }
         public List<IFigure> Links { get; set; }
         public Font textFont { get; set; }
+        public string Type { get; set; }
+
+        public int FontSize { get; set; }
+        public float PenWidth { get; set; }
 
 
         protected Painter _painter;
@@ -43,10 +47,12 @@ namespace UMLDesigner.Figures.Rectangles
             Methods = new StringBuilder("Methods");
             _painter = Painter.GetPainter();
             _textSize = new SizeF[4];
-            textFont = _painter.PainterFont;
+            FontSize = 14;
+            textFont = new Font("Ariel", FontSize*_painter.Scale);
             _countOfPorts = 20;
             Ports = new List<Port>();
             Links = new List<IFigure>();
+            PenWidth = _painter.PainterPen.Width;
 
             for(int i = 0; i < _countOfPorts; ++i)
             {
@@ -56,7 +62,6 @@ namespace UMLDesigner.Figures.Rectangles
         public void Draw()
         {
             MeasureText();
-            textFont = new Font(textFont.FontFamily, textFont.Size * (_painter.Scale / 50));
             _painter.PainterGraphics.FillRectangle(FigureBackColor, StartPoint.X, StartPoint.Y, Width, Height);
 
             _painter.PainterGraphics.DrawString(Title.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, StartPoint.Y);
@@ -67,7 +72,7 @@ namespace UMLDesigner.Figures.Rectangles
             _painter.PainterGraphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, Width, Height);
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startPropertiesPointY, StartPoint.X + Width, _startPropertiesPointY);
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startFieldsPointY, StartPoint.X + Width, _startFieldsPointY);
-            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startMethodsPointY, StartPoint.X + Width * (int)(_painter.Scale / 100), _startMethodsPointY);
+            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startMethodsPointY, StartPoint.X + Width, _startMethodsPointY);
             DrawPorts();
         }
 

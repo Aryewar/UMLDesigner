@@ -15,6 +15,7 @@ namespace UMLDesigner.Figures.Arrows
         public Port StartPort { get; set; }
         public Port FinishPort { get; set; }
         public List<IFigure> Links { get; set; }
+        public string Type { get; set; }
 
         private bool _selectedEnd;
         private bool _selectedStart;
