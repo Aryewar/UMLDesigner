@@ -99,5 +99,11 @@ namespace UMLDesigner
         {
             _currentFigure.FigurePen.Width = trackBar1.Value;
         }
+
+        private void buttonFont_Click(object sender, EventArgs e)
+        {
+            fontDialogEdit.ShowDialog();
+            _currentFigure.textFont = fontDialogEdit.Font;
+        }
     }
 }

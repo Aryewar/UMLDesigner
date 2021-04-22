@@ -151,6 +151,12 @@ namespace UMLDesigner
             _painter.MouseHandler = new RemoveMouseHndler();
         }
 
+        private void buttonFont_Click(object sender, EventArgs e)
+        {
+            fontDialogMain.ShowDialog();
+            _painter.PainterFont = fontDialogMain.Font;
+        }
+
         private void textBoxScale_TextChanged(object sender, EventArgs e)
         {
             int value = Convert.ToInt32(textBoxScale.Text);

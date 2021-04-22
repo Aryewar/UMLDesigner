@@ -46,6 +46,8 @@ namespace UMLDesigner
             this.colorDialogBackground = new System.Windows.Forms.ColorDialog();
             this.buttonTextColor = new System.Windows.Forms.Button();
             this.buttonBackColor = new System.Windows.Forms.Button();
+            this.fontDialogEdit = new System.Windows.Forms.FontDialog();
+            this.buttonFont = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,7 +146,7 @@ namespace UMLDesigner
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 286);
+            this.label2.Location = new System.Drawing.Point(7, 286);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 20);
             this.label2.TabIndex = 11;
@@ -154,7 +156,7 @@ namespace UMLDesigner
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(236, 286);
+            this.label1.Location = new System.Drawing.Point(147, 286);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 20);
             this.label1.TabIndex = 12;
@@ -164,7 +166,7 @@ namespace UMLDesigner
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(12, 346);
+            this.label3.Location = new System.Drawing.Point(7, 346);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 20);
             this.label3.TabIndex = 13;
@@ -183,7 +185,7 @@ namespace UMLDesigner
             // 
             // buttonTextColor
             // 
-            this.buttonTextColor.Location = new System.Drawing.Point(112, 278);
+            this.buttonTextColor.Location = new System.Drawing.Point(93, 278);
             this.buttonTextColor.Name = "buttonTextColor";
             this.buttonTextColor.Size = new System.Drawing.Size(40, 40);
             this.buttonTextColor.TabIndex = 15;
@@ -192,18 +194,29 @@ namespace UMLDesigner
             // 
             // buttonBackColor
             // 
-            this.buttonBackColor.Location = new System.Drawing.Point(394, 278);
+            this.buttonBackColor.Location = new System.Drawing.Point(297, 278);
             this.buttonBackColor.Name = "buttonBackColor";
             this.buttonBackColor.Size = new System.Drawing.Size(40, 40);
             this.buttonBackColor.TabIndex = 16;
             this.buttonBackColor.UseVisualStyleBackColor = true;
             this.buttonBackColor.Click += new System.EventHandler(this.buttonBackColor_Click);
             // 
+            // buttonFont
+            // 
+            this.buttonFont.Location = new System.Drawing.Point(362, 278);
+            this.buttonFont.Name = "buttonFont";
+            this.buttonFont.Size = new System.Drawing.Size(75, 40);
+            this.buttonFont.TabIndex = 17;
+            this.buttonFont.Text = "Font";
+            this.buttonFont.UseVisualStyleBackColor = true;
+            this.buttonFont.Click += new System.EventHandler(this.buttonFont_Click);
+            // 
             // ClassDialogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 463);
+            this.Controls.Add(this.buttonFont);
             this.Controls.Add(this.buttonBackColor);
             this.Controls.Add(this.buttonTextColor);
             this.Controls.Add(this.trackBar1);
@@ -247,5 +260,7 @@ namespace UMLDesigner
         private System.Windows.Forms.ColorDialog colorDialogBackground;
         private System.Windows.Forms.Button buttonTextColor;
         private System.Windows.Forms.Button buttonBackColor;
+        private System.Windows.Forms.FontDialog fontDialogEdit;
+        private System.Windows.Forms.Button buttonFont;
     }
 }
