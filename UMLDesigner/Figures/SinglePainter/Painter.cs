@@ -18,6 +18,8 @@ namespace UMLDesigner.Figures.SinglePainter
         public List<IFigure> RemovedFigures { get; set; }
         public IFigureFabric Fabric { get; set; }
         public IMouseHandler MouseHandler { get; set; }
+        public int Scale { get; set; }
+        
 
         private Bitmap _tmpBitmap;
         private Bitmap _mainBitmap;
@@ -40,6 +42,7 @@ namespace UMLDesigner.Figures.SinglePainter
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
             _pictureBox.BackColor = Color.White;
             _pictureBox.Image = _tmpBitmap;
+            Scale = 100;
         }
 
         public static Painter GetPainter()

@@ -56,7 +56,7 @@ namespace UMLDesigner.Figures.Rectangles
         public void Draw()
         {
             MeasureText();
-
+            textFont = new Font(textFont.FontFamily, textFont.Size * (_painter.Scale / 50));
             _painter.PainterGraphics.FillRectangle(FigureBackColor, StartPoint.X, StartPoint.Y, Width, Height);
 
             _painter.PainterGraphics.DrawString(Title.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, StartPoint.Y);
@@ -67,7 +67,7 @@ namespace UMLDesigner.Figures.Rectangles
             _painter.PainterGraphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, Width, Height);
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startPropertiesPointY, StartPoint.X + Width, _startPropertiesPointY);
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startFieldsPointY, StartPoint.X + Width, _startFieldsPointY);
-            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startMethodsPointY, StartPoint.X + Width, _startMethodsPointY);
+            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startMethodsPointY, StartPoint.X + Width * (int)(_painter.Scale / 100), _startMethodsPointY);
             DrawPorts();
         }
 

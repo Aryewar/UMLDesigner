@@ -150,5 +150,32 @@ namespace UMLDesigner
         {
             _painter.MouseHandler = new RemoveMouseHndler();
         }
+
+        private void textBoxScale_TextChanged(object sender, EventArgs e)
+        {
+            int value = Convert.ToInt32(textBoxScale.Text);
+            if (value >= 50 && value <= 150)
+            {
+                trackBarScale.Value = value;
+            } else if (value < 50)
+            {
+                trackBarScale.Value = 50;
+            }
+            else
+            {
+                trackBarScale.Value = 150;
+            }
+            _painter.Scale = trackBarScale.Value;
+        }
+
+        private void trackBarScale_Scroll(object sender, EventArgs e)
+        {
+            textBoxScale.Text = (trackBarScale.Value).ToString();
+            _painter.Scale = trackBarScale.Value;
+            foreach(IFigure a in _painter.Figures)
+            {
+                a.Draw();
+            }
+        }
     }
 }
