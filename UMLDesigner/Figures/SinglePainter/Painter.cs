@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
+using System.Text.Json;
 using UMLDesigner.Figures.Fabrics;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.MouseHandler;
@@ -125,6 +126,19 @@ namespace UMLDesigner.Figures.SinglePainter
             }
 
             Refresh();
+        }
+
+        public void Save()
+        {
+            string js = string.Empty;
+            foreach(IFigure fgr in Figures)
+            {
+                if(fgr is ClassRectangle)
+                {
+                    js = JsonSerializer.Serialize<ClassRectangle>((ClassRectangle)fgr);
+                    break;
+                }
+            }
         }
     }
 }

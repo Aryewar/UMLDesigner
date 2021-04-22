@@ -158,5 +158,10 @@ namespace UMLDesigner
         {
             _painter.MouseHandler = new RemoveMouseHndler();
         }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
