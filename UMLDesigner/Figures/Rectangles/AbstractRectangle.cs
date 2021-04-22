@@ -24,6 +24,7 @@ namespace UMLDesigner.Figures.Rectangles
         public List<IFigure> Links { get; set; }
         public Font textFont { get; set; }
         public string Type { get; set; }
+        public bool ShowPorts { get; set; }
 
         public float FontSize { get; set; }
         public float PenWidth { get; set; }
@@ -41,6 +42,7 @@ namespace UMLDesigner.Figures.Rectangles
         {
             Width = 0;
             Height = 0;
+            ShowPorts = false;
             Title = new StringBuilder("Title");
             Properties = new StringBuilder("Properties");
             Fields = new StringBuilder("Fields");
@@ -62,6 +64,8 @@ namespace UMLDesigner.Figures.Rectangles
         public void Draw()
         {
             MeasureText();
+            SetPorts();
+
             _painter.PainterGraphics.FillRectangle(FigureBackColor, StartPoint.X, StartPoint.Y, Width, Height);
 
             _painter.PainterGraphics.DrawString(Title.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, StartPoint.Y);
@@ -73,12 +77,15 @@ namespace UMLDesigner.Figures.Rectangles
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startPropertiesPointY, StartPoint.X + Width, _startPropertiesPointY);
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startFieldsPointY, StartPoint.X + Width, _startFieldsPointY);
             _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startMethodsPointY, StartPoint.X + Width, _startMethodsPointY);
-            DrawPorts();
+            
+            if(ShowPorts)
+            {
+                DrawPorts();
+            }
         }
 
         public void DrawPorts()
         {
-            SetPorts();
 
             foreach (Port a in Ports)
             {

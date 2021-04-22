@@ -77,7 +77,7 @@ namespace UMLDesigner.MouseHandler
                 }
             }
 
-            if(curentArrow.FinishPort != null)
+            if(curentArrow != null && curentArrow.FinishPort != null)
             {
                 _painter.SetMainBitmap();
                 _painter.Figures.Add(_painter.CurentFigure);
