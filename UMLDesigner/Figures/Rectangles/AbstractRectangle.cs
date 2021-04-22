@@ -25,7 +25,7 @@ namespace UMLDesigner.Figures.Rectangles
         public Font textFont { get; set; }
         public string Type { get; set; }
 
-        public int FontSize { get; set; }
+        public float FontSize { get; set; }
         public float PenWidth { get; set; }
 
 

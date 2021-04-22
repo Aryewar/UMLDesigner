@@ -103,7 +103,8 @@ namespace UMLDesigner
         private void buttonFont_Click(object sender, EventArgs e)
         {
             fontDialogEdit.ShowDialog();
-            _currentFigure.textFont = fontDialogEdit.Font;
+            _currentFigure.FontSize = fontDialogEdit.Font.Size;
+            _currentFigure.textFont = new Font(fontDialogEdit.Font.FontFamily, _currentFigure.FontSize, fontDialogEdit.Font.Style);
         }
     }
 }
