@@ -26,7 +26,7 @@ namespace UMLDesigner.MouseHandler
                     foreach (Port b in temp.Ports)
                     {
                         if(b.SelectedPort(e.Location) 
-                            && (b.ArrowType is null || b.ArrowType == _painter.CurentFigure.GetType())
+                            && (b.ArrowType == Painter.FigureType.NoDefine || b.ArrowType == _painter.CurentFigure.figureType)
                            )
                         {
                             curentArrow.StartPort = b;
@@ -65,7 +65,7 @@ namespace UMLDesigner.MouseHandler
                     foreach (Port b in temp.Ports)
                     {
                         if (b.SelectedPort(e.Location)
-                            && (b.ArrowType is null || b.ArrowType == _painter.CurentFigure.GetType())
+                            && (b.ArrowType == Painter.FigureType.NoDefine || b.ArrowType == _painter.CurentFigure.figureType)
                            )
                         {
                             curentArrow.FinishPort = b;
@@ -85,8 +85,8 @@ namespace UMLDesigner.MouseHandler
                 {
                     a.Links.Add(_painter.CurentFigure);
                 }
-                curentArrow.StartPort.ArrowType = curentArrow.GetType();
-                curentArrow.FinishPort.ArrowType = curentArrow.GetType();
+                curentArrow.FinishPort.ArrowType = curentArrow.figureType;
+                curentArrow.StartPort.ArrowType = curentArrow.figureType;
                 _painter.CurentFigure = null;
             }
             else

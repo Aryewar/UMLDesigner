@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Text;
 using UMLDesigner.Figures.SinglePainter;
 using UMLDesigner.Figures.Arrows;
+using Newtonsoft.Json;
+using static UMLDesigner.Figures.SinglePainter.Painter;
 
 namespace UMLDesigner.Figures.Rectangles
 {
@@ -12,6 +14,8 @@ namespace UMLDesigner.Figures.Rectangles
         public Point StartPoint { get; set; }
         public Point FinishPoint { get; set; }
         public Point PrevPosition { get; set; }
+
+        [JsonIgnore]
         public Pen FigurePen { get; set; }
         public SolidBrush FigureBackColor { get; set; }
         public int Width { get; protected set; }
@@ -20,10 +24,11 @@ namespace UMLDesigner.Figures.Rectangles
         public StringBuilder Properties { get; set; }
         public StringBuilder Fields { get; set; }
         public StringBuilder Methods { get; set; }
-        public List<Port> Ports { get;protected set; }
+        public List<Port> Ports { get; set; }
         public List<IFigure> Links { get; set; }
         public Font textFont { get; set; }
         public bool ShowPorts { get; set; }
+        public FigureType figureType { get; set; }
 
 
         protected Painter _painter;
@@ -47,13 +52,7 @@ namespace UMLDesigner.Figures.Rectangles
             _textSize = new SizeF[4];
             textFont = new Font("Ariel", 14);
             _countOfPorts = 20;
-            Ports = new List<Port>();
             Links = new List<IFigure>();
-
-            for(int i = 0; i < _countOfPorts; ++i)
-            {
-                Ports.Add(new Port());
-            }
         }
         public void Draw()
         {
@@ -113,6 +112,19 @@ namespace UMLDesigner.Figures.Rectangles
             }
         }
 
+        private void CreatePorts()
+        {
+            if (Ports is null)
+            {
+                Ports = new List<Port>();
+
+                for (int i = 0; i < _countOfPorts; ++i)
+                {
+                    Ports.Add(new Port());
+                }
+            }
+        }
+
         public bool IsSelected(Point currentPoint)
         {
             FinishPoint = new Point(StartPoint.X + Width, StartPoint.Y + Height);
@@ -143,6 +155,8 @@ namespace UMLDesigner.Figures.Rectangles
 
         private void SetPorts()
         {
+            CreatePorts();
+
             int temp = StartPoint.X;
 
             for(int i = 0; i < 5; ++i)

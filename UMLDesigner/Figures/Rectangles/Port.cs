@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Drawing;
+using static UMLDesigner.Figures.SinglePainter.Painter;
 
 namespace UMLDesigner.Figures.Rectangles
 {
     public class Port
     {
         public Point ConnectingPoint { get; set; }
-        public Type ArrowType { get; set; }
+        public FigureType ArrowType { get; set; }
         public int PointWidth { get; set; }
 
         public Port()
         {
-            ArrowType = null;
             PointWidth = 0;
         }
 

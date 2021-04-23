@@ -3,10 +3,11 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
-using System.Text.Json;
 using UMLDesigner.Figures.Fabrics;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.MouseHandler;
+using UMLDesigner.SaveLoad;
+using Newtonsoft.Json;
 
 namespace UMLDesigner.Figures.SinglePainter
 {
@@ -20,6 +21,18 @@ namespace UMLDesigner.Figures.SinglePainter
         public List<IFigure> RemovedFigures { get; set; }
         public IFigureFabric Fabric { get; set; }
         public IMouseHandler MouseHandler { get; set; }
+        public enum FigureType
+        {
+            NoDefine,
+            AgregationArrow,
+            AlternateAgragationArrow,
+            AlternateCompositionArrow,
+            AssociationArrow,
+            CompositionArrow,
+            InharitanceArrow,
+            RealizationArrow,
+            ClassRectangle
+        }
 
         private Bitmap _tmpBitmap;
         private Bitmap _mainBitmap;
@@ -130,15 +143,31 @@ namespace UMLDesigner.Figures.SinglePainter
 
         public void Save()
         {
-            string js = string.Empty;
             foreach(IFigure fgr in Figures)
             {
                 if(fgr is ClassRectangle)
                 {
-                    js = JsonSerializer.Serialize<ClassRectangle>((ClassRectangle)fgr);
-                    break;
+                    string js = string.Empty;
+
+                    JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
+                    {
+                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                        TypeNameHandling = TypeNameHandling.All,
+                        PreserveReferencesHandling = PreserveReferencesHandling.Objects
+                    };
+
+                    js = JsonConvert.SerializeObject((ClassRectangle)fgr, jsonSerializerSettings);
+                    using(var sw = new StreamWriter("test.txt"))
+                    {
+                        sw.WriteLine(js);
+                    }
+                    ClassRectangle temp = JsonConvert.DeserializeObject<ClassRectangle>(js, jsonSerializerSettings);
+                    Figures.Add(temp);
+                    Refresh();
                 }
             }
+
+            
         }
     }
 }

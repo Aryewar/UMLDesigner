@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
 using UMLDesigner.Figures.Fabrics;
@@ -43,8 +44,8 @@ namespace UMLDesigner
         }
         private void buttonExport_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.ShowDialog();
-            string path = saveFileDialog1.FileName;
+            saveFileDialog.ShowDialog();
+            string path = saveFileDialog.FileName;
             _painter.ExportImage(path);
         }
 
@@ -144,7 +145,7 @@ namespace UMLDesigner
         {
             _painter.Fabric = null;
             _painter.MouseHandler = new CursorMouseHandler();
-            _painter.SetRectanleShowPorts(false);
+            _painter.SetRectanleShowPorts(true);
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -161,7 +162,14 @@ namespace UMLDesigner
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-
+            _painter.Save();
+            //saveFileDialog.ShowDialog();
+            //string path = saveFileDialog.FileName;
+            //string fileText = _convert.SerializeList(_painter.Figures);
+            //using (StreamWriter sw = new StreamWriter(path, false))
+            //{
+            //    sw.Write(fileText);
+            //}
         }
     }
 }

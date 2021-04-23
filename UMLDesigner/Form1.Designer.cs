@@ -48,7 +48,7 @@ namespace UMLDesigner
             this.ButtonUndo = new System.Windows.Forms.Button();
             this.RemoveRadioButton = new System.Windows.Forms.RadioButton();
             this.buttonExport = new System.Windows.Forms.Button();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.buttonSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
@@ -283,9 +283,9 @@ namespace UMLDesigner
             this.buttonExport.UseVisualStyleBackColor = true;
             this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
-            // saveFileDialog1
+            // saveFileDialog
             // 
-            this.saveFileDialog1.Filter = "*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.gif|*.gif";
+            this.saveFileDialog.Filter = "*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.gif|*.gif";
             // 
             // buttonSave
             // 
@@ -351,7 +351,7 @@ namespace UMLDesigner
         private System.Windows.Forms.Button buttonBackColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button buttonExport;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button ButtonUndo;
         private System.Windows.Forms.RadioButton RemoveRadioButton;
         private System.Windows.Forms.Button buttonSave;
