@@ -23,8 +23,8 @@ namespace UMLDesigner
             textBoxFields.Text = _currentFigure.Fields.ToString();
             textBoxProperties.Text = _currentFigure.Properties.ToString();
             textBoxMethods.Text = _currentFigure.Methods.ToString();
-            colorDialogBackground.Color = _currentFigure.FigureBackColor.Color;
-            buttonBackColor.BackColor = _currentFigure.FigureBackColor.Color;
+            colorDialogBackground.Color = _currentFigure.FigureBrush.Color;
+            buttonBackColor.BackColor = _currentFigure.FigureBrush.Color;
             colorDialogText.Color = _currentFigure.FigurePen.Color;
             buttonTextColor.BackColor = _currentFigure.FigurePen.Color;
             trackBar1.Value = (int) _currentFigure.FigurePen.Width;
@@ -85,19 +85,22 @@ namespace UMLDesigner
         {
             colorDialogText.ShowDialog();
             buttonTextColor.BackColor = colorDialogText.Color;
-            _currentFigure.FigurePen.Color = colorDialogText.Color;
+            _currentFigure.PenColor = colorDialogText.Color;
+            _currentFigure.FigurePen.Color = _currentFigure.PenColor;
         }
 
         private void buttonBackColor_Click(object sender, EventArgs e)
         {
             colorDialogBackground.ShowDialog();
             buttonBackColor.BackColor = colorDialogBackground.Color;
-            _currentFigure.FigureBackColor = new SolidBrush(colorDialogBackground.Color);
+            _currentFigure.FigureBackColor = colorDialogBackground.Color;
+            _currentFigure.FigureBrush = new SolidBrush(_currentFigure.FigureBackColor);
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            _currentFigure.FigurePen.Width = trackBar1.Value;
+            _currentFigure.PenWidth = trackBar1.Value;
+            _currentFigure.FigurePen.Width = _currentFigure.PenWidth;
         }
     }
 }

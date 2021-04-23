@@ -13,6 +13,9 @@ namespace UMLDesigner.Figures
         [JsonIgnore]
         Pen FigurePen { get; set; }
         Font textFont { get; set; }
+
+        int PenWidth { get; set; }
+        Color PenColor { get; set; }
         FigureType figureType { get; set; }
         List<IFigure> Links { get; set; }
 

@@ -14,6 +14,8 @@ namespace UMLDesigner.Figures.Arrows
         public Point PrevPosition { get; set; }
         [JsonIgnore]
         public Pen FigurePen { get; set; }
+        public int PenWidth { get; set; }
+        public Color PenColor { get; set; }
         public Font textFont { get; set; }
         public Port StartPort { get; set; }
         public Port FinishPort { get; set; }

@@ -310,6 +310,14 @@ namespace UMLDesigner
             this.buttonOpenDiram.UseVisualStyleBackColor = true;
             this.buttonOpenDiram.Click += new System.EventHandler(this.buttonOpenDiram_Click);
             // 
+            // saveDiagramDialog
+            // 
+            this.saveDiagramDialog.Filter = "*.teamqueue|";
+            // 
+            // openDiagramDialog
+            // 
+            this.openDiagramDialog.Filter = "*.teamqueue|";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

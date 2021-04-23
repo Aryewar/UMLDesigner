@@ -6,7 +6,6 @@ using System.Windows.Forms;
 using UMLDesigner.Figures.Fabrics;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.MouseHandler;
-using UMLDesigner.SaveLoad;
 using Newtonsoft.Json;
 
 namespace UMLDesigner.Figures.SinglePainter
@@ -151,41 +150,6 @@ namespace UMLDesigner.Figures.SinglePainter
             };
 
             return JsonConvert.SerializeObject(Figures, jsonSerializerSettings);
-            //using (var sw = new StreamWriter("test.txt"))
-            //{
-            //    sw.WriteLine(js);
-            //}
-            //List<IFigure> temp = JsonConvert.DeserializeObject<List<IFigure>>(js, jsonSerializerSettings);
-            //foreach (IFigure fgr in temp)
-            //{
-            //    Figures.Add(fgr);
-            //}
-            //Refresh();
-
-            //foreach (IFigure fgr in Figures)
-            //{
-            //    if (fgr is ClassRectangle)
-            //    {
-            //        string js = string.Empty;
-
-            //        JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
-            //        {
-            //            ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-            //            TypeNameHandling = TypeNameHandling.All,
-            //            PreserveReferencesHandling = PreserveReferencesHandling.Objects
-            //        };
-
-            //        js = JsonConvert.SerializeObject((ClassRectangle)fgr, jsonSerializerSettings);
-            //        using (var sw = new StreamWriter("test.txt"))
-            //        {
-            //            sw.WriteLine(js);
-            //        }
-            //        ClassRectangle temp = JsonConvert.DeserializeObject<ClassRectangle>(js, jsonSerializerSettings);
-            //        Figures.Add(temp);
-            //        Refresh();
-            //        break;
-            //    }
-            //}
         }
 
         public void OpenDiaram(string openFile)
@@ -202,6 +166,15 @@ namespace UMLDesigner.Figures.SinglePainter
             List<IFigure> temp = JsonConvert.DeserializeObject<List<IFigure>>(openFile, jsonSerializerSettings);
             foreach (IFigure fgr in temp)
             {
+                fgr.FigurePen.Color = fgr.PenColor;
+                fgr.FigurePen.Width = fgr.PenWidth;
+
+                if(fgr is ClassRectangle)
+                {
+                    ClassRectangle classRectangle = (ClassRectangle)fgr;
+                    classRectangle.FigureBrush.Color = classRectangle.FigureBackColor;
+                }
+
                 Figures.Add(fgr);
             }
 

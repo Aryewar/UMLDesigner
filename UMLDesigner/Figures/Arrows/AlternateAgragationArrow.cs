@@ -8,7 +8,9 @@ namespace UMLDesigner.Figures.Arrows
     {
         public AlternateAgragationArrow()
         {
-            FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
+            PenWidth = (int)_painter.PainterPen.Width;
+            PenColor = _painter.PainterPen.Color;
+            FigurePen = new Pen(PenColor, PenWidth);
 
             GraphicsPath hPath = new GraphicsPath();
             Point[] filledRhombus = new Point[] { new Point(0, -12),
