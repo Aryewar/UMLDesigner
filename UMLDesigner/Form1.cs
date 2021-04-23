@@ -61,26 +61,26 @@ namespace UMLDesigner
 
         private void CustomMouseDown(object sender, MouseEventArgs e)
         {
-            _painter.MouseHandler.MouseDown(e);
+            _painter.MouseHandler.MouseDown(sender, e);
         }
 
         private void CustomMouseMove(object sender, MouseEventArgs e)
         {
             if (_painter.CurentFigure != null)
             {
-                _painter.MouseHandler.MouseMove(e);
+                _painter.MouseHandler.MouseMove(sender, e);
             }
         }
 
         private void CustomMouseUp(object sender, MouseEventArgs e)
         {
-            _painter.MouseHandler.MouseUp(e);
+            _painter.MouseHandler.MouseUp(sender, e);
         }
 
         private void CustomMouseDoubleClick(object sender, MouseEventArgs e)
         {
 
-            _painter.MouseHandler.MouseDoubleClick(e, _classDialogForm);
+            _painter.MouseHandler.MouseDoubleClick(sender, e, _classDialogForm);
 
 
         }

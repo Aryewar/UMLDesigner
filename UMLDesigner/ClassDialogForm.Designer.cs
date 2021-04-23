@@ -29,6 +29,7 @@ namespace UMLDesigner
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClassDialogForm));
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.textBoxProperties = new System.Windows.Forms.TextBox();
             this.textBoxFields = new System.Windows.Forms.TextBox();
@@ -48,6 +49,7 @@ namespace UMLDesigner
             this.buttonBackColor = new System.Windows.Forms.Button();
             this.fontDialogEdit = new System.Windows.Forms.FontDialog();
             this.buttonFont = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,7 +136,7 @@ namespace UMLDesigner
             // buttonSave
             // 
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSave.Location = new System.Drawing.Point(133, 401);
+            this.buttonSave.Location = new System.Drawing.Point(12, 399);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(201, 50);
             this.buttonSave.TabIndex = 9;
@@ -211,11 +213,24 @@ namespace UMLDesigner
             this.buttonFont.UseVisualStyleBackColor = true;
             this.buttonFont.Click += new System.EventHandler(this.buttonFont_Click);
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonCancel.Location = new System.Drawing.Point(236, 399);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(201, 50);
+            this.buttonCancel.TabIndex = 18;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
             // ClassDialogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 463);
+            this.CancelButton = this.buttonCancel;
+            this.ClientSize = new System.Drawing.Size(464, 461);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonFont);
             this.Controls.Add(this.buttonBackColor);
             this.Controls.Add(this.buttonTextColor);
@@ -232,10 +247,13 @@ namespace UMLDesigner
             this.Controls.Add(this.textBoxFields);
             this.Controls.Add(this.textBoxProperties);
             this.Controls.Add(this.textBoxTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ClassDialogForm";
-            this.Text = "ClassDialogForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "Properties";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -262,5 +280,6 @@ namespace UMLDesigner
         private System.Windows.Forms.Button buttonBackColor;
         private System.Windows.Forms.FontDialog fontDialogEdit;
         private System.Windows.Forms.Button buttonFont;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }

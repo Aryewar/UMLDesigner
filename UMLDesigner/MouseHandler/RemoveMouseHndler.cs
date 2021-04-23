@@ -14,12 +14,12 @@ namespace UMLDesigner.MouseHandler
     {
         private Painter _painter = Painter.GetPainter();
         
-        public void MouseDoubleClick(MouseEventArgs e, ClassDialogForm _classDialogForm)
+        public void MouseDoubleClick(object sender, MouseEventArgs e, ClassDialogForm _classDialogForm)
         {
             
         }
 
-        public void MouseDown(MouseEventArgs e)
+        public void MouseDown(object sender, MouseEventArgs e)
         {
             
             foreach (IFigure a in _painter.Figures)
@@ -40,12 +40,12 @@ namespace UMLDesigner.MouseHandler
             }
         }
 
-        public void MouseMove(MouseEventArgs e)
+        public void MouseMove(object sender, MouseEventArgs e)
         {
             
         }
 
-        public void MouseUp(MouseEventArgs e)
+        public void MouseUp(object sender, MouseEventArgs e)
         {
             
         }
