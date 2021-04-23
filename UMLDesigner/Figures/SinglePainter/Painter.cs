@@ -21,7 +21,14 @@ namespace UMLDesigner.Figures.SinglePainter
         public IMouseHandler MouseHandler { get; set; }
         public float Scale { get; set; }
         public Font PainterFont { get; set; }
-        
+        public enum PortType
+        {
+            Top,
+            Bottom,
+            Right,
+            Left
+        }
+
 
         private Bitmap _tmpBitmap;
         private Bitmap _mainBitmap;
