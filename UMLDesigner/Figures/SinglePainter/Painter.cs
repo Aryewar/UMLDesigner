@@ -75,7 +75,7 @@ namespace UMLDesigner.Figures.SinglePainter
 
         public void UpdatePictureBox()
         {
-           _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _pictureBox.Image = _tmpBitmap;
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
         }
@@ -90,7 +90,7 @@ namespace UMLDesigner.Figures.SinglePainter
         {
             Clear();
 
-            foreach(IFigure fgr in Figures)
+            foreach (IFigure fgr in Figures)
             {
                 fgr.Draw();
             }
@@ -130,9 +130,9 @@ namespace UMLDesigner.Figures.SinglePainter
 
         public void SetRectanleShowPorts(bool showPorts)
         {
-            foreach(IFigure fgr in Figures)
+            foreach (IFigure fgr in Figures)
             {
-                if(fgr is ClassRectangle)
+                if (fgr is ClassRectangle)
                 {
                     ((ClassRectangle)fgr).ShowPorts = showPorts;
                 }
@@ -141,33 +141,53 @@ namespace UMLDesigner.Figures.SinglePainter
             Refresh();
         }
 
-        public void Save()
+        public string SerializeDiaram()
         {
-            foreach(IFigure fgr in Figures)
+            JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
             {
-                if(fgr is ClassRectangle)
-                {
-                    string js = string.Empty;
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                TypeNameHandling = TypeNameHandling.All,
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            };
 
-                    JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
-                    {
-                        ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                        TypeNameHandling = TypeNameHandling.All,
-                        PreserveReferencesHandling = PreserveReferencesHandling.Objects
-                    };
+            return JsonConvert.SerializeObject(Figures, jsonSerializerSettings);
+            //using (var sw = new StreamWriter("test.txt"))
+            //{
+            //    sw.WriteLine(js);
+            //}
+            //List<IFigure> temp = JsonConvert.DeserializeObject<List<IFigure>>(js, jsonSerializerSettings);
+            //foreach (IFigure fgr in temp)
+            //{
+            //    Figures.Add(fgr);
+            //}
+            //Refresh();
 
-                    js = JsonConvert.SerializeObject((ClassRectangle)fgr, jsonSerializerSettings);
-                    using(var sw = new StreamWriter("test.txt"))
-                    {
-                        sw.WriteLine(js);
-                    }
-                    ClassRectangle temp = JsonConvert.DeserializeObject<ClassRectangle>(js, jsonSerializerSettings);
-                    Figures.Add(temp);
-                    Refresh();
-                }
-            }
+            //foreach (IFigure fgr in Figures)
+            //{
+            //    if (fgr is ClassRectangle)
+            //    {
+            //        string js = string.Empty;
 
-            
+            //        JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
+            //        {
+            //            ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+            //            TypeNameHandling = TypeNameHandling.All,
+            //            PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            //        };
+
+            //        js = JsonConvert.SerializeObject((ClassRectangle)fgr, jsonSerializerSettings);
+            //        using (var sw = new StreamWriter("test.txt"))
+            //        {
+            //            sw.WriteLine(js);
+            //        }
+            //        ClassRectangle temp = JsonConvert.DeserializeObject<ClassRectangle>(js, jsonSerializerSettings);
+            //        Figures.Add(temp);
+            //        Refresh();
+            //        break;
+            //    }
+            //}
+
+
         }
     }
 }

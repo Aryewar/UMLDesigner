@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using UMLDesigner.Figures.SinglePainter;
-using UMLDesigner.Figures.Arrows;
 using Newtonsoft.Json;
 using static UMLDesigner.Figures.SinglePainter.Painter;
 

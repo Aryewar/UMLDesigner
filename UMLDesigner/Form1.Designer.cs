@@ -49,7 +49,8 @@ namespace UMLDesigner
             this.RemoveRadioButton = new System.Windows.Forms.RadioButton();
             this.buttonExport = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonSaveDiram = new System.Windows.Forms.Button();
+            this.buttonOpenDiram = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -287,22 +288,32 @@ namespace UMLDesigner
             // 
             this.saveFileDialog.Filter = "*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.gif|*.gif";
             // 
-            // buttonSave
+            // buttonSaveDiram
             // 
-            this.buttonSave.Location = new System.Drawing.Point(311, 31);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 30;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.buttonSaveDiram.Location = new System.Drawing.Point(311, 31);
+            this.buttonSaveDiram.Name = "buttonSaveDiram";
+            this.buttonSaveDiram.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveDiram.TabIndex = 30;
+            this.buttonSaveDiram.Text = "Save";
+            this.buttonSaveDiram.UseVisualStyleBackColor = true;
+            this.buttonSaveDiram.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonOpenDiram
+            // 
+            this.buttonOpenDiram.Location = new System.Drawing.Point(392, 31);
+            this.buttonOpenDiram.Name = "buttonOpenDiram";
+            this.buttonOpenDiram.Size = new System.Drawing.Size(75, 23);
+            this.buttonOpenDiram.TabIndex = 31;
+            this.buttonOpenDiram.Text = "Open";
+            this.buttonOpenDiram.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1266, 679);
-            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonOpenDiram);
+            this.Controls.Add(this.buttonSaveDiram);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.RemoveRadioButton);
@@ -354,7 +365,8 @@ namespace UMLDesigner
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button ButtonUndo;
         private System.Windows.Forms.RadioButton RemoveRadioButton;
-        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonSaveDiram;
+        private System.Windows.Forms.Button buttonOpenDiram;
     }
 }
 
