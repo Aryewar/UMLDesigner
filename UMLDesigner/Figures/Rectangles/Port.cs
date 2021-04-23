@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using static UMLDesigner.Figures.SinglePainter.Painter;
 
 namespace UMLDesigner.Figures.Rectangles
 {
@@ -8,7 +9,7 @@ namespace UMLDesigner.Figures.Rectangles
         public Point ConnectingPoint { get; set; }
         public Type ArrowType { get; set; }
         public int PointWidth { get; set; }
-
+        public PortType PortType { get; set; }
         public Port()
         {
             ArrowType = null;
