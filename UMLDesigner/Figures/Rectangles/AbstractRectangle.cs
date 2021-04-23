@@ -153,20 +153,25 @@ namespace UMLDesigner.Figures.Rectangles
         {
             int temp = StartPoint.X;
 
-            for(int i = 0; i < 5; ++i)
+
+            for (int i = 0; i < 5; ++i)
             {
                 temp += Width / 6;
                 Ports[i].ConnectingPoint = new Point(temp, StartPoint.Y - (int)FigurePen.Width);
+                Ports[i].PortType = Painter.PortType.Top;
                 Ports[i + 10].ConnectingPoint = new Point(temp, StartPoint.Y + Height);
+                Ports[i + 10].PortType = Painter.PortType.Bottom;
 
             }
 
             temp = StartPoint.Y;
-            for(int i = 5; i < 10; ++i)
+            for (int i = 5; i < 10; ++i)
             {
                 temp += Height / 6;
                 Ports[i].ConnectingPoint = new Point(StartPoint.X + Width, temp);
+                Ports[i].PortType = Painter.PortType.Right;
                 Ports[i + 10].ConnectingPoint = new Point(StartPoint.X - (int)FigurePen.Width, temp);
+                Ports[i + 10].PortType = Painter.PortType.Left;
             }
 
         }
