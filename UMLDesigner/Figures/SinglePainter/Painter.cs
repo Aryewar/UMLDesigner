@@ -186,8 +186,26 @@ namespace UMLDesigner.Figures.SinglePainter
             //        break;
             //    }
             //}
+        }
 
+        public void OpenDiaram(string openFile)
+        {
+            Figures.Clear();
 
+            JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                TypeNameHandling = TypeNameHandling.All,
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            };
+
+            List<IFigure> temp = JsonConvert.DeserializeObject<List<IFigure>>(openFile, jsonSerializerSettings);
+            foreach (IFigure fgr in temp)
+            {
+                Figures.Add(fgr);
+            }
+
+            Refresh();
         }
     }
 }

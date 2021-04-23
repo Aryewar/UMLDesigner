@@ -164,14 +164,29 @@ namespace UMLDesigner
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveDiagramDialog.ShowDialog() == DialogResult.OK)
             {
-                string path = saveFileDialog.FileName;
+                string path = saveDiagramDialog.FileName;
                 string fileText = _painter.SerializeDiaram();
                 using (StreamWriter sw = new StreamWriter(path, false))
                 {
                     sw.Write(fileText);
                 }
+            }
+        }
+
+        private void buttonOpenDiram_Click(object sender, EventArgs e)
+        {
+            if(openDiagramDialog.ShowDialog() == DialogResult.OK)
+            {
+                string fileContent = string.Empty;
+                string path = openDiagramDialog.FileName;
+
+                using(StreamReader sr = new StreamReader(path))
+                {
+                    fileContent = sr.ReadToEnd();
+                }
+                _painter.OpenDiaram(fileContent);
             }
         }
     }

@@ -51,6 +51,8 @@ namespace UMLDesigner
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.buttonSaveDiram = new System.Windows.Forms.Button();
             this.buttonOpenDiram = new System.Windows.Forms.Button();
+            this.saveDiagramDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openDiagramDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -306,6 +308,7 @@ namespace UMLDesigner
             this.buttonOpenDiram.TabIndex = 31;
             this.buttonOpenDiram.Text = "Open";
             this.buttonOpenDiram.UseVisualStyleBackColor = true;
+            this.buttonOpenDiram.Click += new System.EventHandler(this.buttonOpenDiram_Click);
             // 
             // Form1
             // 
@@ -367,6 +370,8 @@ namespace UMLDesigner
         private System.Windows.Forms.RadioButton RemoveRadioButton;
         private System.Windows.Forms.Button buttonSaveDiram;
         private System.Windows.Forms.Button buttonOpenDiram;
+        private System.Windows.Forms.SaveFileDialog saveDiagramDialog;
+        private System.Windows.Forms.OpenFileDialog openDiagramDialog;
     }
 }
 
