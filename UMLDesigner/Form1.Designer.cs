@@ -55,19 +55,22 @@ namespace UMLDesigner
             this.label1 = new System.Windows.Forms.Label();
             this.fontDialogMain = new System.Windows.Forms.FontDialog();
             this.buttonFont = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarScale)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.Color.Gainsboro;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(311, 60);
+            this.pictureBox.Location = new System.Drawing.Point(3, 48);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(948, 612);
+            this.pictureBox.Size = new System.Drawing.Size(1020, 660);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.CustomMouseDoubleClick);
@@ -86,7 +89,7 @@ namespace UMLDesigner
             // 
             // widthBar
             // 
-            this.widthBar.Location = new System.Drawing.Point(235, 273);
+            this.widthBar.Location = new System.Drawing.Point(154, 268);
             this.widthBar.Maximum = 5;
             this.widthBar.Minimum = 1;
             this.widthBar.Name = "widthBar";
@@ -295,7 +298,7 @@ namespace UMLDesigner
             // 
             // trackBarScale
             // 
-            this.trackBarScale.Location = new System.Drawing.Point(744, 12);
+            this.trackBarScale.Location = new System.Drawing.Point(744, 4);
             this.trackBarScale.Maximum = 150;
             this.trackBarScale.Minimum = 50;
             this.trackBarScale.Name = "trackBarScale";
@@ -307,7 +310,7 @@ namespace UMLDesigner
             // labelScale
             // 
             this.labelScale.AutoSize = true;
-            this.labelScale.Location = new System.Drawing.Point(635, 28);
+            this.labelScale.Location = new System.Drawing.Point(635, 15);
             this.labelScale.Name = "labelScale";
             this.labelScale.Size = new System.Drawing.Size(34, 13);
             this.labelScale.TabIndex = 31;
@@ -315,7 +318,7 @@ namespace UMLDesigner
             // 
             // textBoxScale
             // 
-            this.textBoxScale.Location = new System.Drawing.Point(675, 25);
+            this.textBoxScale.Location = new System.Drawing.Point(675, 12);
             this.textBoxScale.MaxLength = 3;
             this.textBoxScale.Name = "textBoxScale";
             this.textBoxScale.Size = new System.Drawing.Size(39, 20);
@@ -327,7 +330,7 @@ namespace UMLDesigner
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(720, 28);
+            this.label1.Location = new System.Drawing.Point(720, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(15, 13);
             this.label1.TabIndex = 33;
@@ -343,11 +346,22 @@ namespace UMLDesigner
             this.buttonFont.UseVisualStyleBackColor = true;
             this.buttonFont.Click += new System.EventHandler(this.buttonFont_Click);
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.pictureBox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(209, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1026, 711);
+            this.panel1.TabIndex = 34;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1266, 679);
+            this.ClientSize = new System.Drawing.Size(1235, 711);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxScale);
             this.Controls.Add(this.labelScale);
@@ -369,7 +383,7 @@ namespace UMLDesigner
             this.Controls.Add(this.radioButtonCursor);
             this.Controls.Add(this.widthBar);
             this.Controls.Add(this.colorButton);
-            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -377,6 +391,8 @@ namespace UMLDesigner
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarScale)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,6 +427,7 @@ namespace UMLDesigner
         private System.Windows.Forms.Label labelScale;
         private System.Windows.Forms.TrackBar trackBarScale;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

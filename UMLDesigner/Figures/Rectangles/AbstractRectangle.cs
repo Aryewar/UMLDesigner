@@ -87,7 +87,7 @@ namespace UMLDesigner.Figures.Rectangles
 
             foreach (Port a in Ports)
             {
-                _painter.PainterGraphics.DrawEllipse(FigurePen, a.ConnectingPoint.X, a.ConnectingPoint.Y, FigurePen.Width, FigurePen.Width);
+                _painter.PainterGraphics.DrawEllipse(FigurePen, a.ConnectingPoint.X-2, a.ConnectingPoint.Y-2, FigurePen.Width+4, FigurePen.Width+4);
                 a.PointWidth = (int)FigurePen.Width;
             }
         }
