@@ -20,6 +20,15 @@ namespace UMLDesigner.Figures.SinglePainter
         public List<IFigure> RemovedFigures { get; set; }
         public IFigureFabric Fabric { get; set; }
         public IMouseHandler MouseHandler { get; set; }
+        public float Scale { get; set; }
+        public Font PainterFont { get; set; }
+        public enum PortType
+        {
+            Top,
+            Bottom,
+            Right,
+            Left
+        }
         public enum FigureType
         {
             NoDefine,
@@ -33,6 +42,7 @@ namespace UMLDesigner.Figures.SinglePainter
             ClassRectangle
         }
 
+
         private Bitmap _tmpBitmap;
         private Bitmap _mainBitmap;
         private PictureBox _pictureBox;
@@ -40,10 +50,11 @@ namespace UMLDesigner.Figures.SinglePainter
 
         private Painter()
         {
-            PainterPen = new Pen(Color.Black, 3);
+            PainterPen = new Pen(Color.Black, 1);
             PainterBrush = new SolidBrush(Color.White);
             Figures = new List<IFigure>();
             RemovedFigures = new List<IFigure>();
+            PainterFont = new Font("Ariel", 12);
         }
 
         public void SetPictureBox(PictureBox pictureBox)
@@ -54,6 +65,7 @@ namespace UMLDesigner.Figures.SinglePainter
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
             _pictureBox.BackColor = Color.White;
             _pictureBox.Image = _tmpBitmap;
+            Scale = 1;
             MouseHandler = new CursorMouseHandler();
         }
 

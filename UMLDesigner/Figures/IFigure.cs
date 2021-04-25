@@ -19,6 +19,8 @@ namespace UMLDesigner.Figures
         FigureType figureType { get; set; }
         List<IFigure> Links { get; set; }
 
+        string Type { get; set; }
+
         void Draw();
     }
 }

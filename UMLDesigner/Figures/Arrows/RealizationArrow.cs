@@ -12,7 +12,7 @@ namespace UMLDesigner.Figures.Arrows
             FigurePen = new Pen(PenColor, PenWidth);
 
             GraphicsPath hPath = new GraphicsPath();
-            Point[] emptyTriangle = new Point[] { new Point(-6, 0),
+            Point[] emptyTriangle = new Point[]   { new Point(-6, 0),
                                                     new Point(6, 0),
                                                     new Point(0, 12),
                                                   };

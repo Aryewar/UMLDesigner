@@ -48,6 +48,14 @@ namespace UMLDesigner
             this.ButtonUndo = new System.Windows.Forms.Button();
             this.RemoveRadioButton = new System.Windows.Forms.RadioButton();
             this.buttonExport = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.trackBarScale = new System.Windows.Forms.TrackBar();
+            this.labelScale = new System.Windows.Forms.Label();
+            this.textBoxScale = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.fontDialogMain = new System.Windows.Forms.FontDialog();
+            this.buttonFont = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.buttonSaveDiram = new System.Windows.Forms.Button();
             this.buttonOpenDiram = new System.Windows.Forms.Button();
@@ -56,15 +64,17 @@ namespace UMLDesigner
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarScale)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.Color.Gainsboro;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(311, 60);
+            this.pictureBox.Location = new System.Drawing.Point(203, 39);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(948, 612);
+            this.pictureBox.Size = new System.Drawing.Size(1020, 660);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.CustomMouseDoubleClick);
@@ -83,7 +93,7 @@ namespace UMLDesigner
             // 
             // widthBar
             // 
-            this.widthBar.Location = new System.Drawing.Point(235, 273);
+            this.widthBar.Location = new System.Drawing.Point(154, 268);
             this.widthBar.Maximum = 5;
             this.widthBar.Minimum = 1;
             this.widthBar.Name = "widthBar";
@@ -278,7 +288,7 @@ namespace UMLDesigner
             // 
             // buttonExport
             // 
-            this.buttonExport.Location = new System.Drawing.Point(14, 349);
+            this.buttonExport.Location = new System.Drawing.Point(14, 12);
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(107, 23);
             this.buttonExport.TabIndex = 27;
@@ -289,6 +299,66 @@ namespace UMLDesigner
             // saveFileDialog
             // 
             this.saveFileDialog.Filter = "*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.gif|*.gif";
+            // 
+            // trackBarScale
+            // 
+            this.trackBarScale.Location = new System.Drawing.Point(744, 4);
+            this.trackBarScale.Maximum = 150;
+            this.trackBarScale.Minimum = 50;
+            this.trackBarScale.Name = "trackBarScale";
+            this.trackBarScale.Size = new System.Drawing.Size(414, 45);
+            this.trackBarScale.TabIndex = 30;
+            this.trackBarScale.Value = 100;
+            this.trackBarScale.Scroll += new System.EventHandler(this.trackBarScale_Scroll);
+            // 
+            // labelScale
+            // 
+            this.labelScale.AutoSize = true;
+            this.labelScale.Location = new System.Drawing.Point(635, 15);
+            this.labelScale.Name = "labelScale";
+            this.labelScale.Size = new System.Drawing.Size(34, 13);
+            this.labelScale.TabIndex = 31;
+            this.labelScale.Text = "Scale";
+            // 
+            // textBoxScale
+            // 
+            this.textBoxScale.Location = new System.Drawing.Point(675, 12);
+            this.textBoxScale.MaxLength = 3;
+            this.textBoxScale.Name = "textBoxScale";
+            this.textBoxScale.Size = new System.Drawing.Size(39, 20);
+            this.textBoxScale.TabIndex = 32;
+            this.textBoxScale.Text = "100";
+            this.textBoxScale.TextChanged += new System.EventHandler(this.textBoxScale_TextChanged);
+            this.textBoxScale.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxScale_KeyDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(720, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "%";
+            // 
+            // buttonFont
+            // 
+            this.buttonFont.Location = new System.Drawing.Point(14, 349);
+            this.buttonFont.Name = "buttonFont";
+            this.buttonFont.Size = new System.Drawing.Size(75, 23);
+            this.buttonFont.TabIndex = 30;
+            this.buttonFont.Text = "Font";
+            this.buttonFont.UseVisualStyleBackColor = true;
+            this.buttonFont.Click += new System.EventHandler(this.buttonFont_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.AutoSize = true;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(1235, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(0, 711);
+            this.panel1.TabIndex = 34;
             // 
             // buttonSaveDiram
             // 
@@ -322,7 +392,13 @@ namespace UMLDesigner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1266, 679);
+            this.ClientSize = new System.Drawing.Size(1235, 711);
+            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxScale);
+            this.Controls.Add(this.labelScale);
+            this.Controls.Add(this.trackBarScale);
+            this.Controls.Add(this.buttonFont);
             this.Controls.Add(this.buttonOpenDiram);
             this.Controls.Add(this.buttonSaveDiram);
             this.Controls.Add(this.buttonClear);
@@ -341,13 +417,14 @@ namespace UMLDesigner
             this.Controls.Add(this.radioButtonCursor);
             this.Controls.Add(this.widthBar);
             this.Controls.Add(this.colorButton);
-            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarScale)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,6 +453,13 @@ namespace UMLDesigner
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button ButtonUndo;
         private System.Windows.Forms.RadioButton RemoveRadioButton;
+        private System.Windows.Forms.Button buttonFont;
+        private System.Windows.Forms.FontDialog fontDialogMain;
+        private System.Windows.Forms.TextBox textBoxScale;
+        private System.Windows.Forms.Label labelScale;
+        private System.Windows.Forms.TrackBar trackBarScale;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonSaveDiram;
         private System.Windows.Forms.Button buttonOpenDiram;
         private System.Windows.Forms.SaveFileDialog saveDiagramDialog;

@@ -30,8 +30,12 @@ namespace UMLDesigner.Figures.Rectangles
         public StringBuilder Methods { get; set; }
         public List<Port> Ports { get; set; }
         public List<IFigure> Links { get; set; }
+        public Font textFont { get; set; }
+        public string Type { get; set; }
         public bool ShowPorts { get; set; }
         public FigureType figureType { get; set; }
+
+        public float FontSize { get; set; }
 
 
         protected Painter _painter;
@@ -53,7 +57,8 @@ namespace UMLDesigner.Figures.Rectangles
             Methods = new StringBuilder("Methods");
             _painter = Painter.GetPainter();
             _textSize = new SizeF[4];
-            textFont = new Font("Ariel", 14);
+            FontSize = 14;
+            textFont = new Font("Ariel", FontSize*_painter.Scale);
             _countOfPorts = 20;
             Links = new List<IFigure>();
         }
@@ -70,9 +75,9 @@ namespace UMLDesigner.Figures.Rectangles
             _painter.PainterGraphics.DrawString(Methods.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, _startMethodsPointY);
 
             _painter.PainterGraphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, Width, Height);
-            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startPropertiesPointY, StartPoint.X + Width, _startPropertiesPointY);
-            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startFieldsPointY, StartPoint.X + Width, _startFieldsPointY);
-            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startMethodsPointY, StartPoint.X + Width, _startMethodsPointY);
+            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startPropertiesPointY - 3, StartPoint.X + Width, _startPropertiesPointY - 3);
+            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startFieldsPointY - 3, StartPoint.X + Width, _startFieldsPointY - 3);
+            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint.X, _startMethodsPointY - 3, StartPoint.X + Width, _startMethodsPointY - 3);
             
             if(ShowPorts)
             {
@@ -85,7 +90,7 @@ namespace UMLDesigner.Figures.Rectangles
 
             foreach (Port a in Ports)
             {
-                _painter.PainterGraphics.DrawEllipse(FigurePen, a.ConnectingPoint.X, a.ConnectingPoint.Y, FigurePen.Width, FigurePen.Width);
+                _painter.PainterGraphics.DrawEllipse(FigurePen, a.ConnectingPoint.X-2, a.ConnectingPoint.Y-2, FigurePen.Width+4, FigurePen.Width+4);
                 a.PointWidth = (int)FigurePen.Width;
             }
         }
@@ -99,6 +104,10 @@ namespace UMLDesigner.Figures.Rectangles
             _textSize[1] = _painter.PainterGraphics.MeasureString(Properties.ToString(), textFont);
             _textSize[2] = _painter.PainterGraphics.MeasureString(Fields.ToString(), textFont);
             _textSize[3] = _painter.PainterGraphics.MeasureString(Methods.ToString(), textFont);
+            _textSize[0].Height += 6;
+            _textSize[1].Height += 6;
+            _textSize[2].Height += 6;
+            _textSize[3].Height += 6;
 
             _startPropertiesPointY = (int)(StartPoint.Y + _textSize[0].Height);
             _startFieldsPointY = (int)(StartPoint.Y + _textSize[0].Height + _textSize[1].Height);
@@ -162,20 +171,25 @@ namespace UMLDesigner.Figures.Rectangles
 
             int temp = StartPoint.X;
 
-            for(int i = 0; i < 5; ++i)
+
+            for (int i = 0; i < 5; ++i)
             {
                 temp += Width / 6;
                 Ports[i].ConnectingPoint = new Point(temp, StartPoint.Y - (int)FigurePen.Width);
+                Ports[i].PortType = Painter.PortType.Top;
                 Ports[i + 10].ConnectingPoint = new Point(temp, StartPoint.Y + Height);
+                Ports[i + 10].PortType = Painter.PortType.Bottom;
 
             }
 
             temp = StartPoint.Y;
-            for(int i = 5; i < 10; ++i)
+            for (int i = 5; i < 10; ++i)
             {
                 temp += Height / 6;
                 Ports[i].ConnectingPoint = new Point(StartPoint.X + Width, temp);
+                Ports[i].PortType = Painter.PortType.Right;
                 Ports[i + 10].ConnectingPoint = new Point(StartPoint.X - (int)FigurePen.Width, temp);
+                Ports[i + 10].PortType = Painter.PortType.Left;
             }
 
         }
