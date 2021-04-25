@@ -27,8 +27,8 @@ namespace UMLDesigner
             buttonBackColor.BackColor = _currentFigure.FigureBackColor.Color;
             colorDialogText.Color = _currentFigure.FigurePen.Color;
             buttonTextColor.BackColor = _currentFigure.FigurePen.Color;
-            trackBar1.Value = (int) _currentFigure.FigurePen.Width;
-            
+            trackBar1.Value = (int)_currentFigure.FigurePen.Width;
+
             _painter = Painter.GetPainter();
             this.ShowDialog();
         }
@@ -98,6 +98,13 @@ namespace UMLDesigner
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             _currentFigure.FigurePen.Width = trackBar1.Value;
+        }
+
+        private void buttonFont_Click(object sender, EventArgs e)
+        {
+            fontDialogEdit.ShowDialog();
+            _currentFigure.FontSize = fontDialogEdit.Font.Size;
+            _currentFigure.textFont = new Font(fontDialogEdit.Font.FontFamily, _currentFigure.FontSize, fontDialogEdit.Font.Style);
         }
     }
 }

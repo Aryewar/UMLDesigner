@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
 using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.Figures.SinglePainter;
 using UMLDesigner.MouseHandler;
 
@@ -67,19 +68,19 @@ namespace UMLDesigner
         {
             if (_painter.CurentFigure != null)
             {
-                _painter.MouseHandler.MouseMove(e);
+                _painter.MouseHandler.MouseMove(sender, e);
             }
         }
 
         private void CustomMouseUp(object sender, MouseEventArgs e)
         {
-            _painter.MouseHandler.MouseUp(e);
+            _painter.MouseHandler.MouseUp(sender, e);
         }
 
         private void CustomMouseDoubleClick(object sender, MouseEventArgs e)
         {
 
-            _painter.MouseHandler.MouseDoubleClick(e, _classDialogForm);
+            _painter.MouseHandler.MouseDoubleClick(sender, e, _classDialogForm);
 
 
         }
@@ -157,6 +158,55 @@ namespace UMLDesigner
         private void RemoveRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             _painter.MouseHandler = new RemoveMouseHndler();
+        }
+
+        private void buttonFont_Click(object sender, EventArgs e)
+        {
+            fontDialogMain.ShowDialog();
+            _painter.PainterFont = fontDialogMain.Font;
+        }
+
+        private void textBoxScale_TextChanged(object sender, EventArgs e)
+        {
+            int value = Convert.ToInt32(textBoxScale.Text);
+            if (value >= 50 && value <= 150)
+            {
+                trackBarScale.Value = value;
+            } else if (value < 50)
+            {
+                trackBarScale.Value = 50;
+            }
+            else
+            {
+                trackBarScale.Value = 150;
+            }
+        }
+
+        private void trackBarScale_Scroll(object sender, EventArgs e)
+        {
+            textBoxScale.Text = (trackBarScale.Value).ToString();
+            _painter.Scale = (float)trackBarScale.Value/100;
+            _painter.Clear();
+            foreach (IFigure a in _painter.Figures)
+            {
+                if (a.Type == "ClassRectangle")
+                {
+                    ClassRectangle cur = (ClassRectangle)a;
+                    cur.textFont = new Font(cur.textFont.FontFamily, cur.FontSize * _painter.Scale, cur.textFont.Style);
+                }
+                a.Draw();
+            }
+
+            _painter.SetMainBitmap();
+
+        }
+
+        private void textBoxScale_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                trackBarScale_Scroll(sender, e);
+            }
         }
     }
 }

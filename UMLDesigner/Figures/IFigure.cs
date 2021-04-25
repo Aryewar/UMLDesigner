@@ -12,6 +12,8 @@ namespace UMLDesigner.Figures
         Font textFont { get; set; }
         List<IFigure> Links { get; set; }
 
+        string Type { get; set; }
+
         void Draw();
     }
 }

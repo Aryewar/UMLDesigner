@@ -18,12 +18,12 @@ namespace UMLDesigner.MouseHandler
             _painter.CurentFigure = _painter.Fabric.GetFigure();
         }
 
-        public void MouseMove(MouseEventArgs e)
+        public void MouseMove(object sender, MouseEventArgs e)
         {
 
         }
 
-        public void MouseUp(MouseEventArgs e)
+        public void MouseUp(object sender, MouseEventArgs e)
         {
             _painter.CurentFigure.StartPoint = e.Location;
             _painter.UpdatePictureBox();
@@ -32,7 +32,7 @@ namespace UMLDesigner.MouseHandler
             _painter.Figures.Add(_painter.CurentFigure);
             _painter.CurentFigure = null;
         }
-        public void MouseDoubleClick(MouseEventArgs e, ClassDialogForm _classDialogForm)
+        public void MouseDoubleClick(object sender, MouseEventArgs e, ClassDialogForm _classDialogForm)
         {
 
         }

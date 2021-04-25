@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
 using UMLDesigner.Figures.Fabrics;
@@ -53,11 +54,12 @@ namespace UMLDesigner.MouseHandler
                         break;
                     }
 
-                    break;
+                _painter.SetMainBitmap();
+                MouseMove(sender, e);
             }
         }
 
-        public void MouseMove(MouseEventArgs e)
+        public void MouseMove(object sender, MouseEventArgs e)
         {
             _painter.UpdatePictureBox();
             _painter.CurentFigure.Move(e.Location);
@@ -65,12 +67,12 @@ namespace UMLDesigner.MouseHandler
             GC.Collect();
         }
 
-        public void MouseUp(MouseEventArgs e)
+        public void MouseUp(object sender, MouseEventArgs e)
         {
             _painter.SetMainBitmap();
             _painter.CurentFigure = null;
         }
-        public void MouseDoubleClick(MouseEventArgs e, ClassDialogForm _classDialogForm)
+        public void MouseDoubleClick(object sender, MouseEventArgs e, ClassDialogForm _classDialogForm)
         {
             foreach (IFigure a in _painter.Figures)
             {
@@ -82,6 +84,9 @@ namespace UMLDesigner.MouseHandler
             }
             if (_painter.CurentFigure is ClassRectangle)
             {
+                var control = sender as Control;
+                Point startPosition = new Point(e.X - 240, e.Y - 250);
+                _classDialogForm.Location = control.PointToScreen(startPosition);
                 _classDialogForm.OpenCurrentFigure((ClassRectangle)_painter.CurentFigure);
             }
         }

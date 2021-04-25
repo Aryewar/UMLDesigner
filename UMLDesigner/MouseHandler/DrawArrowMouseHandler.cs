@@ -44,18 +44,21 @@ namespace UMLDesigner.MouseHandler
             }
         }
 
-        public void MouseMove(MouseEventArgs e)
-        {
-            _painter.CurentFigure.FinishPoint = e.Location;
-            _painter.UpdatePictureBox();
-            _painter.CurentFigure.Draw();
-            GC.Collect();
-        }
-
-        public void MouseUp(MouseEventArgs e)
+        public void MouseMove(object sender, MouseEventArgs e)
         {
             AbstractArrow curentArrow = (AbstractArrow)_painter.CurentFigure;
 
+            _painter.CurentFigure.FinishPoint = e.Location;
+            _painter.UpdatePictureBox();
+            curentArrow.DrawDirect();
+            GC.Collect();
+        }
+
+        public void MouseUp(object sender, MouseEventArgs e)
+        {
+            AbstractArrow curentArrow = (AbstractArrow)_painter.CurentFigure;
+            _painter.UpdatePictureBox();
+            
             foreach (IFigure a in _painter.Figures)
             {
                 if (a is ClassRectangle)
@@ -79,6 +82,7 @@ namespace UMLDesigner.MouseHandler
 
             if(curentArrow != null && curentArrow.FinishPort != null)
             {
+                _painter.CurentFigure.Draw();
                 _painter.SetMainBitmap();
                 _painter.Figures.Add(_painter.CurentFigure);
                 foreach(IFigure a in _painter.CurentFigure.Links)
@@ -88,6 +92,7 @@ namespace UMLDesigner.MouseHandler
                 curentArrow.StartPort.ArrowType = curentArrow.GetType();
                 curentArrow.FinishPort.ArrowType = curentArrow.GetType();
                 _painter.CurentFigure = null;
+                _painter.UpdatePictureBox();
             }
             else
             {
@@ -96,7 +101,7 @@ namespace UMLDesigner.MouseHandler
             }
         }
 
-        public void MouseDoubleClick(MouseEventArgs e, ClassDialogForm _classDialogForm)
+        public void MouseDoubleClick(object sender, MouseEventArgs e, ClassDialogForm _classDialogForm)
         {
         }
     }
