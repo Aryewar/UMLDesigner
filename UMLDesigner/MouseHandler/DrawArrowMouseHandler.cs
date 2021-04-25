@@ -15,7 +15,7 @@ namespace UMLDesigner.MouseHandler
 
         public void MouseDown(object sender, MouseEventArgs e)
         {
-            _painter.CurentFigure = _painter.Fabric.GetFigure();
+            _painter.CurentFigure = _painter.Factory.GetFigure();
             AbstractArrow curentArrow = (AbstractArrow)_painter.CurentFigure;
 
             foreach (IFigure a in _painter.Figures)

@@ -13,13 +13,13 @@ using UMLDesigner.Figures.SinglePainter;
 
 namespace UMLDesigner
 {
-    public partial class PropertiesDialog:Form
+    public partial class RightClickDialog:Form
     {
         private IFigure _figure;
         private Painter _painter;
         private ClassDialogForm _classDialogForm;
 
-        public PropertiesDialog()
+        public RightClickDialog()
         {
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;

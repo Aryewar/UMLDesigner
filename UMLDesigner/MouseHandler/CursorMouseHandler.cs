@@ -48,7 +48,7 @@ namespace UMLDesigner.MouseHandler
                         if (a.IsSelected(e.Location))
                         {
                             var control = sender as Control;
-                            PropertiesDialog propertiesWindow = new PropertiesDialog();
+                            RightClickDialog propertiesWindow = new RightClickDialog();
                             propertiesWindow.OpenPropertiesDialog(a, control.PointToScreen(e.Location));
                             break;
                         }

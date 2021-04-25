@@ -1,7 +1,7 @@
 ﻿
 namespace UMLDesigner
 {
-    partial class PropertiesDialog
+    partial class RightClickDialog
     {
         /// <summary>
         /// Required designer variable.

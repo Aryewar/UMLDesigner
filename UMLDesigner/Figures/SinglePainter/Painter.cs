@@ -18,7 +18,7 @@ namespace UMLDesigner.Figures.SinglePainter
         public IFigure CurentFigure { get; set; }
         public List<IFigure> Figures { get; set; }
         public List<IFigure> RemovedFigures { get; set; }
-        public IFigureFabric Fabric { get; set; }
+        public IFigureFabric Factory { get; set; }
         public IMouseHandler MouseHandler { get; set; }
         public float Scale { get; set; }
         public Font PainterFont { get; set; }
@@ -42,7 +42,6 @@ namespace UMLDesigner.Figures.SinglePainter
             ClassRectangle
         }
 
-
         private Bitmap _tmpBitmap;
         private Bitmap _mainBitmap;
         private PictureBox _pictureBox;
@@ -56,7 +55,6 @@ namespace UMLDesigner.Figures.SinglePainter
             RemovedFigures = new List<IFigure>();
             PainterFont = new Font("Ariel", 12);
         }
-
         public void SetPictureBox(PictureBox pictureBox)
         {
             _pictureBox = pictureBox;
@@ -68,7 +66,6 @@ namespace UMLDesigner.Figures.SinglePainter
             Scale = 1;
             MouseHandler = new CursorMouseHandler();
         }
-
         public static Painter GetPainter()
         {
             if (_painter is null)
@@ -78,19 +75,16 @@ namespace UMLDesigner.Figures.SinglePainter
 
             return _painter;
         }
-
         public void SetMainBitmap()
         {
             _mainBitmap = _tmpBitmap;
         }
-
         public void UpdatePictureBox()
         {
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _pictureBox.Image = _tmpBitmap;
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
         }
-
         public void Clear()
         {
             _mainBitmap = new Bitmap(_pictureBox.Width, _pictureBox.Height);

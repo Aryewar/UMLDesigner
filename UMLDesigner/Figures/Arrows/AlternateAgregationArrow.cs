@@ -4,9 +4,9 @@ using UMLDesigner.Figures.SinglePainter;
 
 namespace UMLDesigner.Figures.Arrows
 {
-    public class AlternateAgragationArrow : AbstractArrow
+    public class AlternateAgregationArrow : AbstractArrow
     {
-        public AlternateAgragationArrow()
+        public AlternateAgregationArrow()
         {
             PenWidth = (int)_painter.PainterPen.Width;
             PenColor = _painter.PainterPen.Color;

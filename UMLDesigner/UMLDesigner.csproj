@@ -85,21 +85,21 @@
     </Compile>
     <Compile Include="Figures\Arrows\AbstractArrow.cs" />
     <Compile Include="Figures\Arrows\AgregationArrow.cs" />
-    <Compile Include="Figures\Arrows\AlternateAgragationArrow.cs" />
+    <Compile Include="Figures\Arrows\AlternateAgregationArrow.cs" />
     <Compile Include="Figures\Arrows\AlternateCompositionArrow.cs" />
     <Compile Include="Figures\Arrows\AssociationArrow.cs" />
     <Compile Include="Figures\Arrows\CompositionArrow.cs" />
     <Compile Include="Figures\Arrows\InharitanceArrow.cs" />
     <Compile Include="Figures\Arrows\RealizationArrow.cs" />
-    <Compile Include="Figures\Fabrics\AgregationArrowFabric.cs" />
-    <Compile Include="Figures\Fabrics\AlternateAgregationArrowFabric.cs" />
-    <Compile Include="Figures\Fabrics\AlternateCompositionArrowFabric.cs" />
-    <Compile Include="Figures\Fabrics\AssociationArrowFabric.cs" />
-    <Compile Include="Figures\Fabrics\ClassRectangleFabric.cs" />
-    <Compile Include="Figures\Fabrics\IFigureFabric.cs" />
-    <Compile Include="Figures\Fabrics\InharitanceArrowFabric.cs" />
-    <Compile Include="Figures\Fabrics\CompositionArrowFabric.cs" />
-    <Compile Include="Figures\Fabrics\RealizationArrowFabric.cs" />
+    <Compile Include="Figures\Factories\AgregationArrowFactory.cs" />
+    <Compile Include="Figures\Factories\AlternateAgregationArrowFactory.cs" />
+    <Compile Include="Figures\Factories\AlternateCompositionArrowFactory.cs" />
+    <Compile Include="Figures\Factories\AssociationArrowFactory.cs" />
+    <Compile Include="Figures\Factories\ClassRectangleFactory.cs" />
+    <Compile Include="Figures\Factories\IFigureFactory.cs" />
+    <Compile Include="Figures\Factories\InharitanceArrowFactory.cs" />
+    <Compile Include="Figures\Factories\CompositionArrowFactory.cs" />
+    <Compile Include="Figures\Factories\RealizationArrowFactory.cs" />
     <Compile Include="Figures\IFigure.cs" />
     <Compile Include="Figures\IMovable.cs" />
     <Compile Include="Figures\Rectangles\AbstractRectangle.cs" />
@@ -116,13 +116,12 @@
     <Compile Include="MouseHandler\DrawArrowMouseHandler.cs" />
     <Compile Include="MouseHandler\DrawRectangleMouseHandler.cs" />
     <Compile Include="MouseHandler\IMouseHandler.cs" />
-    <Compile Include="MouseHandler\RemoveMouseHndler.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="PropertiesDialog.cs">
+    <Compile Include="RightClickDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PropertiesDialog.Designer.cs">
-      <DependentUpon>PropertiesDialog.cs</DependentUpon>
+    <Compile Include="RightClickDialog.Designer.cs">
+      <DependentUpon>RightClickDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ClassDialogForm.resx">
@@ -131,8 +130,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PropertiesDialog.resx">
-      <DependentUpon>PropertiesDialog.cs</DependentUpon>
+    <EmbeddedResource Include="RightClickDialog.resx">
+      <DependentUpon>RightClickDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

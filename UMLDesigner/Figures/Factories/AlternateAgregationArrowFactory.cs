@@ -6,7 +6,7 @@ namespace UMLDesigner.Figures.Fabrics
     {
         public IFigure GetFigure()
         {
-            return new AlternateAgragationArrow();
+            return new AlternateAgregationArrow();
         }
     }
 }
