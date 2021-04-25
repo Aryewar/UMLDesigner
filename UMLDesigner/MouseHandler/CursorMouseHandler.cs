@@ -14,28 +14,46 @@ namespace UMLDesigner.MouseHandler
         private Painter _painter = Painter.GetPainter();
         public void MouseDown(object sender, MouseEventArgs e)
         {
-            foreach (IFigure a in _painter.Figures)
+            switch (e.Button)
             {
-                if (a.IsSelected(e.Location))
-                {
-                   _painter.CurentFigure = a;
-                    break;
-                }
-            }
-            if (_painter.CurentFigure != null)
-            {
-                _painter.CurentFigure.PrevPosition = e.Location;
-                _painter.Clear();
-                foreach (IFigure a in _painter.Figures)
-                {
-                    if (_painter.CurentFigure != a && !_painter.CurentFigure.Links.Contains(a))
+                case MouseButtons.Left:
+                    foreach (IFigure a in _painter.Figures)
                     {
-                        a.Draw();
+                        if (a.IsSelected(e.Location))
+                        {
+                            _painter.CurentFigure = a;
+                            break;
+                        }
                     }
-                }
+                    if (_painter.CurentFigure != null)
+                    {
+                        _painter.CurentFigure.PrevPosition = e.Location;
+                        _painter.Clear();
+                        foreach (IFigure a in _painter.Figures)
+                        {
+                            if (_painter.CurentFigure != a && !_painter.CurentFigure.Links.Contains(a))
+                            {
+                                a.Draw();
+                            }
+                        }
 
-                _painter.SetMainBitmap();
-                MouseMove(sender, e);
+                        _painter.SetMainBitmap();
+                        MouseMove(sender, e);
+                    }
+                    break;
+
+                case MouseButtons.Right:
+                    foreach (IFigure a in _painter.Figures)
+                    {
+                        if (a.IsSelected(e.Location))
+                        {
+                            var control = sender as Control;
+                            PropertiesDialog propertiesWindow = new PropertiesDialog();
+                            propertiesWindow.OpenPropertiesDialog(a, control.PointToScreen(e.Location));
+                            break;
+                        }
+                    }
+                    break;
             }
         }
 
