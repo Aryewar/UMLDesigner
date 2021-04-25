@@ -60,7 +60,7 @@ namespace UMLDesigner
 
         private void CustomMouseDown(object sender, MouseEventArgs e)
         {
-            _painter.MouseHandler.MouseDown(e);
+            _painter.MouseHandler.MouseDown(sender, e);
         }
 
         private void CustomMouseMove(object sender, MouseEventArgs e)

@@ -13,15 +13,14 @@ namespace UMLDesigner.MouseHandler
     public class RemoveMouseHndler : IMouseHandler
     {
         private Painter _painter = Painter.GetPainter();
-        
+
         public void MouseDoubleClick(MouseEventArgs e, ClassDialogForm _classDialogForm)
         {
-            
+
         }
 
-        public void MouseDown(MouseEventArgs e)
+        public void MouseDown(object sender, MouseEventArgs e)
         {
-            
             foreach (IFigure a in _painter.Figures)
             {
                 if (a.IsSelected(e.Location))
@@ -32,7 +31,7 @@ namespace UMLDesigner.MouseHandler
                     _painter.UpdatePictureBox();
                     foreach (IFigure b in _painter.Figures)
                     {
-                            b.Draw();
+                        b.Draw();
                     }
                     _painter.SetMainBitmap();
                     break;

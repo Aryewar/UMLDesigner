@@ -8,7 +8,7 @@ namespace UMLDesigner.MouseHandler
 {
     public interface IMouseHandler
     {
-        void MouseDown(MouseEventArgs e);
+        void MouseDown(object sender, MouseEventArgs e);
         void MouseMove(MouseEventArgs e);
         void MouseUp(MouseEventArgs e);
         void MouseDoubleClick(MouseEventArgs e, ClassDialogForm _classDialogForm);
