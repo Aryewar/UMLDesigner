@@ -9,7 +9,7 @@ namespace UMLDesigner.Figures.Arrows
         {
             FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
             GraphicsPath hPath = new GraphicsPath();
-            Point[] emptyTriangle = new Point[] { new Point(-6, 0),
+            Point[] emptyTriangle = new Point[]   { new Point(-6, 0),
                                                     new Point(6, 0),
                                                     new Point(0, 12),
                                                   };
@@ -17,6 +17,7 @@ namespace UMLDesigner.Figures.Arrows
             hPath.AddPolygon(emptyTriangle);
             FigurePen.CustomEndCap = new CustomLineCap(null, hPath);
             FigurePen.DashStyle = DashStyle.Dash;
+            Type = "RealizationArrow";
         }
         
     }

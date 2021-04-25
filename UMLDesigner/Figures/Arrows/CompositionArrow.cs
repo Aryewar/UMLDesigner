@@ -9,14 +9,15 @@ namespace UMLDesigner.Figures.Arrows
         {
             FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
             GraphicsPath hPath = new GraphicsPath();
-            Point[] filledRhombus = new Point[] { new Point(0, 0),
-                                                    new Point(3, 6),
-                                                    new Point(0, 12),
-                                                    new Point(-3, 6)
+            Point[] filledRhombus = new Point[] { new Point(0, -24),
+                                                    new Point(6, -12),
+                                                    new Point(0, 0),
+                                                    new Point(-6, -12)
                                                   };
 
             hPath.AddPolygon(filledRhombus);
             FigurePen.CustomEndCap = new CustomLineCap(null, hPath);
+            Type = "CompositionArrow";
         }
     }
 }

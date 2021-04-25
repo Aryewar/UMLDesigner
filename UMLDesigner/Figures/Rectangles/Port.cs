@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using static UMLDesigner.Figures.SinglePainter.Painter;
 
 namespace UMLDesigner.Figures.Rectangles
 {
@@ -8,7 +9,7 @@ namespace UMLDesigner.Figures.Rectangles
         public Point ConnectingPoint { get; set; }
         public Type ArrowType { get; set; }
         public int PointWidth { get; set; }
-
+        public PortType PortType { get; set; }
         public Port()
         {
             ArrowType = null;
@@ -17,10 +18,10 @@ namespace UMLDesigner.Figures.Rectangles
 
         public bool SelectedPort(Point currentPoint)
         {
-            if((currentPoint.X >= ConnectingPoint.X - PointWidth
-               && currentPoint.X <= ConnectingPoint.X + PointWidth
-               && currentPoint.Y >= ConnectingPoint.Y - PointWidth
-               && currentPoint.Y <= ConnectingPoint.Y + PointWidth))
+            if((currentPoint.X >= ConnectingPoint.X - PointWidth-5
+               && currentPoint.X <= ConnectingPoint.X + PointWidth+5
+               && currentPoint.Y >= ConnectingPoint.Y - PointWidth-5
+               && currentPoint.Y <= ConnectingPoint.Y + PointWidth+5))
             {
                 return true;
             }

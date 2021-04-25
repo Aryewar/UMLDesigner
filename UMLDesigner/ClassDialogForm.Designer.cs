@@ -29,6 +29,7 @@ namespace UMLDesigner
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClassDialogForm));
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.textBoxProperties = new System.Windows.Forms.TextBox();
             this.textBoxFields = new System.Windows.Forms.TextBox();
@@ -46,6 +47,9 @@ namespace UMLDesigner
             this.colorDialogBackground = new System.Windows.Forms.ColorDialog();
             this.buttonTextColor = new System.Windows.Forms.Button();
             this.buttonBackColor = new System.Windows.Forms.Button();
+            this.fontDialogEdit = new System.Windows.Forms.FontDialog();
+            this.buttonFont = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -132,7 +136,7 @@ namespace UMLDesigner
             // buttonSave
             // 
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSave.Location = new System.Drawing.Point(133, 401);
+            this.buttonSave.Location = new System.Drawing.Point(12, 399);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(201, 50);
             this.buttonSave.TabIndex = 9;
@@ -144,7 +148,7 @@ namespace UMLDesigner
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 286);
+            this.label2.Location = new System.Drawing.Point(7, 286);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 20);
             this.label2.TabIndex = 11;
@@ -154,7 +158,7 @@ namespace UMLDesigner
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(236, 286);
+            this.label1.Location = new System.Drawing.Point(147, 286);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 20);
             this.label1.TabIndex = 12;
@@ -164,7 +168,7 @@ namespace UMLDesigner
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(12, 346);
+            this.label3.Location = new System.Drawing.Point(7, 346);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 20);
             this.label3.TabIndex = 13;
@@ -183,7 +187,7 @@ namespace UMLDesigner
             // 
             // buttonTextColor
             // 
-            this.buttonTextColor.Location = new System.Drawing.Point(112, 278);
+            this.buttonTextColor.Location = new System.Drawing.Point(93, 278);
             this.buttonTextColor.Name = "buttonTextColor";
             this.buttonTextColor.Size = new System.Drawing.Size(40, 40);
             this.buttonTextColor.TabIndex = 15;
@@ -192,18 +196,42 @@ namespace UMLDesigner
             // 
             // buttonBackColor
             // 
-            this.buttonBackColor.Location = new System.Drawing.Point(394, 278);
+            this.buttonBackColor.Location = new System.Drawing.Point(297, 278);
             this.buttonBackColor.Name = "buttonBackColor";
             this.buttonBackColor.Size = new System.Drawing.Size(40, 40);
             this.buttonBackColor.TabIndex = 16;
             this.buttonBackColor.UseVisualStyleBackColor = true;
             this.buttonBackColor.Click += new System.EventHandler(this.buttonBackColor_Click);
             // 
+            // buttonFont
+            // 
+            this.buttonFont.Location = new System.Drawing.Point(362, 278);
+            this.buttonFont.Name = "buttonFont";
+            this.buttonFont.Size = new System.Drawing.Size(75, 40);
+            this.buttonFont.TabIndex = 17;
+            this.buttonFont.Text = "Font";
+            this.buttonFont.UseVisualStyleBackColor = true;
+            this.buttonFont.Click += new System.EventHandler(this.buttonFont_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonCancel.Location = new System.Drawing.Point(236, 399);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(201, 50);
+            this.buttonCancel.TabIndex = 18;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
             // ClassDialogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 463);
+            this.CancelButton = this.buttonCancel;
+            this.ClientSize = new System.Drawing.Size(464, 461);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonFont);
             this.Controls.Add(this.buttonBackColor);
             this.Controls.Add(this.buttonTextColor);
             this.Controls.Add(this.trackBar1);
@@ -219,10 +247,13 @@ namespace UMLDesigner
             this.Controls.Add(this.textBoxFields);
             this.Controls.Add(this.textBoxProperties);
             this.Controls.Add(this.textBoxTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ClassDialogForm";
-            this.Text = "ClassDialogForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "Properties";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -247,5 +278,8 @@ namespace UMLDesigner
         private System.Windows.Forms.ColorDialog colorDialogBackground;
         private System.Windows.Forms.Button buttonTextColor;
         private System.Windows.Forms.Button buttonBackColor;
+        private System.Windows.Forms.FontDialog fontDialogEdit;
+        private System.Windows.Forms.Button buttonFont;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }

@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.MouseHandler;
 
 namespace UMLDesigner.Figures.SinglePainter
@@ -18,6 +19,16 @@ namespace UMLDesigner.Figures.SinglePainter
         public List<IFigure> RemovedFigures { get; set; }
         public IFigureFabric Fabric { get; set; }
         public IMouseHandler MouseHandler { get; set; }
+        public float Scale { get; set; }
+        public Font PainterFont { get; set; }
+        public enum PortType
+        {
+            Top,
+            Bottom,
+            Right,
+            Left
+        }
+
 
         private Bitmap _tmpBitmap;
         private Bitmap _mainBitmap;
@@ -26,10 +37,11 @@ namespace UMLDesigner.Figures.SinglePainter
 
         private Painter()
         {
-            PainterPen = new Pen(Color.Black, 3);
+            PainterPen = new Pen(Color.Black, 1);
             PainterBrush = new SolidBrush(Color.White);
             Figures = new List<IFigure>();
             RemovedFigures = new List<IFigure>();
+            PainterFont = new Font("Ariel", 12);
         }
 
         public void SetPictureBox(PictureBox pictureBox)
@@ -40,6 +52,8 @@ namespace UMLDesigner.Figures.SinglePainter
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
             _pictureBox.BackColor = Color.White;
             _pictureBox.Image = _tmpBitmap;
+            Scale = 1;
+            MouseHandler = new CursorMouseHandler();
         }
 
         public static Painter GetPainter()
@@ -70,6 +84,18 @@ namespace UMLDesigner.Figures.SinglePainter
             UpdatePictureBox();
         }
 
+        public void Refresh()
+        {
+            Clear();
+
+            foreach(IFigure fgr in Figures)
+            {
+                fgr.Draw();
+            }
+
+            SetMainBitmap();
+        }
+
         public void ExportImage(string path)
         {
             using (var bitmap = new Bitmap(_pictureBox.Width, _pictureBox.Height))
@@ -98,6 +124,23 @@ namespace UMLDesigner.Figures.SinglePainter
 
                 bitmap.Save(path, imageFormat);
             }
+        }
+
+        public void SetRectanleShowPorts(bool showPorts)
+        {
+            foreach(IFigure fgr in Figures)
+            {
+                if(fgr is ClassRectangle)
+                {
+                    ((ClassRectangle)fgr).ShowPorts = showPorts;
+                }
+            }
+
+            Refresh();
+        }
+        public void DrawLine(Point start, Point finish)
+        {
+            PainterGraphics.DrawLine(PainterPen, start, finish);
         }
     }
 }
