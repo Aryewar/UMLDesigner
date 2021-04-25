@@ -38,7 +38,7 @@ namespace UMLDesigner.MouseHandler
                         }
 
                         _painter.SetMainBitmap();
-                        MouseMove(e);
+                        MouseMove(sender, e);
                     }
                     break;
 
@@ -50,12 +50,10 @@ namespace UMLDesigner.MouseHandler
                             var control = sender as Control;
                             PropertiesDialog propertiesWindow = new PropertiesDialog();
                             propertiesWindow.OpenPropertiesDialog(a, control.PointToScreen(e.Location));
+                            break;
                         }
-                        break;
                     }
-
-                _painter.SetMainBitmap();
-                MouseMove(sender, e);
+                    break;
             }
         }
 
