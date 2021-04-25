@@ -13,7 +13,7 @@ namespace UMLDesigner.MouseHandler
     {
         private Painter _painter = Painter.GetPainter();
 
-        public void MouseDown(MouseEventArgs e)
+        public void MouseDown(object sender, MouseEventArgs e)
         {
             _painter.CurentFigure = _painter.Fabric.GetFigure();
             AbstractArrow curentArrow = (AbstractArrow)_painter.CurentFigure;
@@ -44,7 +44,7 @@ namespace UMLDesigner.MouseHandler
             }
         }
 
-        public void MouseMove(MouseEventArgs e)
+        public void MouseMove(object sender, MouseEventArgs e)
         {
             AbstractArrow curentArrow = (AbstractArrow)_painter.CurentFigure;
 
@@ -54,7 +54,7 @@ namespace UMLDesigner.MouseHandler
             GC.Collect();
         }
 
-        public void MouseUp(MouseEventArgs e)
+        public void MouseUp(object sender, MouseEventArgs e)
         {
             AbstractArrow curentArrow = (AbstractArrow)_painter.CurentFigure;
 
@@ -100,7 +100,7 @@ namespace UMLDesigner.MouseHandler
             }
         }
 
-        public void MouseDoubleClick(MouseEventArgs e, ClassDialogForm _classDialogForm)
+        public void MouseDoubleClick(object sender, MouseEventArgs e, ClassDialogForm _classDialogForm)
         {
         }
     }
