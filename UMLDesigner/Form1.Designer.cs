@@ -60,14 +60,13 @@ namespace UMLDesigner
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarScale)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.Color.Gainsboro;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(3, 48);
+            this.pictureBox.Location = new System.Drawing.Point(203, 39);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(1020, 660);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -350,11 +349,10 @@ namespace UMLDesigner
             // 
             this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this.pictureBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(209, 0);
+            this.panel1.Location = new System.Drawing.Point(1235, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1026, 711);
+            this.panel1.Size = new System.Drawing.Size(0, 711);
             this.panel1.TabIndex = 34;
             // 
             // Form1
@@ -362,6 +360,7 @@ namespace UMLDesigner
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1235, 711);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxScale);
             this.Controls.Add(this.labelScale);
@@ -391,8 +390,6 @@ namespace UMLDesigner
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarScale)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -57,7 +57,8 @@ namespace UMLDesigner.MouseHandler
         public void MouseUp(object sender, MouseEventArgs e)
         {
             AbstractArrow curentArrow = (AbstractArrow)_painter.CurentFigure;
-
+            _painter.UpdatePictureBox();
+            
             foreach (IFigure a in _painter.Figures)
             {
                 if (a is ClassRectangle)
@@ -81,7 +82,6 @@ namespace UMLDesigner.MouseHandler
 
             if(curentArrow != null && curentArrow.FinishPort != null)
             {
-
                 _painter.CurentFigure.Draw();
                 _painter.SetMainBitmap();
                 _painter.Figures.Add(_painter.CurentFigure);
@@ -92,6 +92,7 @@ namespace UMLDesigner.MouseHandler
                 curentArrow.StartPort.ArrowType = curentArrow.GetType();
                 curentArrow.FinishPort.ArrowType = curentArrow.GetType();
                 _painter.CurentFigure = null;
+                _painter.UpdatePictureBox();
             }
             else
             {

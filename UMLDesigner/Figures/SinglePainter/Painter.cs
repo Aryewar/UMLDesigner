@@ -138,5 +138,9 @@ namespace UMLDesigner.Figures.SinglePainter
 
             Refresh();
         }
+        public void DrawLine(Point start, Point finish)
+        {
+            PainterGraphics.DrawLine(PainterPen, start, finish);
+        }
     }
 }

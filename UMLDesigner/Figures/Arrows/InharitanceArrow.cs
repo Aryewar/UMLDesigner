@@ -9,9 +9,9 @@ namespace UMLDesigner.Figures.Arrows
         {
             FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
             GraphicsPath hPath = new GraphicsPath();
-            Point[] emptyTriangle = new Point[] { new Point(-6, 0),
-                                                    new Point(6, 0),
-                                                    new Point(0, 12),
+            Point[] emptyTriangle = new Point[] { new Point(-6, -12),
+                                                    new Point(6, -12),
+                                                    new Point(0, 0),
                                                   };
 
             hPath.AddPolygon(emptyTriangle);

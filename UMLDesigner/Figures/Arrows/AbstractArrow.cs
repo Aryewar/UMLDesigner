@@ -112,7 +112,6 @@ namespace UMLDesigner.Figures.Arrows
             {
                 DrawFromRightToTopCorner();
             }
-            _painter.PainterGraphics.DrawLine(FigurePen, StartPoint, FinishPoint);
         }
         public void DrawDirect()
         {
