@@ -81,13 +81,9 @@ namespace UMLDesigner.MouseHandler
                     }
                 }
 
-            if(curentArrow != null && curentArrow.FinishPort != null)
-            {
-                _painter.CurentFigure.Draw();
-                _painter.SetMainBitmap();
-                _painter.Figures.Add(_painter.CurentFigure);
-                foreach(IFigure a in _painter.CurentFigure.Links)
+                if (curentArrow.FinishPort != null)
                 {
+                    _painter.CurentFigure.Draw();
                     _painter.SetMainBitmap();
                     _painter.Figures.Add(_painter.CurentFigure);
                     foreach (IFigure a in _painter.CurentFigure.Links)
@@ -97,11 +93,8 @@ namespace UMLDesigner.MouseHandler
                     curentArrow.FinishPort.ArrowType = curentArrow.figureType;
                     curentArrow.StartPort.ArrowType = curentArrow.figureType;
                     _painter.CurentFigure = null;
+                    _painter.UpdatePictureBox();
                 }
-                curentArrow.StartPort.ArrowType = curentArrow.GetType();
-                curentArrow.FinishPort.ArrowType = curentArrow.GetType();
-                _painter.CurentFigure = null;
-                _painter.UpdatePictureBox();
             }
         }
 

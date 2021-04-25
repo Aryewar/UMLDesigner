@@ -30,7 +30,6 @@ namespace UMLDesigner.Figures.Rectangles
         public StringBuilder Methods { get; set; }
         public List<Port> Ports { get; set; }
         public List<IFigure> Links { get; set; }
-        public Font textFont { get; set; }
         public string Type { get; set; }
         public bool ShowPorts { get; set; }
         public FigureType figureType { get; set; }
