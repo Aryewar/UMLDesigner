@@ -46,9 +46,11 @@ namespace UMLDesigner.MouseHandler
 
         public void MouseMove(MouseEventArgs e)
         {
+            AbstractArrow curentArrow = (AbstractArrow)_painter.CurentFigure;
+
             _painter.CurentFigure.FinishPoint = e.Location;
             _painter.UpdatePictureBox();
-            _painter.CurentFigure.Draw();
+            curentArrow.DrawDirect();
             GC.Collect();
         }
 
@@ -79,6 +81,8 @@ namespace UMLDesigner.MouseHandler
 
             if(curentArrow != null && curentArrow.FinishPort != null)
             {
+
+                _painter.CurentFigure.Draw();
                 _painter.SetMainBitmap();
                 _painter.Figures.Add(_painter.CurentFigure);
                 foreach(IFigure a in _painter.CurentFigure.Links)
