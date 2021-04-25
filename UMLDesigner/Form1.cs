@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
 using UMLDesigner.Figures.Fabrics;
@@ -44,9 +45,11 @@ namespace UMLDesigner
         }
         private void buttonExport_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.ShowDialog();
-            string path = saveFileDialog1.FileName;
-            _painter.ExportImage(path);
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = saveFileDialog.FileName;
+                _painter.ExportImage(path);
+            }
         }
 
         private void ButtonUndo_Click(object sender, EventArgs e)
@@ -158,6 +161,34 @@ namespace UMLDesigner
         private void RemoveRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             _painter.MouseHandler = new RemoveMouseHndler();
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (saveDiagramDialog.ShowDialog() == DialogResult.OK)
+            {
+                string path = saveDiagramDialog.FileName;
+                string fileText = _painter.SerializeDiaram();
+                using (StreamWriter sw = new StreamWriter(path, false))
+                {
+                    sw.Write(fileText);
+                }
+            }
+        }
+
+        private void buttonOpenDiram_Click(object sender, EventArgs e)
+        {
+            if(openDiagramDialog.ShowDialog() == DialogResult.OK)
+            {
+                string fileContent = string.Empty;
+                string path = openDiagramDialog.FileName;
+
+                using(StreamReader sr = new StreamReader(path))
+                {
+                    fileContent = sr.ReadToEnd();
+                }
+                _painter.OpenDiaram(fileContent);
+            }
         }
 
         private void buttonFont_Click(object sender, EventArgs e)

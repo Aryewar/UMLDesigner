@@ -7,7 +7,10 @@ namespace UMLDesigner.Figures.Arrows
     {
         public CompositionArrow()
         {
-            FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
+            PenWidth = (int)_painter.PainterPen.Width;
+            PenColor = _painter.PainterPen.Color;
+            FigurePen = new Pen(PenColor, PenWidth);
+
             GraphicsPath hPath = new GraphicsPath();
             Point[] filledRhombus = new Point[] { new Point(0, -24),
                                                     new Point(6, -12),
@@ -17,7 +20,8 @@ namespace UMLDesigner.Figures.Arrows
 
             hPath.AddPolygon(filledRhombus);
             FigurePen.CustomEndCap = new CustomLineCap(null, hPath);
-            Type = "CompositionArrow";
+
+            figureType = SinglePainter.Painter.FigureType.CompositionArrow;
         }
     }
 }

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using UMLDesigner.Figures.SinglePainter;
-using UMLDesigner.Figures.Arrows;
+using Newtonsoft.Json;
+using static UMLDesigner.Figures.SinglePainter.Painter;
 
 namespace UMLDesigner.Figures.Rectangles
 {
@@ -12,19 +13,26 @@ namespace UMLDesigner.Figures.Rectangles
         public Point StartPoint { get; set; }
         public Point FinishPoint { get; set; }
         public Point PrevPosition { get; set; }
+
+        [JsonIgnore]
         public Pen FigurePen { get; set; }
-        public SolidBrush FigureBackColor { get; set; }
+        [JsonIgnore]
+        public SolidBrush FigureBrush { get; set; }
+        public Color FigureBackColor { get; set; }
+        public Font textFont { get; set; }
+        public int PenWidth { get; set; }
+        public Color PenColor { get; set; }
         public int Width { get; protected set; }
         public int Height { get; protected set; }
         public StringBuilder Title { get; set; }
         public StringBuilder Properties { get; set; }
         public StringBuilder Fields { get; set; }
         public StringBuilder Methods { get; set; }
-        public List<Port> Ports { get;protected set; }
+        public List<Port> Ports { get; set; }
         public List<IFigure> Links { get; set; }
-        public Font textFont { get; set; }
         public string Type { get; set; }
         public bool ShowPorts { get; set; }
+        public FigureType figureType { get; set; }
 
         public float FontSize { get; set; }
 
@@ -51,20 +59,14 @@ namespace UMLDesigner.Figures.Rectangles
             FontSize = 14;
             textFont = new Font("Ariel", FontSize*_painter.Scale);
             _countOfPorts = 20;
-            Ports = new List<Port>();
             Links = new List<IFigure>();
-
-            for(int i = 0; i < _countOfPorts; ++i)
-            {
-                Ports.Add(new Port());
-            }
         }
         public void Draw()
         {
             MeasureText();
             SetPorts();
 
-            _painter.PainterGraphics.FillRectangle(FigureBackColor, StartPoint.X, StartPoint.Y, Width, Height);
+            _painter.PainterGraphics.FillRectangle(FigureBrush, StartPoint.X, StartPoint.Y, Width, Height);
 
             _painter.PainterGraphics.DrawString(Title.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, StartPoint.Y);
             _painter.PainterGraphics.DrawString(Properties.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, _startPropertiesPointY);
@@ -121,6 +123,19 @@ namespace UMLDesigner.Figures.Rectangles
             }
         }
 
+        private void CreatePorts()
+        {
+            if (Ports is null)
+            {
+                Ports = new List<Port>();
+
+                for (int i = 0; i < _countOfPorts; ++i)
+                {
+                    Ports.Add(new Port());
+                }
+            }
+        }
+
         public bool IsSelected(Point currentPoint)
         {
             FinishPoint = new Point(StartPoint.X + Width, StartPoint.Y + Height);
@@ -151,6 +166,8 @@ namespace UMLDesigner.Figures.Rectangles
 
         private void SetPorts()
         {
+            CreatePorts();
+
             int temp = StartPoint.X;
 
 

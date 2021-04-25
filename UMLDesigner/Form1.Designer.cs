@@ -48,7 +48,6 @@ namespace UMLDesigner
             this.ButtonUndo = new System.Windows.Forms.Button();
             this.RemoveRadioButton = new System.Windows.Forms.RadioButton();
             this.buttonExport = new System.Windows.Forms.Button();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.trackBarScale = new System.Windows.Forms.TrackBar();
             this.labelScale = new System.Windows.Forms.Label();
             this.textBoxScale = new System.Windows.Forms.TextBox();
@@ -56,6 +55,11 @@ namespace UMLDesigner
             this.fontDialogMain = new System.Windows.Forms.FontDialog();
             this.buttonFont = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.buttonSaveDiram = new System.Windows.Forms.Button();
+            this.buttonOpenDiram = new System.Windows.Forms.Button();
+            this.saveDiagramDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openDiagramDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -291,9 +295,9 @@ namespace UMLDesigner
             this.buttonExport.UseVisualStyleBackColor = true;
             this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
-            // saveFileDialog1
+            // saveFileDialog
             // 
-            this.saveFileDialog1.Filter = "*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.gif|*.gif";
+            this.saveFileDialog.Filter = "*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.gif|*.gif";
             // 
             // trackBarScale
             // 
@@ -355,6 +359,34 @@ namespace UMLDesigner
             this.panel1.Size = new System.Drawing.Size(0, 711);
             this.panel1.TabIndex = 34;
             // 
+            // buttonSaveDiram
+            // 
+            this.buttonSaveDiram.Location = new System.Drawing.Point(311, 31);
+            this.buttonSaveDiram.Name = "buttonSaveDiram";
+            this.buttonSaveDiram.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveDiram.TabIndex = 30;
+            this.buttonSaveDiram.Text = "Save";
+            this.buttonSaveDiram.UseVisualStyleBackColor = true;
+            this.buttonSaveDiram.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonOpenDiram
+            // 
+            this.buttonOpenDiram.Location = new System.Drawing.Point(392, 31);
+            this.buttonOpenDiram.Name = "buttonOpenDiram";
+            this.buttonOpenDiram.Size = new System.Drawing.Size(75, 23);
+            this.buttonOpenDiram.TabIndex = 31;
+            this.buttonOpenDiram.Text = "Open";
+            this.buttonOpenDiram.UseVisualStyleBackColor = true;
+            this.buttonOpenDiram.Click += new System.EventHandler(this.buttonOpenDiram_Click);
+            // 
+            // saveDiagramDialog
+            // 
+            this.saveDiagramDialog.Filter = "*.teamqueue|";
+            // 
+            // openDiagramDialog
+            // 
+            this.openDiagramDialog.Filter = "*.teamqueue|";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -366,6 +398,8 @@ namespace UMLDesigner
             this.Controls.Add(this.labelScale);
             this.Controls.Add(this.trackBarScale);
             this.Controls.Add(this.buttonFont);
+            this.Controls.Add(this.buttonOpenDiram);
+            this.Controls.Add(this.buttonSaveDiram);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.RemoveRadioButton);
@@ -415,7 +449,7 @@ namespace UMLDesigner
         private System.Windows.Forms.Button buttonBackColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button buttonExport;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button ButtonUndo;
         private System.Windows.Forms.RadioButton RemoveRadioButton;
         private System.Windows.Forms.Button buttonFont;
@@ -425,6 +459,10 @@ namespace UMLDesigner
         private System.Windows.Forms.TrackBar trackBarScale;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonSaveDiram;
+        private System.Windows.Forms.Button buttonOpenDiram;
+        private System.Windows.Forms.SaveFileDialog saveDiagramDialog;
+        private System.Windows.Forms.OpenFileDialog openDiagramDialog;
     }
 }
 

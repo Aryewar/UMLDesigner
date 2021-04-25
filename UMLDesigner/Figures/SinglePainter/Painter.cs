@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using UMLDesigner.Figures.Fabrics;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.MouseHandler;
+using Newtonsoft.Json;
 
 namespace UMLDesigner.Figures.SinglePainter
 {
@@ -27,6 +28,18 @@ namespace UMLDesigner.Figures.SinglePainter
             Bottom,
             Right,
             Left
+        }
+        public enum FigureType
+        {
+            NoDefine,
+            AgregationArrow,
+            AlternateAgragationArrow,
+            AlternateCompositionArrow,
+            AssociationArrow,
+            CompositionArrow,
+            InharitanceArrow,
+            RealizationArrow,
+            ClassRectangle
         }
 
 
@@ -73,7 +86,7 @@ namespace UMLDesigner.Figures.SinglePainter
 
         public void UpdatePictureBox()
         {
-           _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _pictureBox.Image = _tmpBitmap;
             PainterGraphics = Graphics.FromImage(_tmpBitmap);
         }
@@ -88,7 +101,7 @@ namespace UMLDesigner.Figures.SinglePainter
         {
             Clear();
 
-            foreach(IFigure fgr in Figures)
+            foreach (IFigure fgr in Figures)
             {
                 fgr.Draw();
             }
@@ -128,9 +141,9 @@ namespace UMLDesigner.Figures.SinglePainter
 
         public void SetRectanleShowPorts(bool showPorts)
         {
-            foreach(IFigure fgr in Figures)
+            foreach (IFigure fgr in Figures)
             {
-                if(fgr is ClassRectangle)
+                if (fgr is ClassRectangle)
                 {
                     ((ClassRectangle)fgr).ShowPorts = showPorts;
                 }
@@ -138,9 +151,46 @@ namespace UMLDesigner.Figures.SinglePainter
 
             Refresh();
         }
-        public void DrawLine(Point start, Point finish)
+
+        public string SerializeDiaram()
         {
-            PainterGraphics.DrawLine(PainterPen, start, finish);
+            JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                TypeNameHandling = TypeNameHandling.All,
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            };
+
+            return JsonConvert.SerializeObject(Figures, jsonSerializerSettings);
+        }
+
+        public void OpenDiaram(string openFile)
+        {
+            Figures.Clear();
+
+            JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                TypeNameHandling = TypeNameHandling.All,
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            };
+
+            List<IFigure> temp = JsonConvert.DeserializeObject<List<IFigure>>(openFile, jsonSerializerSettings);
+            foreach (IFigure fgr in temp)
+            {
+                fgr.FigurePen.Color = fgr.PenColor;
+                fgr.FigurePen.Width = fgr.PenWidth;
+
+                if(fgr is ClassRectangle)
+                {
+                    ClassRectangle classRectangle = (ClassRectangle)fgr;
+                    classRectangle.FigureBrush.Color = classRectangle.FigureBackColor;
+                }
+
+                Figures.Add(fgr);
+            }
+
+            Refresh();
         }
     }
 }

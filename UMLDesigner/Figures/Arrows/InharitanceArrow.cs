@@ -7,7 +7,10 @@ namespace UMLDesigner.Figures.Arrows
     {
         public InharitanceArrow()
         {
-            FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
+            PenWidth = (int)_painter.PainterPen.Width;
+            PenColor = _painter.PainterPen.Color;
+            FigurePen = new Pen(PenColor, PenWidth);
+
             GraphicsPath hPath = new GraphicsPath();
             Point[] emptyTriangle = new Point[] { new Point(-6, -12),
                                                     new Point(6, -12),
@@ -16,7 +19,8 @@ namespace UMLDesigner.Figures.Arrows
 
             hPath.AddPolygon(emptyTriangle);
             FigurePen.CustomEndCap = new CustomLineCap(null, hPath);
-            Type = "InharitanceArrow";
+
+            figureType = SinglePainter.Painter.FigureType.InharitanceArrow;
         }
     }
 }

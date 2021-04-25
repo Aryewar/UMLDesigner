@@ -7,12 +7,11 @@ namespace UMLDesigner.Figures.Rectangles
     public class Port
     {
         public Point ConnectingPoint { get; set; }
-        public Type ArrowType { get; set; }
+        public FigureType ArrowType { get; set; }
         public int PointWidth { get; set; }
         public PortType PortType { get; set; }
         public Port()
         {
-            ArrowType = null;
             PointWidth = 0;
         }
 

@@ -7,9 +7,13 @@ namespace UMLDesigner.Figures.Arrows
     {
         public AssociationArrow()
         {
-            FigurePen = new Pen(_painter.PainterPen.Color, _painter.PainterPen.Width);
+            PenWidth = (int)_painter.PainterPen.Width;
+            PenColor = _painter.PainterPen.Color;
+            FigurePen = new Pen(PenColor, PenWidth);
+
             FigurePen.CustomEndCap = new AdjustableArrowCap(10, 10, false);
-            Type = "AssociationArrow";
+
+            figureType = SinglePainter.Painter.FigureType.AssociationArrow;
         }
         
     }

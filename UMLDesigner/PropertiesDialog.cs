@@ -35,6 +35,26 @@ namespace UMLDesigner
 
         private void ButtonRemove_Click(object sender, EventArgs e)
         {
+            List<IFigure> removeFigures = new List<IFigure>();
+            foreach(IFigure arrow in _figure.Links)
+            {
+                foreach (IFigure figure in _painter.Figures)
+                {
+                    if (figure == arrow)
+                    {
+                        removeFigures.Add(arrow);
+                    }
+                }
+            }
+            foreach (IFigure removeItem in removeFigures)
+            {
+                for (int i = 0; i < removeItem.Links.Count; ++i)
+                {
+
+                    removeItem.Links[i].Links.Remove(removeItem);
+                }
+                _painter.Figures.Remove(removeItem);
+            }
             _painter.Figures.Remove(_figure);
             _painter.RemovedFigures.Add(_figure);
             _painter.Clear();

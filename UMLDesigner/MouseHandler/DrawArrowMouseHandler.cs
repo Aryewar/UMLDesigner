@@ -26,7 +26,7 @@ namespace UMLDesigner.MouseHandler
                     foreach (Port b in temp.Ports)
                     {
                         if(b.SelectedPort(e.Location) 
-                            && (b.ArrowType is null || b.ArrowType == _painter.CurentFigure.GetType())
+                            && (b.ArrowType == Painter.FigureType.NoDefine || b.ArrowType == _painter.CurentFigure.figureType)
                            )
                         {
                             curentArrow.StartPort = b;
@@ -58,46 +58,43 @@ namespace UMLDesigner.MouseHandler
         {
             AbstractArrow curentArrow = (AbstractArrow)_painter.CurentFigure;
             _painter.UpdatePictureBox();
-            
-            foreach (IFigure a in _painter.Figures)
+            if (curentArrow != null)
             {
-                if (a is ClassRectangle)
+                foreach (IFigure a in _painter.Figures)
                 {
-                    ClassRectangle temp = (ClassRectangle)a;
-
-                    foreach (Port b in temp.Ports)
+                    if (a is ClassRectangle)
                     {
-                        if (b.SelectedPort(e.Location)
-                            && (b.ArrowType is null || b.ArrowType == _painter.CurentFigure.GetType())
-                           )
+                        ClassRectangle temp = (ClassRectangle)a;
+
+                        foreach (Port b in temp.Ports)
                         {
-                            curentArrow.FinishPort = b;
-                            _painter.CurentFigure.FinishPoint = b.ConnectingPoint;
-                            _painter.CurentFigure.Links.Add(a);
-                            break;
+                            if (b.SelectedPort(e.Location)
+                                && (b.ArrowType == Painter.FigureType.NoDefine || b.ArrowType == _painter.CurentFigure.figureType)
+                               )
+                            {
+                                curentArrow.FinishPort = b;
+                                _painter.CurentFigure.FinishPoint = b.ConnectingPoint;
+                                _painter.CurentFigure.Links.Add(a);
+                                break;
+                            }
                         }
                     }
                 }
-            }
 
-            if(curentArrow != null && curentArrow.FinishPort != null)
-            {
-                _painter.CurentFigure.Draw();
-                _painter.SetMainBitmap();
-                _painter.Figures.Add(_painter.CurentFigure);
-                foreach(IFigure a in _painter.CurentFigure.Links)
+                if (curentArrow.FinishPort != null)
                 {
-                    a.Links.Add(_painter.CurentFigure);
+                    _painter.CurentFigure.Draw();
+                    _painter.SetMainBitmap();
+                    _painter.Figures.Add(_painter.CurentFigure);
+                    foreach (IFigure a in _painter.CurentFigure.Links)
+                    {
+                        a.Links.Add(_painter.CurentFigure);
+                    }
+                    curentArrow.FinishPort.ArrowType = curentArrow.figureType;
+                    curentArrow.StartPort.ArrowType = curentArrow.figureType;
+                    _painter.CurentFigure = null;
+                    _painter.UpdatePictureBox();
                 }
-                curentArrow.StartPort.ArrowType = curentArrow.GetType();
-                curentArrow.FinishPort.ArrowType = curentArrow.GetType();
-                _painter.CurentFigure = null;
-                _painter.UpdatePictureBox();
-            }
-            else
-            {
-                _painter.UpdatePictureBox();
-                _painter.CurentFigure = null;
             }
         }
 
