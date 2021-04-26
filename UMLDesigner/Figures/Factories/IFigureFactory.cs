@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UMLDesigner.Figures.Fabrics
+namespace UMLDesigner.Figures.Factories
 {
-    public interface IFigureFabric
+    public interface IFigureFactory
     {
         IFigure GetFigure();
     }

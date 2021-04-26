@@ -1,8 +1,8 @@
 ﻿using UMLDesigner.Figures.Arrows;
 
-namespace UMLDesigner.Figures.Fabrics
+namespace UMLDesigner.Figures.Factories
 {
-    public class AssociationArrowFabric : IFigureFabric
+    public class AssociationArrowFactory : IFigureFactory
     {
         public IFigure GetFigure()
         {

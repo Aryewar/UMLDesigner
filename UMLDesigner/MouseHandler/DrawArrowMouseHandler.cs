@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
-using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.Figures.Factories;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.Figures.SinglePainter;
 using UMLDesigner.Figures.Arrows;

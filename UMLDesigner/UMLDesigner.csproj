@@ -100,17 +100,18 @@
     <Compile Include="Figures\Factories\InharitanceArrowFactory.cs" />
     <Compile Include="Figures\Factories\CompositionArrowFactory.cs" />
     <Compile Include="Figures\Factories\RealizationArrowFactory.cs" />
+    <Compile Include="Figures\Factories\StackRectangleFactory.cs" />
     <Compile Include="Figures\IFigure.cs" />
     <Compile Include="Figures\IMovable.cs" />
     <Compile Include="Figures\Rectangles\AbstractRectangle.cs" />
     <Compile Include="Figures\Rectangles\ClassRectangle.cs" />
     <Compile Include="Figures\Rectangles\Port.cs" />
     <Compile Include="Figures\SinglePainter\Painter.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="UMLDesigner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UMLDesigner.Designer.cs">
+      <DependentUpon>UMLDesigner.cs</DependentUpon>
     </Compile>
     <Compile Include="MouseHandler\CursorMouseHandler.cs" />
     <Compile Include="MouseHandler\DrawArrowMouseHandler.cs" />
@@ -127,8 +128,8 @@
     <EmbeddedResource Include="ClassDialogForm.resx">
       <DependentUpon>ClassDialogForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="UMLDesigner.resx">
+      <DependentUpon>UMLDesigner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RightClickDialog.resx">
       <DependentUpon>RightClickDialog.cs</DependentUpon>

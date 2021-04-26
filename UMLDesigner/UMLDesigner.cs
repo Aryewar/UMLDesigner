@@ -4,19 +4,19 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using UMLDesigner.Figures;
-using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.Figures.Factories;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.Figures.SinglePainter;
 using UMLDesigner.MouseHandler;
 
 namespace UMLDesigner
 {
-    public partial class Form1 : Form
+    public partial class UMLDesigner : Form
     {
        
         private Painter _painter;
         private ClassDialogForm _classDialogForm;
-        public Form1()
+        public UMLDesigner()
         {
             InitializeComponent();
         }
@@ -67,49 +67,55 @@ namespace UMLDesigner
         }
         private void radioButtonInheritanceArrow_CheckedChanged(object sender, EventArgs e)
         {
-            _painter.Factory = new InharitanceArrowFabric();
+            _painter.Factory = new InharitanceArrowFactory();
             _painter.MouseHandler = new DrawArrowMouseHandler();
             _painter.SetRectanleShowPorts(true);
         }
         private void radioButtonRealizationArrow_CheckedChanged(object sender, EventArgs e)
         {
-            _painter.Factory = new RealizationArrowFabric();
+            _painter.Factory = new RealizationArrowFactory();
             _painter.MouseHandler = new DrawArrowMouseHandler();
             _painter.SetRectanleShowPorts(true);
         }
         private void radioButtonAssociationArrow_CheckedChanged(object sender, EventArgs e)
         {
-            _painter.Factory = new AssociationArrowFabric();
+            _painter.Factory = new AssociationArrowFactory();
             _painter.MouseHandler = new DrawArrowMouseHandler();
             _painter.SetRectanleShowPorts(true);
         }
         private void radioButtonCompositionArrow_CheckedChanged(object sender, EventArgs e)
         {
-            _painter.Factory = new CompositionArrowFabric();
+            _painter.Factory = new CompositionArrowFactory();
             _painter.MouseHandler = new DrawArrowMouseHandler();
             _painter.SetRectanleShowPorts(true);
         }
         private void radioButtonAlternateCompositionArrow_CheckedChanged(object sender, EventArgs e)
         {
-            _painter.Factory = new AlternateCompositionArrowFabric();
+            _painter.Factory = new AlternateCompositionArrowFactory();
             _painter.MouseHandler = new DrawArrowMouseHandler();
             _painter.SetRectanleShowPorts(true);
         }
         private void radioButtonAgregationArrow_CheckedChanged(object sender, EventArgs e)
         {
-            _painter.Factory = new AgregationArrowFabric();
+            _painter.Factory = new AgregationArrowFactory();
             _painter.MouseHandler = new DrawArrowMouseHandler();
             _painter.SetRectanleShowPorts(true);
         }
         private void radioButtonAlternateAgregationArrow_CheckedChanged(object sender, EventArgs e)
         {
-            _painter.Factory = new AlternateAgragationArrowFabric();
+            _painter.Factory = new AlternateAgragationArrowFactory();
             _painter.MouseHandler = new DrawArrowMouseHandler();
             _painter.SetRectanleShowPorts(true);
         }
         private void radioButtonClass_CheckedChanged(object sender, EventArgs e)
         {
-            _painter.Factory = new ClassRectangleFabric();
+            _painter.Factory = new ClassRectangleFactory();
+            _painter.MouseHandler = new DrawRectangleMouseHandler();
+            _painter.SetRectanleShowPorts(false);
+        }
+        private void radioButtonStack_CheckedChanged(object sender, EventArgs e)
+        {
+            _painter.Factory = new StackRectangleFactory();
             _painter.MouseHandler = new DrawRectangleMouseHandler();
             _painter.SetRectanleShowPorts(false);
         }
@@ -188,7 +194,7 @@ namespace UMLDesigner
                 {
                     fileContent = sr.ReadToEnd();
                 }
-                _painter.OpenDiaram(fileContent);
+                _painter.DeserializeDiagram(fileContent);
             }
         }
 
@@ -197,7 +203,7 @@ namespace UMLDesigner
             if (saveDiagramDialog.ShowDialog() == DialogResult.OK)
             {
                 string path = saveDiagramDialog.FileName;
-                string fileText = _painter.SerializeDiaram();
+                string fileText = _painter.SerializeDiagram();
                 using (StreamWriter sw = new StreamWriter(path, false))
                 {
                     sw.Write(fileText);
@@ -213,5 +219,7 @@ namespace UMLDesigner
                 _painter.ExportImage(path);
             }
         }
+
+        
     }
 }

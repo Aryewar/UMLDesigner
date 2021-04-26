@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
-using UMLDesigner.Figures.Fabrics;
+using UMLDesigner.Figures.Factories;
 using UMLDesigner.Figures.Rectangles;
 using UMLDesigner.MouseHandler;
 using Newtonsoft.Json;
@@ -18,7 +18,7 @@ namespace UMLDesigner.Figures.SinglePainter
         public IFigure CurentFigure { get; set; }
         public List<IFigure> Figures { get; set; }
         public List<IFigure> RemovedFigures { get; set; }
-        public IFigureFabric Factory { get; set; }
+        public IFigureFactory Factory { get; set; }
         public IMouseHandler MouseHandler { get; set; }
         public float Scale { get; set; }
         public Font PainterFont { get; set; }
@@ -39,7 +39,8 @@ namespace UMLDesigner.Figures.SinglePainter
             CompositionArrow,
             InharitanceArrow,
             RealizationArrow,
-            ClassRectangle
+            ClassRectangle,
+            StackRectangle
         }
 
         private Bitmap _tmpBitmap;
@@ -146,7 +147,7 @@ namespace UMLDesigner.Figures.SinglePainter
             Refresh();
         }
 
-        public string SerializeDiaram()
+        public string SerializeDiagram()
         {
             JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings
             {
@@ -158,7 +159,7 @@ namespace UMLDesigner.Figures.SinglePainter
             return JsonConvert.SerializeObject(Figures, jsonSerializerSettings);
         }
 
-        public void OpenDiaram(string openFile)
+        public void DeserializeDiagram(string openFile)
         {
             Figures.Clear();
 
@@ -179,6 +180,7 @@ namespace UMLDesigner.Figures.SinglePainter
                 {
                     ClassRectangle classRectangle = (ClassRectangle)fgr;
                     classRectangle.FigureBrush.Color = classRectangle.FigureBackColor;
+                    classRectangle.textFont = new Font(classRectangle.textFont.FontFamily, classRectangle.FontSize * _painter.Scale, classRectangle.textFont.Style);
                 }
 
                 Figures.Add(fgr);

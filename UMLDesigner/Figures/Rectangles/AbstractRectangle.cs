@@ -32,6 +32,7 @@ namespace UMLDesigner.Figures.Rectangles
         public List<IFigure> Links { get; set; }
         public string Type { get; set; }
         public bool ShowPorts { get; set; }
+        public bool IsStack { get; set; }
         public FigureType figureType { get; set; }
 
         public float FontSize { get; set; }
@@ -50,6 +51,7 @@ namespace UMLDesigner.Figures.Rectangles
             Width = 0;
             Height = 0;
             ShowPorts = false;
+            IsStack = false;
             Title = new StringBuilder("Title");
             Properties = new StringBuilder("Properties");
             Fields = new StringBuilder("Fields");
@@ -66,6 +68,13 @@ namespace UMLDesigner.Figures.Rectangles
             MeasureText();
             SetPorts();
 
+            if (IsStack)
+            {
+                _painter.PainterGraphics.FillRectangle(FigureBrush, StartPoint.X + 10, StartPoint.Y - 10, Width, Height);
+                _painter.PainterGraphics.DrawRectangle(FigurePen, StartPoint.X+10, StartPoint.Y-10, Width, Height);
+                _painter.PainterGraphics.FillRectangle(FigureBrush, StartPoint.X + 5, StartPoint.Y - 5, Width, Height);
+                _painter.PainterGraphics.DrawRectangle(FigurePen, StartPoint.X+5, StartPoint.Y-5, Width, Height);
+            }
             _painter.PainterGraphics.FillRectangle(FigureBrush, StartPoint.X, StartPoint.Y, Width, Height);
 
             _painter.PainterGraphics.DrawString(Title.ToString(), textFont, new SolidBrush(FigurePen.Color), StartPoint.X, StartPoint.Y);
@@ -83,7 +92,6 @@ namespace UMLDesigner.Figures.Rectangles
                 DrawPorts();
             }
         }
-
         public void DrawPorts()
         {
 

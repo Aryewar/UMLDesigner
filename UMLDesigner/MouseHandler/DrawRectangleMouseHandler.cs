@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Windows.Forms;
-using UMLDesigner.Figures;
-using UMLDesigner.Figures.Fabrics;
 using UMLDesigner.Figures.SinglePainter;
 
 namespace UMLDesigner.MouseHandler

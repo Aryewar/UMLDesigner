@@ -1,6 +1,6 @@
 namespace UMLDesigner
 {
-    partial class Form1
+    partial class UMLDesigner
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@ namespace UMLDesigner
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UMLDesigner));
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.colorButton = new System.Windows.Forms.Button();
             this.widthBar = new System.Windows.Forms.TrackBar();
@@ -56,10 +56,6 @@ namespace UMLDesigner
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.saveDiagramDialog = new System.Windows.Forms.SaveFileDialog();
             this.openDiagramDialog = new System.Windows.Forms.OpenFileDialog();
-            this.contextMenuStripFile = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,11 +63,11 @@ namespace UMLDesigner
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.radioButtonStack = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarScale)).BeginInit();
-            this.contextMenuStripFile.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,12 +111,12 @@ namespace UMLDesigner
             this.radioButtonCursor.Cursor = System.Windows.Forms.Cursors.Default;
             this.radioButtonCursor.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.radioButtonCursor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButtonCursor.Location = new System.Drawing.Point(12, 60);
+            this.radioButtonCursor.Image = ((System.Drawing.Image)(resources.GetObject("radioButtonCursor.Image")));
+            this.radioButtonCursor.Location = new System.Drawing.Point(12, 50);
             this.radioButtonCursor.Name = "radioButtonCursor";
             this.radioButtonCursor.Size = new System.Drawing.Size(120, 25);
             this.radioButtonCursor.TabIndex = 17;
             this.radioButtonCursor.TabStop = true;
-            this.radioButtonCursor.Text = "Cursor";
             this.radioButtonCursor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonCursor.UseVisualStyleBackColor = true;
             this.radioButtonCursor.CheckedChanged += new System.EventHandler(this.radioButtonCursor_CheckedChanged);
@@ -130,12 +126,12 @@ namespace UMLDesigner
             this.radioButtonInheritanceArrow.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonInheritanceArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.radioButtonInheritanceArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButtonInheritanceArrow.Location = new System.Drawing.Point(12, 112);
+            this.radioButtonInheritanceArrow.Image = ((System.Drawing.Image)(resources.GetObject("radioButtonInheritanceArrow.Image")));
+            this.radioButtonInheritanceArrow.Location = new System.Drawing.Point(12, 93);
             this.radioButtonInheritanceArrow.Name = "radioButtonInheritanceArrow";
             this.radioButtonInheritanceArrow.Size = new System.Drawing.Size(120, 25);
             this.radioButtonInheritanceArrow.TabIndex = 18;
             this.radioButtonInheritanceArrow.TabStop = true;
-            this.radioButtonInheritanceArrow.Text = "Inheritance Arrow";
             this.radioButtonInheritanceArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonInheritanceArrow.UseVisualStyleBackColor = true;
             this.radioButtonInheritanceArrow.CheckedChanged += new System.EventHandler(this.radioButtonInheritanceArrow_CheckedChanged);
@@ -145,12 +141,12 @@ namespace UMLDesigner
             this.radioButtonRealizationArrow.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonRealizationArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.radioButtonRealizationArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButtonRealizationArrow.Location = new System.Drawing.Point(13, 141);
+            this.radioButtonRealizationArrow.Image = ((System.Drawing.Image)(resources.GetObject("radioButtonRealizationArrow.Image")));
+            this.radioButtonRealizationArrow.Location = new System.Drawing.Point(13, 130);
             this.radioButtonRealizationArrow.Name = "radioButtonRealizationArrow";
             this.radioButtonRealizationArrow.Size = new System.Drawing.Size(120, 25);
             this.radioButtonRealizationArrow.TabIndex = 19;
             this.radioButtonRealizationArrow.TabStop = true;
-            this.radioButtonRealizationArrow.Text = "Realization Arrow";
             this.radioButtonRealizationArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonRealizationArrow.UseVisualStyleBackColor = true;
             this.radioButtonRealizationArrow.CheckedChanged += new System.EventHandler(this.radioButtonRealizationArrow_CheckedChanged);
@@ -160,12 +156,12 @@ namespace UMLDesigner
             this.radioButtonAssociationArrow.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonAssociationArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.radioButtonAssociationArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButtonAssociationArrow.Location = new System.Drawing.Point(13, 170);
+            this.radioButtonAssociationArrow.Image = ((System.Drawing.Image)(resources.GetObject("radioButtonAssociationArrow.Image")));
+            this.radioButtonAssociationArrow.Location = new System.Drawing.Point(13, 167);
             this.radioButtonAssociationArrow.Name = "radioButtonAssociationArrow";
             this.radioButtonAssociationArrow.Size = new System.Drawing.Size(120, 25);
             this.radioButtonAssociationArrow.TabIndex = 20;
             this.radioButtonAssociationArrow.TabStop = true;
-            this.radioButtonAssociationArrow.Text = "Association Arrow";
             this.radioButtonAssociationArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonAssociationArrow.UseVisualStyleBackColor = true;
             this.radioButtonAssociationArrow.CheckedChanged += new System.EventHandler(this.radioButtonAssociationArrow_CheckedChanged);
@@ -175,12 +171,12 @@ namespace UMLDesigner
             this.radioButtonCompositionArrow.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonCompositionArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.radioButtonCompositionArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButtonCompositionArrow.Location = new System.Drawing.Point(13, 199);
+            this.radioButtonCompositionArrow.Image = ((System.Drawing.Image)(resources.GetObject("radioButtonCompositionArrow.Image")));
+            this.radioButtonCompositionArrow.Location = new System.Drawing.Point(12, 204);
             this.radioButtonCompositionArrow.Name = "radioButtonCompositionArrow";
             this.radioButtonCompositionArrow.Size = new System.Drawing.Size(120, 25);
             this.radioButtonCompositionArrow.TabIndex = 21;
             this.radioButtonCompositionArrow.TabStop = true;
-            this.radioButtonCompositionArrow.Text = "Composition Arrow";
             this.radioButtonCompositionArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonCompositionArrow.UseVisualStyleBackColor = true;
             this.radioButtonCompositionArrow.CheckedChanged += new System.EventHandler(this.radioButtonCompositionArrow_CheckedChanged);
@@ -190,12 +186,12 @@ namespace UMLDesigner
             this.radioButtonAlternateCompositionArrow.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonAlternateCompositionArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.radioButtonAlternateCompositionArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButtonAlternateCompositionArrow.Location = new System.Drawing.Point(13, 228);
+            this.radioButtonAlternateCompositionArrow.Image = ((System.Drawing.Image)(resources.GetObject("radioButtonAlternateCompositionArrow.Image")));
+            this.radioButtonAlternateCompositionArrow.Location = new System.Drawing.Point(12, 235);
             this.radioButtonAlternateCompositionArrow.Name = "radioButtonAlternateCompositionArrow";
             this.radioButtonAlternateCompositionArrow.Size = new System.Drawing.Size(120, 25);
             this.radioButtonAlternateCompositionArrow.TabIndex = 22;
             this.radioButtonAlternateCompositionArrow.TabStop = true;
-            this.radioButtonAlternateCompositionArrow.Text = "Alternate Composition";
             this.radioButtonAlternateCompositionArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonAlternateCompositionArrow.UseVisualStyleBackColor = true;
             this.radioButtonAlternateCompositionArrow.CheckedChanged += new System.EventHandler(this.radioButtonAlternateCompositionArrow_CheckedChanged);
@@ -205,12 +201,12 @@ namespace UMLDesigner
             this.radioButtonAgregationArrow.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonAgregationArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.radioButtonAgregationArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButtonAgregationArrow.Location = new System.Drawing.Point(14, 257);
+            this.radioButtonAgregationArrow.Image = ((System.Drawing.Image)(resources.GetObject("radioButtonAgregationArrow.Image")));
+            this.radioButtonAgregationArrow.Location = new System.Drawing.Point(13, 272);
             this.radioButtonAgregationArrow.Name = "radioButtonAgregationArrow";
             this.radioButtonAgregationArrow.Size = new System.Drawing.Size(120, 25);
             this.radioButtonAgregationArrow.TabIndex = 23;
             this.radioButtonAgregationArrow.TabStop = true;
-            this.radioButtonAgregationArrow.Text = "Agregation Arrow";
             this.radioButtonAgregationArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonAgregationArrow.UseVisualStyleBackColor = true;
             this.radioButtonAgregationArrow.CheckedChanged += new System.EventHandler(this.radioButtonAgregationArrow_CheckedChanged);
@@ -220,12 +216,12 @@ namespace UMLDesigner
             this.radioButtonAlternateAgregationArrow.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonAlternateAgregationArrow.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.radioButtonAlternateAgregationArrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButtonAlternateAgregationArrow.Location = new System.Drawing.Point(14, 286);
+            this.radioButtonAlternateAgregationArrow.Image = ((System.Drawing.Image)(resources.GetObject("radioButtonAlternateAgregationArrow.Image")));
+            this.radioButtonAlternateAgregationArrow.Location = new System.Drawing.Point(14, 302);
             this.radioButtonAlternateAgregationArrow.Name = "radioButtonAlternateAgregationArrow";
             this.radioButtonAlternateAgregationArrow.Size = new System.Drawing.Size(120, 25);
             this.radioButtonAlternateAgregationArrow.TabIndex = 24;
             this.radioButtonAlternateAgregationArrow.TabStop = true;
-            this.radioButtonAlternateAgregationArrow.Text = "Alternate Agregation Arrow";
             this.radioButtonAlternateAgregationArrow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonAlternateAgregationArrow.UseVisualStyleBackColor = true;
             this.radioButtonAlternateAgregationArrow.CheckedChanged += new System.EventHandler(this.radioButtonAlternateAgregationArrow_CheckedChanged);
@@ -235,12 +231,12 @@ namespace UMLDesigner
             this.radioButtonClass.Appearance = System.Windows.Forms.Appearance.Button;
             this.radioButtonClass.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.radioButtonClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonClass.Image = ((System.Drawing.Image)(resources.GetObject("radioButtonClass.Image")));
             this.radioButtonClass.Location = new System.Drawing.Point(14, 346);
             this.radioButtonClass.Name = "radioButtonClass";
             this.radioButtonClass.Size = new System.Drawing.Size(120, 25);
             this.radioButtonClass.TabIndex = 25;
             this.radioButtonClass.TabStop = true;
-            this.radioButtonClass.Text = "Class";
             this.radioButtonClass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonClass.UseVisualStyleBackColor = true;
             this.radioButtonClass.CheckedChanged += new System.EventHandler(this.radioButtonClass_CheckedChanged);
@@ -347,34 +343,6 @@ namespace UMLDesigner
             // 
             this.openDiagramDialog.Filter = "*.teamqueue|";
             // 
-            // contextMenuStripFile
-            // 
-            this.contextMenuStripFile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem,
-            this.saveToolStripMenuItem1,
-            this.exportToolStripMenuItem});
-            this.contextMenuStripFile.Name = "contextMenuStripFile";
-            this.contextMenuStripFile.Size = new System.Drawing.Size(108, 70);
-            this.contextMenuStripFile.Text = "File";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.saveToolStripMenuItem.Text = "Open";
-            // 
-            // saveToolStripMenuItem1
-            // 
-            this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
-            this.saveToolStripMenuItem1.Text = "Save";
-            // 
-            // exportToolStripMenuItem
-            // 
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.exportToolStripMenuItem.Text = "Export";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
@@ -438,11 +406,27 @@ namespace UMLDesigner
             this.label4.TabIndex = 40;
             this.label4.Text = "Line Width";
             // 
-            // Form1
+            // radioButtonStack
+            // 
+            this.radioButtonStack.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButtonStack.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.radioButtonStack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.radioButtonStack.Image = ((System.Drawing.Image)(resources.GetObject("radioButtonStack.Image")));
+            this.radioButtonStack.Location = new System.Drawing.Point(14, 381);
+            this.radioButtonStack.Name = "radioButtonStack";
+            this.radioButtonStack.Size = new System.Drawing.Size(120, 25);
+            this.radioButtonStack.TabIndex = 41;
+            this.radioButtonStack.TabStop = true;
+            this.radioButtonStack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonStack.UseVisualStyleBackColor = true;
+            this.radioButtonStack.CheckedChanged += new System.EventHandler(this.radioButtonStack_CheckedChanged);
+            // 
+            // UMLDesigner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1296, 677);
+            this.Controls.Add(this.radioButtonStack);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -469,14 +453,13 @@ namespace UMLDesigner
             this.Controls.Add(this.panel1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "UMLDesigner";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.widthBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarScale)).EndInit();
-            this.contextMenuStripFile.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -513,10 +496,6 @@ namespace UMLDesigner
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SaveFileDialog saveDiagramDialog;
         private System.Windows.Forms.OpenFileDialog openDiagramDialog;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripFile;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem2;
@@ -524,6 +503,7 @@ namespace UMLDesigner
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton radioButtonStack;
     }
 }
 

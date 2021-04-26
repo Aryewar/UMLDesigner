@@ -13,14 +13,14 @@ namespace UMLDesigner.Figures.Arrows
             FigurePen = new Pen(PenColor, PenWidth);
 
             GraphicsPath hPath = new GraphicsPath();
-            Point[] filledRhombus = new Point[] { new Point(0, -8),
-                                                    new Point(2, -4),
-                                                    new Point(0, 1),
-                                                    new Point(-2, -4)
+            Point[] filledRhombus = new Point[] { new Point(0, -16),
+                                                    new Point(4, -8),
+                                                    new Point(0, 0),
+                                                    new Point(-4, -8)
                                                   };
 
             hPath.AddPolygon(filledRhombus);
-            FigurePen.CustomStartCap = new CustomLineCap(hPath, null);
+            FigurePen.CustomStartCap = new CustomLineCap(null, hPath);
             FigurePen.CustomEndCap = new AdjustableArrowCap(9, 9, false);
             figureType = Painter.FigureType.AlternateAgragationArrow;
         }
