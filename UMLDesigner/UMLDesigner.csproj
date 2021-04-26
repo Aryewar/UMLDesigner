@@ -83,30 +83,30 @@
     <Compile Include="ClassDialogForm.Designer.cs">
       <DependentUpon>ClassDialogForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Figures\Arrows\AbstractArrow.cs" />
-    <Compile Include="Figures\Arrows\AgregationArrow.cs" />
-    <Compile Include="Figures\Arrows\AlternateAgregationArrow.cs" />
-    <Compile Include="Figures\Arrows\AlternateCompositionArrow.cs" />
-    <Compile Include="Figures\Arrows\AssociationArrow.cs" />
-    <Compile Include="Figures\Arrows\CompositionArrow.cs" />
-    <Compile Include="Figures\Arrows\InharitanceArrow.cs" />
-    <Compile Include="Figures\Arrows\RealizationArrow.cs" />
-    <Compile Include="Figures\Factories\AgregationArrowFactory.cs" />
-    <Compile Include="Figures\Factories\AlternateAgregationArrowFactory.cs" />
-    <Compile Include="Figures\Factories\AlternateCompositionArrowFactory.cs" />
-    <Compile Include="Figures\Factories\AssociationArrowFactory.cs" />
-    <Compile Include="Figures\Factories\ClassRectangleFactory.cs" />
-    <Compile Include="Figures\Factories\IFigureFactory.cs" />
-    <Compile Include="Figures\Factories\InharitanceArrowFactory.cs" />
-    <Compile Include="Figures\Factories\CompositionArrowFactory.cs" />
-    <Compile Include="Figures\Factories\RealizationArrowFactory.cs" />
-    <Compile Include="Figures\Factories\StackRectangleFactory.cs" />
-    <Compile Include="Figures\IFigure.cs" />
-    <Compile Include="Figures\IMovable.cs" />
-    <Compile Include="Figures\Rectangles\AbstractRectangle.cs" />
-    <Compile Include="Figures\Rectangles\ClassRectangle.cs" />
-    <Compile Include="Figures\Rectangles\Port.cs" />
-    <Compile Include="Figures\SinglePainter\Painter.cs" />
+    <Compile Include="Data\Arrows\AbstractArrow.cs" />
+    <Compile Include="Data\Arrows\AgregationArrow.cs" />
+    <Compile Include="Data\Arrows\AlternateAgregationArrow.cs" />
+    <Compile Include="Data\Arrows\AlternateCompositionArrow.cs" />
+    <Compile Include="Data\Arrows\AssociationArrow.cs" />
+    <Compile Include="Data\Arrows\CompositionArrow.cs" />
+    <Compile Include="Data\Arrows\InharitanceArrow.cs" />
+    <Compile Include="Data\Arrows\RealizationArrow.cs" />
+    <Compile Include="Data\Factories\AgregationArrowFactory.cs" />
+    <Compile Include="Data\Factories\AlternateAgregationArrowFactory.cs" />
+    <Compile Include="Data\Factories\AlternateCompositionArrowFactory.cs" />
+    <Compile Include="Data\Factories\AssociationArrowFactory.cs" />
+    <Compile Include="Data\Factories\ClassRectangleFactory.cs" />
+    <Compile Include="Data\Factories\IFigureFactory.cs" />
+    <Compile Include="Data\Factories\InharitanceArrowFactory.cs" />
+    <Compile Include="Data\Factories\CompositionArrowFactory.cs" />
+    <Compile Include="Data\Factories\RealizationArrowFactory.cs" />
+    <Compile Include="Data\Factories\StackRectangleFactory.cs" />
+    <Compile Include="Data\IFigure.cs" />
+    <Compile Include="Data\IMovable.cs" />
+    <Compile Include="Data\Rectangles\AbstractRectangle.cs" />
+    <Compile Include="Data\Rectangles\ClassRectangle.cs" />
+    <Compile Include="Data\Rectangles\Port.cs" />
+    <Compile Include="Data\SinglePainter\Painter.cs" />
     <Compile Include="UMLDesigner.cs">
       <SubType>Form</SubType>
     </Compile>
